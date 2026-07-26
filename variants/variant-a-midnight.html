@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Variant A · Midnight — Anya site preview</title>
-<meta name="description" content="ANYA — the new single 'Slow Motion' is out now. Music, videos, tour dates and more.">
+<meta name="description" content="Anya Gupta — the debut album Becoming arrives August 17, featuring the single You're Original. Music, videos, shows and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
 <style>
 /* ============ RESET / TOKENS ============ */
@@ -36,11 +36,12 @@ body{
   font-size:15px;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
-  overflow-x:clip;
+  overflow-x:hidden;
 }
 img,svg{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--ice);color:#000}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--ice);outline-offset:3px}
 
 /* ============ UTILITIES ============ */
 .wrap{max-width:1240px;margin-inline:auto;padding-inline:var(--pad)}
@@ -56,14 +57,6 @@ a{color:inherit;text-decoration:none}
   content:"";position:absolute;inset:0;pointer-events:none;
   opacity:.5;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.62'/%3E%3C/svg%3E");
-}
-.slot-tag{
-  position:absolute;right:10px;bottom:10px;z-index:3;
-  font-size:9px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--faint);border:1px solid var(--hair-soft);
-  padding:4px 8px 3px;border-radius:2px;
-  background:rgba(8,8,10,.45);backdrop-filter:blur(2px);
-  pointer-events:none;
 }
 
 /* Buttons */
@@ -81,7 +74,6 @@ a{color:inherit;text-decoration:none}
 .btn--solid:hover{background:var(--ice);border-color:var(--ice)}
 .btn--ghost{border-color:var(--hair)}
 .btn--ghost:hover{border-color:var(--ice);background:transparent;color:var(--ice)}
-.btn--small{padding:11px 20px 10px;font-size:10px}
 
 /* Text link */
 .tlink{
@@ -111,11 +103,11 @@ a{color:inherit;text-decoration:none}
   padding:14px var(--pad);max-width:1240px;margin-inline:auto;
 }
 .wordmark{
-  font-family:var(--display);font-size:24px;letter-spacing:.14em;
-  line-height:1;color:var(--ink);transition:color .25s ease;
+  font-family:var(--display);font-size:20px;letter-spacing:.12em;
+  line-height:1;color:var(--ink);transition:color .25s ease;white-space:nowrap;
 }
 .wordmark:hover{color:var(--ice)}
-.nav-links{display:flex;gap:clamp(14px,2.6vw,34px);list-style:none;flex-wrap:wrap}
+.nav-links{display:flex;gap:clamp(12px,2.4vw,32px);list-style:none;flex-wrap:wrap}
 .nav-links a{
   font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;
   color:var(--dim);padding:6px 0;position:relative;transition:color .25s ease;
@@ -134,27 +126,27 @@ a{color:inherit;text-decoration:none}
   display:flex;flex-direction:column;justify-content:flex-end;
   background:
     radial-gradient(120% 90% at 78% 12%,rgba(120,232,255,.13),transparent 55%),
-    radial-gradient(90% 70% at 18% 100%,rgba(120,232,255,.05),transparent 60%),
     linear-gradient(180deg,#0b0b0e 0%,#08080a 60%,#050506 100%);
 }
-/* motion-streak "photo" treatment */
 .hero-art{position:absolute;inset:0;z-index:0}
+.hero-photo{position:absolute;inset:0}
+.hero-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center 24%;
+  filter:grayscale(.28) brightness(.8) contrast(1.05);
+}
 .hero-art .streaks{
   position:absolute;inset:0;
   background:repeating-linear-gradient(90deg,
-    transparent 0 22px,rgba(242,241,237,.028) 22px 23px,
-    transparent 23px 74px,rgba(120,232,255,.05) 74px 75px);
+    transparent 0 22px,rgba(242,241,237,.02) 22px 23px,
+    transparent 23px 74px,rgba(120,232,255,.035) 74px 75px);
   mask-image:radial-gradient(100% 100% at 65% 40%,#000 30%,transparent 78%);
   -webkit-mask-image:radial-gradient(100% 100% at 65% 40%,#000 30%,transparent 78%);
-}
-.hero-art .figure{
-  position:absolute;right:-6%;bottom:0;height:88%;width:auto;opacity:.9;
 }
 .hero-art .vignette{
   position:absolute;inset:0;
   background:
     linear-gradient(180deg,rgba(8,8,10,.55) 0%,transparent 26%),
-    linear-gradient(0deg,rgba(5,5,6,.92) 0%,transparent 46%);
+    linear-gradient(0deg,rgba(5,5,6,.94) 0%,rgba(5,5,6,.55) 30%,transparent 56%);
 }
 .hero-inner{position:relative;z-index:2;padding:0 0 clamp(40px,6vh,80px)}
 .hero-meta{
@@ -177,6 +169,16 @@ a{color:inherit;text-decoration:none}
   color:var(--ink);
   text-shadow:0 0 90px rgba(120,232,255,.12);
 }
+.hero-sub{
+  padding-inline:var(--pad);margin-top:clamp(12px,2vh,20px);
+  color:var(--dim);max-width:58ch;font-size:14px;line-height:1.7;
+}
+.hero-count{
+  display:flex;align-items:baseline;gap:12px;
+  padding-inline:var(--pad);margin-top:clamp(14px,2.5vh,24px);
+}
+.count-num{font-family:var(--display);font-size:clamp(30px,4.5vw,46px);color:var(--ice);line-height:1}
+.count-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
 .hero-ctas{
   display:flex;gap:14px;flex-wrap:wrap;
   padding-inline:var(--pad);margin-top:clamp(22px,4vh,40px);
@@ -188,7 +190,6 @@ a{color:inherit;text-decoration:none}
   display:none;
 }
 @media (min-width:900px){.hero-scroll{display:block}}
-.hero .slot-tag{right:auto;left:var(--pad);bottom:14px}
 
 /* ============ MARQUEE ============ */
 .marquee{
@@ -218,88 +219,37 @@ a{color:inherit;text-decoration:none}
   margin-top:18px;
 }
 .grid-music{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:clamp(16px,2.5vw,28px) clamp(14px,2vw,24px);
+  display:grid;grid-template-columns:1fr;
+  gap:clamp(24px,3.5vw,32px) clamp(14px,2vw,24px);
 }
-@media (min-width:820px){.grid-music{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:560px){.grid-music{grid-template-columns:repeat(3,1fr)}}
 .release{display:flex;flex-direction:column;gap:12px}
 .cover{
   position:relative;aspect-ratio:1/1;overflow:hidden;
   border:1px solid var(--hair-soft);background:var(--panel);
 }
-.cover .art{position:absolute;inset:0;transition:transform .7s cubic-bezier(.2,.6,.2,1)}
-.release:hover .cover .art{transform:scale(1.045)}
-.cover .mark{
-  position:absolute;top:10px;left:12px;z-index:2;
-  font-family:var(--display);font-size:11px;letter-spacing:.3em;
-  color:rgba(242,241,237,.5);
+.cover img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .7s cubic-bezier(.2,.6,.2,1);
 }
-/* cover 1 — Slow Motion: ice glow + motion streaks */
-.art-sm{
-  background:
-    repeating-linear-gradient(90deg,transparent 0 10px,rgba(242,241,237,.05) 10px 11px,transparent 11px 34px,rgba(120,232,255,.09) 34px 35px),
-    radial-gradient(75% 62% at 34% 44%,rgba(120,232,255,.34),rgba(120,232,255,.05) 55%,transparent 75%),
-    radial-gradient(120% 120% at 80% 100%,#131318,transparent 60%),
-    #0a0a0d;
+.release:hover .cover img{transform:scale(1.045)}
+.release-meta{display:flex;flex-direction:column;gap:5px}
+.release-title{font-family:var(--display);font-size:17px;letter-spacing:.06em;text-transform:uppercase;font-weight:400}
+.release-desc{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+
+/* Completing the album */
+.upnext{margin-top:clamp(48px,7vw,88px)}
+.upnext-list{list-style:none;border-top:1px solid var(--hair);margin-top:clamp(20px,3vw,32px)}
+.upnext-list li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:18px 4px;border-bottom:1px solid var(--hair);
+  transition:background .3s ease,padding .3s ease;
 }
-.art-sm::before{
-  content:"";position:absolute;left:16%;top:26%;width:38%;height:48%;
-  background:radial-gradient(closest-side,rgba(242,241,237,.16),transparent 72%);
-  filter:blur(10px);transform:skewX(-12deg);
+@media (min-width:820px){
+  .upnext-list li:hover{background:rgba(242,241,237,.03);padding-inline:14px 8px}
 }
-/* cover 2 — Paper Hearts: grayscale paper + hairline heart */
-.art-ph{
-  background:
-    linear-gradient(160deg,#1b1b1f 0%,#101014 48%,#17171c 100%),
-    #101014;
-}
-.art-ph svg{position:absolute;inset:14%;width:72%;height:72%}
-/* cover 3 — Seventeen: giant cropped numeral */
-.art-sv{
-  background:linear-gradient(200deg,#232329 0%,#0c0c0f 70%),#0c0c0f;
-  display:flex;align-items:flex-end;justify-content:center;
-}
-.art-sv .numeral{
-  font-family:var(--display);font-size:1000%;line-height:.72;
-  transform:translateY(14%);
-  background:linear-gradient(180deg,var(--ink) 20%,rgba(242,241,237,.06) 95%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-/* cover 4 — Blue Hour: horizon + pale disc */
-.art-bh{
-  background:
-    radial-gradient(26% 26% at 50% 63%,rgba(242,241,237,.85),rgba(242,241,237,.12) 58%,transparent 72%),
-    linear-gradient(180deg,#0a0d16 0%,#101a30 46%,#0a0f1c 64%,#060608 66%,#040405 100%);
-}
-.art-bh::after{
-  content:"";position:absolute;left:0;right:0;top:65%;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(120,232,255,.55),transparent);
-}
-/* cover 5 — Homesick: window panes + rain */
-.art-hs{
-  background:
-    repeating-linear-gradient(112deg,transparent 0 14px,rgba(242,241,237,.045) 14px 15px),
-    linear-gradient(90deg,transparent 0 calc(50% - 1px),rgba(8,8,10,.9) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px)),
-    linear-gradient(0deg,transparent 0 calc(50% - 1px),rgba(8,8,10,.9) calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px)),
-    radial-gradient(90% 70% at 50% 30%,#1a2027,#0b0d10 70%),
-    #0b0d10;
-  box-shadow:inset 0 0 0 6px #050506;
-}
-/* cover 6 — Start Again: concentric hairlines */
-.art-sa{
-  background:
-    repeating-radial-gradient(circle at 50% 50%,transparent 0 17px,rgba(242,241,237,.22) 17px 18px),
-    radial-gradient(60% 60% at 50% 50%,#131318,#0a0a0d 80%),
-    #0a0a0d;
-}
-.art-sa::before{
-  content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;
-  border-radius:50%;background:var(--ice);transform:translate(-50%,-50%);
-  box-shadow:0 0 22px 4px rgba(120,232,255,.5);
-}
-.release-meta{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-.release-title{font-family:var(--display);font-size:17px;letter-spacing:.06em;text-transform:uppercase}
-.release-year{font-size:10px;letter-spacing:.24em;color:var(--faint)}
+.upnext-title{font-family:var(--display);font-size:clamp(17px,2.2vw,22px);letter-spacing:.06em;text-transform:uppercase}
+.upnext-tag{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
 
 /* ============ VIDEO ============ */
 .section--video{background:var(--panel);border-block:1px solid var(--hair-soft)}
@@ -310,25 +260,16 @@ a{color:inherit;text-decoration:none}
   position:relative;aspect-ratio:16/9;overflow:hidden;
   border:1px solid var(--hair-soft);background:#0a0a0d;
 }
-.vid-frame .art{position:absolute;inset:0;transition:transform .7s cubic-bezier(.2,.6,.2,1)}
-.vid:hover .vid-frame .art{transform:scale(1.035)}
-.art-v1{
-  background:
-    repeating-linear-gradient(90deg,transparent 0 30px,rgba(242,241,237,.03) 30px 31px),
-    radial-gradient(70% 90% at 30% 55%,rgba(120,232,255,.2),transparent 60%),
-    linear-gradient(180deg,#101014,#060608);
+.vid-frame img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(.3) brightness(.5) contrast(1.05);
 }
-.art-v1::before{
-  content:"";position:absolute;left:18%;top:18%;width:30%;height:70%;
-  background:radial-gradient(closest-side,rgba(242,241,237,.13),transparent 70%);
-  filter:blur(12px);transform:skewX(-14deg);
-}
-.art-v2{
-  background:
-    conic-gradient(from 190deg at 30% -10%,transparent 0 8deg,rgba(120,232,255,.07) 8deg 10deg,transparent 10deg 22deg,rgba(242,241,237,.05) 22deg 24deg,transparent 24deg 40deg,rgba(120,232,255,.06) 40deg 42deg,transparent 42deg),
-    conic-gradient(from 150deg at 75% -10%,transparent 0 10deg,rgba(242,241,237,.06) 10deg 12deg,transparent 12deg 26deg,rgba(120,232,255,.05) 26deg 28deg,transparent 28deg),
-    radial-gradient(60% 45% at 50% 100%,#181820,transparent 70%),
-    linear-gradient(180deg,#0b0d13,#050506);
+.vid-badge{
+  position:absolute;top:10px;left:12px;z-index:2;
+  font-size:9px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--ice);border:1px solid rgba(120,232,255,.35);
+  background:rgba(8,8,10,.55);padding:5px 9px 4px;
+  backdrop-filter:blur(2px);
 }
 .play{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
@@ -336,66 +277,81 @@ a{color:inherit;text-decoration:none}
   border:1px solid rgba(242,241,237,.55);
   display:flex;align-items:center;justify-content:center;
   background:rgba(8,8,10,.35);backdrop-filter:blur(3px);
-  transition:background .3s ease,border-color .3s ease,transform .3s ease;
 }
-.play svg{width:20px;height:20px;margin-left:3px;fill:var(--ink);transition:fill .3s ease}
-.vid:hover .play{background:var(--ice);border-color:var(--ice);transform:translate(-50%,-50%) scale(1.06)}
-.vid:hover .play svg{fill:#000}
+.play svg{width:20px;height:20px;margin-left:3px;fill:var(--ink)}
 .vid-title{
   margin-top:14px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;
 }
 .vid-title h3{font-family:var(--display);font-size:16px;letter-spacing:.06em;text-transform:uppercase;font-weight:400}
 .vid-title span{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint)}
+.vid-note{margin-top:clamp(24px,4vw,36px);color:var(--dim);font-size:13px;letter-spacing:.04em;max-width:62ch}
+.vid-note a{color:var(--ice);border-bottom:1px solid rgba(120,232,255,.4);transition:color .25s ease,border-color .25s ease}
+.vid-note a:hover{color:var(--ink);border-color:var(--ink)}
 
 /* ============ SHOWS ============ */
-.shows-list{margin-top:clamp(32px,5vw,56px);border-top:1px solid var(--hair)}
-.show{
-  display:grid;grid-template-columns:1fr auto;
-  grid-template-areas:"date date" "venue tickets" "city tickets";
-  gap:2px 16px;align-items:center;
-  padding:22px 4px;border-bottom:1px solid var(--hair);
-  transition:background .3s ease,padding .3s ease;
+.section--shows{position:relative;overflow:hidden}
+.shows-bg{position:absolute;inset:0;z-index:0}
+.shows-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.45) brightness(.55) contrast(1.05)}
+.shows-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(8,8,10,.94) 0%,rgba(8,8,10,.78) 50%,rgba(8,8,10,.95) 100%);
 }
-@media (min-width:820px){
-  .show{
-    grid-template-columns:150px 1.2fr 1fr auto;
-    grid-template-areas:"date venue city tickets";
-    gap:24px;padding:26px 10px;
-  }
-  .show:hover{background:rgba(242,241,237,.03);padding-inline:18px 10px}
+.section--shows .wrap{position:relative;z-index:2}
+.shows-empty{
+  margin-top:clamp(32px,5vw,56px);
+  border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
+  padding:clamp(36px,6vw,72px) 4px;
 }
-.show-date{
-  grid-area:date;font-family:var(--display);font-size:clamp(18px,2.4vw,24px);
-  letter-spacing:.08em;text-transform:uppercase;transition:color .3s ease;
+.shows-empty h3{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(26px,4.4vw,48px);line-height:1.04;
+  text-transform:uppercase;letter-spacing:.02em;max-width:20ch;
 }
-.show:hover .show-date{color:var(--ice)}
-.show-venue{grid-area:venue;font-weight:600;font-size:14px;letter-spacing:.04em}
-.show-city{grid-area:city;color:var(--dim);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
-.show-tickets{grid-area:tickets;justify-self:end}
-.shows-note{margin-top:22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+.shows-empty p{color:var(--dim);margin-top:16px;max-width:50ch;font-size:14px;line-height:1.7}
+.shows-empty .btn{margin-top:28px}
 
 /* ============ ABOUT ============ */
 .section--about{background:var(--panel);border-block:1px solid var(--hair-soft)}
+.about-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.om{
+  display:inline-grid;place-items:center;flex:0 0 auto;
+  width:46px;height:46px;border:1px solid var(--hair);border-radius:50%;
+  color:var(--dim);font-size:20px;line-height:1;user-select:none;
+}
 .about-grid{display:grid;gap:clamp(32px,5vw,64px);margin-top:clamp(32px,5vw,56px)}
 @media (min-width:900px){.about-grid{grid-template-columns:5fr 6fr;align-items:center}}
 .portrait{
   position:relative;aspect-ratio:3/4;overflow:hidden;
-  border:1px solid var(--hair-soft);
-  background:
-    radial-gradient(85% 60% at 50% 32%,rgba(120,232,255,.14),transparent 62%),
-    linear-gradient(180deg,#14141a 0%,#0a0a0d 80%);
+  border:1px solid var(--hair-soft);background:var(--panel-2);
 }
-.portrait svg{position:absolute;inset:auto 0 0 0;width:100%;height:86%}
-.portrait::before{
-  content:"";position:absolute;inset:0;z-index:1;
-  background:repeating-linear-gradient(90deg,transparent 0 46px,rgba(242,241,237,.02) 46px 47px);
+.portrait img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(.22) brightness(.92) contrast(1.04);
 }
 .about-copy p{color:var(--dim);max-width:56ch;margin-bottom:1.2em;font-size:15px;line-height:1.75}
 .about-copy p strong{color:var(--ink);font-weight:600}
-.about-sign{
-  font-family:var(--display);font-size:26px;letter-spacing:.2em;
-  color:var(--faint);margin-top:8px;
+.about-copy p em{font-style:italic}
+.pull{
+  border-left:2px solid var(--ice);padding-left:20px;margin:26px 0;
+  font-size:17px;line-height:1.6;color:var(--ink);font-weight:500;max-width:50ch;
 }
+
+/* ============ GALLERY ============ */
+.grid-gallery{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:clamp(10px,1.6vw,18px);margin-top:clamp(32px,5vw,56px);
+}
+@media (min-width:900px){.grid-gallery{grid-template-columns:repeat(3,1fr)}}
+.gal{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+  border:1px solid var(--hair-soft);background:var(--panel);
+}
+.gal img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(.32) contrast(1.05) brightness(.88);
+  transition:transform .7s cubic-bezier(.2,.6,.2,1),filter .7s ease;
+}
+.gal:hover img{transform:scale(1.04);filter:grayscale(.05) contrast(1.03) brightness(.97)}
 
 /* ============ JOIN ============ */
 .section--join{text-align:center;position:relative;overflow:hidden}
@@ -419,44 +375,33 @@ a{color:inherit;text-decoration:none}
   padding:16px 4px;outline:none;
 }
 .join-form input::placeholder{color:var(--faint);text-transform:uppercase;letter-spacing:.24em;font-size:11px}
+.join-form input:focus-visible{outline:2px solid var(--ice);outline-offset:3px}
 .join-form button{
   background:transparent;border:0;cursor:pointer;
   font-family:var(--body);font-weight:600;font-size:11px;letter-spacing:.3em;
   text-transform:uppercase;color:var(--ice);padding:16px 4px 16px 18px;
-  transition:color .25s ease,letter-spacing .25s ease;
+  transition:color .25s ease;
 }
 .join-form button:hover{color:var(--ink)}
-.join-msg{margin-top:16px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ice);min-height:1em}
-.join-fine{margin-top:8px;font-size:10px;letter-spacing:.14em;color:var(--faint)}
+.join-msg{
+  margin:18px auto 0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ice);max-width:520px;line-height:1.9;
+}
+.join-msg[hidden]{display:none}
+.join-msg a{color:var(--ink);border-bottom:1px solid var(--ice);transition:color .25s ease}
+.join-msg a:hover{color:var(--ice)}
 
 /* ============ CONTACT ============ */
 .section--contact{border-top:1px solid var(--hair-soft);text-align:center;padding-block:clamp(56px,8vw,100px)}
 .contact-h{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--dim)}
-.contact-mail{
-  display:inline-block;margin-top:18px;
-  font-family:var(--display);font-size:clamp(20px,3.6vw,38px);
-  letter-spacing:.05em;text-transform:uppercase;
-  border-bottom:1px solid var(--hair);padding-bottom:6px;
-  transition:color .25s ease,border-color .25s ease;
+.contact-pending{
+  display:inline-block;margin-top:22px;
+  font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--faint);
+  border-bottom:1px dashed var(--hair);
+  padding:0 clamp(18px,4vw,44px) 10px;
 }
-.contact-mail:hover{color:var(--ice);border-color:var(--ice)}
-
-/* ============ FOOTER ============ */
-.footer{border-top:1px solid var(--hair-soft);overflow:hidden}
-.footer-giant{
-  font-family:var(--display);text-transform:uppercase;
-  font-size:clamp(120px,32vw,460px);line-height:.74;
-  text-align:center;letter-spacing:.02em;
-  color:transparent;-webkit-text-stroke:1px rgba(242,241,237,.16);
-  transform:translateY(18%);user-select:none;pointer-events:none;
-}
-.footer-bar{
-  position:relative;z-index:1;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
-  padding:26px var(--pad);border-top:1px solid var(--hair-soft);
-  background:var(--bg);
-}
-.socials{display:flex;gap:8px;list-style:none}
+.socials{display:flex;gap:8px;list-style:none;justify-content:center;flex-wrap:wrap;margin-top:34px}
 .socials a{
   display:flex;align-items:center;justify-content:center;
   width:40px;height:40px;border:1px solid var(--hair);border-radius:50%;
@@ -464,7 +409,37 @@ a{color:inherit;text-decoration:none}
 }
 .socials a:hover{color:#000;border-color:var(--ice);background:var(--ice)}
 .socials svg{width:16px;height:16px}
-.copyright{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--faint)}
+
+/* ============ FOOTER ============ */
+.footer{border-top:1px solid var(--hair-soft);overflow:hidden}
+.footer-giant{
+  font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(58px,15vw,220px);line-height:.74;
+  text-align:center;letter-spacing:.02em;white-space:nowrap;
+  color:transparent;-webkit-text-stroke:1px rgba(242,241,237,.16);
+  transform:translateY(18%);user-select:none;pointer-events:none;
+}
+.footer-bar{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  padding:34px var(--pad) 30px;border-top:1px solid var(--hair-soft);
+  background:var(--bg);
+}
+/* RadhaSoami monogram — still and dignified; light chip keeps it legible on the dark ground */
+.rs-chip{
+  width:92px;height:92px;border-radius:50%;
+  background:linear-gradient(160deg,#f6f4ee 0%,#e6e3da 100%);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 1px rgba(242,241,237,.18),0 10px 34px rgba(0,0,0,.55);
+}
+.rs-mark{
+  font-family:'UnifrakturMaguntia',serif;
+  font-size:3rem;line-height:1;letter-spacing:-.14em;
+  padding-left:.08em;
+  background:linear-gradient(150deg,#23277d,#4a53c8 40%,#8f97f0 55%,#2e339b);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.copyright{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);text-align:center}
 
 /* ============ MOTION SAFETY ============ */
 @media (prefers-reduced-motion:reduce){
@@ -473,6 +448,7 @@ a{color:inherit;text-decoration:none}
   .js .reveal{opacity:1;transform:none}
   .marquee-track{animation:none!important}
 }
+.rs-mark .rs-img{width:56px;height:auto;display:block}
 </style>
 </head>
 <body>
@@ -480,13 +456,14 @@ a{color:inherit;text-decoration:none}
 <!-- ============ NAV ============ -->
 <header class="nav">
   <div class="nav-in">
-    <a class="wordmark" href="#top" aria-label="ANYA — home">ANYA</a>
+    <a class="wordmark" href="#top" aria-label="Anya Gupta — home">ANYA GUPTA</a>
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="#music">Music</a></li>
         <li><a href="#video">Video</a></li>
         <li><a href="#shows">Shows</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -496,38 +473,31 @@ a{color:inherit;text-decoration:none}
 <main id="top">
 
 <!-- ============ HERO ============ -->
-<section class="hero grain" aria-label="Slow Motion — the new single, out now">
-  <div class="hero-art" aria-hidden="true">
-    <div class="streaks"></div>
-    <svg class="figure" viewBox="0 0 320 520" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Placeholder silhouette of the artist in motion">
-      <defs>
-        <linearGradient id="figGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#1c1c22"/>
-          <stop offset=".55" stop-color="#101014"/>
-          <stop offset="1" stop-color="#060608"/>
-        </linearGradient>
-        <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#78e8ff" stop-opacity=".55"/>
-          <stop offset="1" stop-color="#78e8ff" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <path fill="url(#figGrad)" d="M160 28c26 0 46 22 46 50 0 18-7 33-18 42 5 3 34 15 46 38 14 27 16 92 16 132l6 230H68l8-230c1-40 3-105 17-132 12-23 41-35 46-38-11-9-18-24-18-42 0-28 13-50 39-50z"/>
-      <path fill="none" stroke="url(#rim)" stroke-width="2" d="M147 30c-16 8-26 27-26 48 0 18 7 33 18 42-5 3-34 15-46 38-14 27-16 92-17 132l-8 230"/>
-    </svg>
-    <div class="vignette"></div>
+<section class="hero grain" aria-label="Becoming — the debut album, August 17">
+  <div class="hero-art">
+    <picture class="hero-photo">
+      <source media="(max-width:700px)" srcset="../assets/photos/hero-mobile.jpg">
+      <img src="../assets/photos/hero-desktop.jpg" alt="Anya Gupta, singer-songwriter, photographed for her debut album Becoming">
+    </picture>
+    <div class="streaks" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
   </div>
-  <span class="slot-tag">photo</span>
 
   <div class="hero-inner">
     <p class="hero-scroll" aria-hidden="true">Scroll</p>
     <div class="hero-meta reveal">
-      <span class="hero-label">The New Single</span>
-      <span class="hero-out">Out Now</span>
+      <span class="hero-label">The Debut Album</span>
+      <span class="hero-out">August 17</span>
     </div>
-    <h1 class="hero-title reveal" aria-label="Slow Motion">SLOW MOTION</h1>
+    <h1 class="hero-title reveal" aria-label="Becoming">BECOMING</h1>
+    <p class="hero-sub reveal">Seven songs about self-love, individuality, and the light we all carry &mdash; featuring the single &ldquo;You&rsquo;re Original.&rdquo;</p>
+    <p class="hero-count reveal">
+      <span class="count-num" id="countdown">&mdash;</span>
+      <span class="count-label">days until the album</span>
+    </p>
     <div class="hero-ctas reveal">
-      <a class="btn btn--solid" href="#music">Listen Now</a>
-      <a class="btn btn--ghost" href="#video">Watch the Video</a>
+      <a class="btn btn--solid" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">Listen Now</a>
+      <a class="btn btn--ghost" href="#signup">Join the List</a>
     </div>
   </div>
 </section>
@@ -536,20 +506,20 @@ a{color:inherit;text-decoration:none}
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <div class="marquee-seg">
-      <span>Slow Motion</span><span class="dot">●</span>
-      <span class="hollow">Out Now</span><span class="dot">●</span>
-      <span>The New Single</span><span class="dot">●</span>
-      <span class="hollow">Slow Motion</span><span class="dot">●</span>
-      <span>Out Now</span><span class="dot">●</span>
-      <span class="hollow">The New Single</span><span class="dot">●</span>
+      <span>Becoming</span><span class="dot">&#9679;</span>
+      <span class="hollow">The Debut Album</span><span class="dot">&#9679;</span>
+      <span>August 17</span><span class="dot">&#9679;</span>
+      <span class="hollow">Becoming</span><span class="dot">&#9679;</span>
+      <span>The Debut Album</span><span class="dot">&#9679;</span>
+      <span class="hollow">August 17</span><span class="dot">&#9679;</span>
     </div>
     <div class="marquee-seg">
-      <span>Slow Motion</span><span class="dot">●</span>
-      <span class="hollow">Out Now</span><span class="dot">●</span>
-      <span>The New Single</span><span class="dot">●</span>
-      <span class="hollow">Slow Motion</span><span class="dot">●</span>
-      <span>Out Now</span><span class="dot">●</span>
-      <span class="hollow">The New Single</span><span class="dot">●</span>
+      <span>Becoming</span><span class="dot">&#9679;</span>
+      <span class="hollow">The Debut Album</span><span class="dot">&#9679;</span>
+      <span>August 17</span><span class="dot">&#9679;</span>
+      <span class="hollow">Becoming</span><span class="dot">&#9679;</span>
+      <span>The Debut Album</span><span class="dot">&#9679;</span>
+      <span class="hollow">August 17</span><span class="dot">&#9679;</span>
     </div>
   </div>
 </div>
@@ -559,111 +529,61 @@ a{color:inherit;text-decoration:none}
   <div class="wrap">
     <div class="music-head reveal">
       <div>
-        <p class="kicker"><span class="num">01</span> Discography</p>
+        <p class="kicker"><span class="num">01</span> The Singles</p>
         <h2 class="h2">Music</h2>
       </div>
     </div>
     <div class="grid-music">
 
       <article class="release reveal">
-        <a href="#" aria-label="Listen to Slow Motion">
+        <a href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener" aria-label="Listen to You're Original on Spotify">
           <div class="cover grain">
-            <div class="art art-sm" role="img" aria-label="Placeholder cover art for Slow Motion — ice-blue glow with motion streaks"></div>
-            <span class="mark" aria-hidden="true">ANYA</span>
-            <span class="slot-tag">cover</span>
+            <img src="../assets/covers/youre-original.jpg" alt="Cover art for the single You're Original by Anya Gupta">
           </div>
         </a>
         <div class="release-meta">
-          <h3 class="release-title">Slow Motion</h3>
-          <span class="release-year">2026</span>
+          <h3 class="release-title">You&rsquo;re Original</h3>
+          <span class="release-desc">Single &middot; 2024 &middot; the album&rsquo;s lead track</span>
         </div>
-        <a class="tlink" href="#">Listen Now <span class="arr" aria-hidden="true">→</span></a>
+        <a class="tlink" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">Listen Now <span class="arr" aria-hidden="true">&rarr;</span></a>
       </article>
 
       <article class="release reveal">
-        <a href="#" aria-label="Listen to Paper Hearts">
+        <a href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener" aria-label="Listen to Tat Twam Asi on Spotify">
           <div class="cover grain">
-            <div class="art art-ph" role="img" aria-label="Placeholder cover art for Paper Hearts — hairline heart on dark paper">
-              <svg viewBox="0 0 100 100" aria-hidden="true">
-                <path fill="none" stroke="rgba(242,241,237,.6)" stroke-width="1"
-                  d="M50 84C28 66 12 52 12 36c0-11 8-19 18-19 8 0 15 5 20 12 5-7 12-12 20-12 10 0 18 8 18 19 0 16-16 30-38 48z"/>
-                <path fill="none" stroke="rgba(120,232,255,.5)" stroke-width="1" stroke-dasharray="3 4"
-                  d="M50 29v55"/>
-              </svg>
-            </div>
-            <span class="mark" aria-hidden="true">ANYA</span>
-            <span class="slot-tag">cover</span>
+            <img src="../assets/covers/tat-twam-asi.jpg" alt="Cover art for the single Tat Twam Asi by Anya Gupta">
           </div>
         </a>
         <div class="release-meta">
-          <h3 class="release-title">Paper Hearts</h3>
-          <span class="release-year">2025</span>
+          <h3 class="release-title">Tat Twam Asi</h3>
+          <span class="release-desc">Single &middot; 2025 &middot; 100K+ streams</span>
         </div>
-        <a class="tlink" href="#">Listen Now <span class="arr" aria-hidden="true">→</span></a>
+        <a class="tlink" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">Listen Now <span class="arr" aria-hidden="true">&rarr;</span></a>
       </article>
 
       <article class="release reveal">
-        <a href="#" aria-label="Listen to Seventeen">
+        <a href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener" aria-label="Listen to Awaken the Lights on Spotify">
           <div class="cover grain">
-            <div class="art art-sv" role="img" aria-label="Placeholder cover art for Seventeen — giant cropped numeral 17">
-              <span class="numeral" aria-hidden="true">17</span>
-            </div>
-            <span class="mark" aria-hidden="true">ANYA</span>
-            <span class="slot-tag">cover</span>
+            <img src="../assets/covers/awaken-the-lights.jpg" alt="Cover art for the single Awaken the Lights by Anya Gupta">
           </div>
         </a>
         <div class="release-meta">
-          <h3 class="release-title">Seventeen</h3>
-          <span class="release-year">2025</span>
+          <h3 class="release-title">Awaken the Lights</h3>
+          <span class="release-desc">Single &middot; 2024</span>
         </div>
-        <a class="tlink" href="#">Listen Now <span class="arr" aria-hidden="true">→</span></a>
+        <a class="tlink" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">Listen Now <span class="arr" aria-hidden="true">&rarr;</span></a>
       </article>
 
-      <article class="release reveal">
-        <a href="#" aria-label="Listen to Blue Hour">
-          <div class="cover grain">
-            <div class="art art-bh" role="img" aria-label="Placeholder cover art for Blue Hour — pale moon over a midnight horizon"></div>
-            <span class="mark" aria-hidden="true">ANYA</span>
-            <span class="slot-tag">cover</span>
-          </div>
-        </a>
-        <div class="release-meta">
-          <h3 class="release-title">Blue Hour</h3>
-          <span class="release-year">2024</span>
-        </div>
-        <a class="tlink" href="#">Listen Now <span class="arr" aria-hidden="true">→</span></a>
-      </article>
+    </div>
 
-      <article class="release reveal">
-        <a href="#" aria-label="Listen to Homesick">
-          <div class="cover grain">
-            <div class="art art-hs" role="img" aria-label="Placeholder cover art for Homesick — rain on a window at night"></div>
-            <span class="mark" aria-hidden="true">ANYA</span>
-            <span class="slot-tag">cover</span>
-          </div>
-        </a>
-        <div class="release-meta">
-          <h3 class="release-title">Homesick</h3>
-          <span class="release-year">2024</span>
-        </div>
-        <a class="tlink" href="#">Listen Now <span class="arr" aria-hidden="true">→</span></a>
-      </article>
-
-      <article class="release reveal">
-        <a href="#" aria-label="Listen to Start Again">
-          <div class="cover grain">
-            <div class="art art-sa" role="img" aria-label="Placeholder cover art for Start Again — concentric hairline circles with an ice-blue center"></div>
-            <span class="mark" aria-hidden="true">ANYA</span>
-            <span class="slot-tag">cover</span>
-          </div>
-        </a>
-        <div class="release-meta">
-          <h3 class="release-title">Start Again</h3>
-          <span class="release-year">2023</span>
-        </div>
-        <a class="tlink" href="#">Listen Now <span class="arr" aria-hidden="true">→</span></a>
-      </article>
-
+    <div class="upnext reveal">
+      <p class="kicker">Completing the Album &middot; August 17</p>
+      <ul class="upnext-list">
+        <li><span class="upnext-title">Let You Be</span><span class="upnext-tag">August 17</span></li>
+        <li><span class="upnext-title">Breakup With My Ego</span><span class="upnext-tag">August 17</span></li>
+        <li><span class="upnext-title">Not For You</span><span class="upnext-tag">August 17</span></li>
+        <li><span class="upnext-title">Lifevest</span><span class="upnext-tag">August 17</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -677,125 +597,112 @@ a{color:inherit;text-decoration:none}
     </div>
     <div class="grid-video">
 
-      <a class="vid reveal" href="#" aria-label="Play Slow Motion — official video">
+      <div class="vid reveal">
         <div class="vid-frame grain">
-          <div class="art art-v1" role="img" aria-label="Placeholder video still — figure in ice-blue light with motion streaks"></div>
+          <img src="../assets/photos/music-backdrop.jpg" alt="Dimmed still of Anya Gupta — the You're Original video premieres with the album">
+          <span class="vid-badge">Premieres with the album</span>
           <span class="play" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg>
           </span>
-          <span class="slot-tag">video</span>
         </div>
         <div class="vid-title">
-          <h3>Slow Motion (Official Video)</h3>
-          <span>3:42</span>
+          <h3>You&rsquo;re Original &mdash; Official Video</h3>
+          <span>August 17</span>
         </div>
-      </a>
+      </div>
 
-      <a class="vid reveal" href="#" aria-label="Play Blue Hour — live session">
+      <div class="vid reveal">
         <div class="vid-frame grain">
-          <div class="art art-v2" role="img" aria-label="Placeholder video still — stage beams over a dark live room"></div>
+          <img src="../assets/photos/contact-band.jpg" alt="Dimmed still of Anya Gupta with her band — the Becoming sessions premiere with the album">
+          <span class="vid-badge">Premieres with the album</span>
           <span class="play" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></svg>
           </span>
-          <span class="slot-tag">video</span>
         </div>
         <div class="vid-title">
-          <h3>Blue Hour (Live Session)</h3>
-          <span>4:10</span>
+          <h3>Becoming &mdash; Sessions</h3>
+          <span>August 17</span>
         </div>
-      </a>
+      </div>
 
     </div>
+    <p class="vid-note reveal">New videos premiere alongside the album. <a href="https://www.youtube.com/@theanyagupta" target="_blank" rel="noopener">Subscribe on YouTube</a> to catch them the moment they drop.</p>
   </div>
 </section>
 
 <!-- ============ SHOWS ============ -->
-<section class="section" id="shows">
+<section class="section section--shows" id="shows">
+  <div class="shows-bg" aria-hidden="true">
+    <img src="../assets/photos/shows-band.jpg" alt="">
+  </div>
+  <div class="shows-scrim" aria-hidden="true"></div>
   <div class="wrap">
     <div class="reveal">
-      <p class="kicker"><span class="num">03</span> On Tour</p>
+      <p class="kicker"><span class="num">03</span> Live</p>
       <h2 class="h2">Shows</h2>
     </div>
-    <div class="shows-list">
-
-      <div class="show reveal">
-        <span class="show-date">Aug 14 2026</span>
-        <span class="show-venue">The Note Room</span>
-        <span class="show-city">Chicago, IL</span>
-        <span class="show-tickets"><a class="btn btn--ghost btn--small" href="#">Tickets</a></span>
-      </div>
-
-      <div class="show reveal">
-        <span class="show-date">Sep 05 2026</span>
-        <span class="show-venue">Echo Hall</span>
-        <span class="show-city">Minneapolis, MN</span>
-        <span class="show-tickets"><a class="btn btn--ghost btn--small" href="#">Tickets</a></span>
-      </div>
-
-      <div class="show reveal">
-        <span class="show-date">Sep 26 2026</span>
-        <span class="show-venue">The Parlor</span>
-        <span class="show-city">Nashville, TN</span>
-        <span class="show-tickets"><a class="btn btn--ghost btn--small" href="#">Tickets</a></span>
-      </div>
-
-      <div class="show reveal">
-        <span class="show-date">Oct 17 2026</span>
-        <span class="show-venue">Harbor Stage</span>
-        <span class="show-city">Austin, TX</span>
-        <span class="show-tickets"><a class="btn btn--ghost btn--small" href="#">Tickets</a></span>
-      </div>
-
+    <div class="shows-empty reveal">
+      <h3>New dates are being booked for the Becoming era.</h3>
+      <p>Join the mailing list and you&rsquo;ll hear about every show before anyone else.</p>
+      <a class="btn btn--solid" href="#signup">Get First Access</a>
     </div>
-    <p class="shows-note reveal">More dates to be announced</p>
   </div>
 </section>
 
 <!-- ============ ABOUT ============ -->
 <section class="section section--about" id="about">
   <div class="wrap">
-    <div class="reveal">
-      <p class="kicker"><span class="num">04</span> The Artist</p>
-      <h2 class="h2">About</h2>
+    <div class="about-head">
+      <div>
+        <p class="kicker"><span class="num">04</span> The Artist</p>
+        <h2 class="h2">About</h2>
+      </div>
+      <span class="om" aria-hidden="true">&#2384;</span>
     </div>
     <div class="about-grid">
       <div class="portrait grain reveal">
-        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Placeholder portrait silhouette of ANYA">
-          <defs>
-            <linearGradient id="pGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#26262e"/>
-              <stop offset=".6" stop-color="#121216"/>
-              <stop offset="1" stop-color="#08080a"/>
-            </linearGradient>
-          </defs>
-          <path fill="url(#pGrad)" d="M150 36c30 0 52 25 52 56 0 20-8 37-20 47 6 4 40 17 54 43 16 30 18 104 19 148l4 70H41l6-70c1-44 3-118 19-148 14-26 48-39 54-43-12-10-20-27-20-47 0-31 20-56 50-56z"/>
-          <path fill="none" stroke="rgba(120,232,255,.4)" stroke-width="1.5" d="M136 40c-16 10-26 30-26 52 0 20 8 37 20 47-6 4-40 17-54 43-16 30-18 104-19 148l-6 70"/>
-        </svg>
-        <span class="slot-tag">photo</span>
+        <img src="../assets/photos/about.jpg" alt="Portrait of Anya Gupta, fifteen-year-old singer-songwriter from Tennessee">
       </div>
       <div class="about-copy reveal">
-        <p><strong>ANYA</strong> writes pop songs the way other people keep diaries — late at night, in real time, with nothing left out. Raised between small-town basements and borrowed studio hours, she taught herself production at fifteen and spent the next few years turning voice memos into the kind of hooks that stay with you for days.</p>
-        <p>Her breakout singles earned early tastemaker support and a fast-growing audience that treats every release like a group chat come to life. With her new single <strong>"Slow Motion"</strong> — a moody, cinematic step into her next era — she's headed out on her first headline run across the U.S. this fall.</p>
-        <p class="about-sign" aria-hidden="true">— ANYA</p>
+        <p>Anya Gupta is a fifteen-year-old singer-songwriter from Tennessee whose music celebrates self-love, individuality, and the light we all carry within us.</p>
+        <blockquote class="pull">&ldquo;For me, songwriting is a way to clear my mind. When I write about the challenges I face as a teenager, it helps me understand them and move through them.&rdquo;</blockquote>
+        <p>She began studying voice at age six and has spent nearly a decade performing &mdash; honing her songwriting at Langston Studios and earning finalist honors in The Factor and Delta Songwriting Star. Her debut album <em>Becoming</em> arrives August 17: seven songs, including the singles &lsquo;Tat Twam Asi,&rsquo; &lsquo;Awaken the Lights,&rsquo; and &lsquo;You&rsquo;re Original,&rsquo; inviting listeners to celebrate who they are and let their inner light shine.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ MAILING LIST ============ -->
-<section class="section section--join" id="join">
+<!-- ============ GALLERY ============ -->
+<section class="section" id="gallery">
   <div class="wrap">
     <div class="reveal">
-      <p class="kicker" style="justify-content:center"><span class="num">05</span> Mailing List</p>
+      <p class="kicker"><span class="num">05</span> Photos</p>
+      <h2 class="h2">Gallery</h2>
+    </div>
+    <div class="grid-gallery">
+      <div class="gal grain reveal"><img src="../assets/photos/gallery-01.jpg" alt="Anya Gupta, studio portrait"></div>
+      <div class="gal grain reveal"><img src="../assets/photos/gallery-02.jpg" alt="Anya Gupta in the recording studio"></div>
+      <div class="gal grain reveal"><img src="../assets/photos/gallery-03.jpg" alt="Anya Gupta, studio portrait"></div>
+      <div class="gal grain reveal"><img src="../assets/photos/gallery-04.jpg" alt="Anya Gupta at work in the studio"></div>
+      <div class="gal grain reveal"><img src="../assets/photos/gallery-05.jpg" alt="Anya Gupta playing guitar outdoors"></div>
+      <div class="gal grain reveal"><img src="../assets/photos/gallery-06.jpg" alt="Anya Gupta with arms outstretched in joy by a pool"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAILING LIST ============ -->
+<section class="section section--join" id="signup">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker" style="justify-content:center"><span class="num">06</span> Mailing List</p>
       <h2 class="join-h">Be the First<br>to Know</h2>
-      <p class="join-sub">New music, presales and tour news — straight to your inbox.</p>
+      <p class="join-sub">Album news, video premieres and show announcements.</p>
       <form class="join-form" novalidate aria-label="Join the mailing list">
-        <label for="email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+        <label for="email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
         <input id="email" type="email" name="email" placeholder="Your email address" autocomplete="email">
         <button type="submit">Join</button>
       </form>
-      <p class="join-msg" role="status" aria-live="polite"></p>
-      <p class="join-fine">No spam. Unsubscribe any time.</p>
+      <p class="join-msg" role="status" aria-live="polite" hidden>The list opens very soon &mdash; follow <a href="https://www.instagram.com/anyagupta.music" target="_blank" rel="noopener">@anyagupta.music</a> in the meantime.</p>
     </div>
   </div>
 </section>
@@ -803,21 +710,12 @@ a{color:inherit;text-decoration:none}
 <!-- ============ CONTACT ============ -->
 <section class="section--contact" id="contact">
   <div class="wrap reveal">
-    <p class="contact-h">Booking &amp; Press</p>
-    <a class="contact-mail" href="mailto:booking@anyamusic.com">booking@anyamusic.com</a>
-  </div>
-</section>
-
-</main>
-
-<!-- ============ FOOTER ============ -->
-<footer class="footer">
-  <p class="footer-giant" aria-hidden="true">ANYA</p>
-  <div class="footer-bar">
-    <ul class="socials" aria-label="Social media">
+    <p class="contact-h">For booking &amp; press:</p>
+    <p class="contact-pending">booking email coming soon</p>
+    <ul class="socials" aria-label="Anya Gupta on social media">
       <li>
-        <a href="#" aria-label="ANYA on Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" role="img" aria-hidden="true">
+        <a href="https://www.instagram.com/anyagupta.music" target="_blank" rel="noopener" aria-label="Anya Gupta on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <rect x="2.5" y="2.5" width="19" height="19" rx="5.2"/>
             <circle cx="12" cy="12" r="4.4"/>
             <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
@@ -825,28 +723,54 @@ a{color:inherit;text-decoration:none}
         </a>
       </li>
       <li>
-        <a href="#" aria-label="ANYA on TikTok">
-          <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true">
+        <a href="https://www.tiktok.com/@anyagupta.music" target="_blank" rel="noopener" aria-label="Anya Gupta on TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/>
           </svg>
         </a>
       </li>
       <li>
-        <a href="#" aria-label="ANYA on YouTube">
-          <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true">
+        <a href="https://www.youtube.com/@theanyagupta" target="_blank" rel="noopener" aria-label="Anya Gupta on YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.87.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/>
           </svg>
         </a>
       </li>
       <li>
-        <a href="#" aria-label="ANYA on Spotify">
-          <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-hidden="true">
+        <a href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener" aria-label="Anya Gupta on Spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.31c-.22.36-.68.47-1.03.25-2.83-1.73-6.39-2.12-10.59-1.16-.4.09-.8-.16-.89-.56-.09-.4.16-.8.56-.89 4.59-1.05 8.53-.6 11.7 1.34.36.21.47.68.25 1.02zm1.47-3.27c-.27.44-.85.58-1.29.31-3.24-1.99-8.18-2.57-12.02-1.41-.5.15-1.02-.13-1.17-.62-.15-.5.13-1.02.62-1.17 4.38-1.33 9.83-.68 13.55 1.6.44.27.58.85.31 1.29zm.13-3.41C15.24 8.32 8.82 8.11 5.11 9.24c-.59.18-1.22-.15-1.4-.75-.18-.59.15-1.22.75-1.4 4.26-1.29 11.34-1.04 15.81 1.61.53.32.71 1.01.39 1.54-.31.53-1.01.71-1.53.39z"/>
           </svg>
         </a>
       </li>
+      <li>
+        <a href="https://music.apple.com/us/artist/anya-gupta/1728554823" target="_blank" rel="noopener" aria-label="Anya Gupta on Apple Music">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M9 19.14a3.07 3.07 0 1 1-2.05-2.9V5.42a1 1 0 0 1 .84-.99l10-1.67A1 1 0 0 1 19 3.75v12.32a3.07 3.07 0 1 1-2.05-2.9V7.06L9 8.22v10.92z"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/61556419742590" target="_blank" rel="noopener" aria-label="Anya Gupta on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/>
+          </svg>
+        </a>
+      </li>
     </ul>
-    <p class="copyright">&copy; 2026 ANYA</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <p class="footer-giant" aria-hidden="true">ANYA&nbsp;GUPTA</p>
+  <div class="footer-bar">
+    <div class="rs-chip">
+      <div class="rs-mark" role="img" aria-label="RadhaSoami"><img class="rs-img" src="../assets/rs-radhasoami.png" alt="RadhaSoami"></div>
+    </div>
+    <p class="copyright">&copy; 2026 Anya Gupta &middot; all rights reserved</p>
   </div>
 </footer>
 
@@ -872,19 +796,20 @@ a{color:inherit;text-decoration:none}
     });
   }
 
-  // Placeholder mailing-list form: no action, no network
+  // Countdown to the album — August 17, 2026
+  var countEl = document.getElementById('countdown');
+  if (countEl) {
+    var t = new Date(2026, 7, 17);
+    countEl.textContent = Math.max(0, Math.ceil((t - Date.now()) / 86400000));
+  }
+
+  // Mailing list: no backend yet — reveal the honest message, never a fake success
   var form = document.querySelector('.join-form');
   var msg = document.querySelector('.join-msg');
   if (form && msg) {
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      var input = form.querySelector('input');
-      if (input && input.value && input.value.indexOf('@') > 0) {
-        msg.textContent = "You're on the list.";
-        input.value = '';
-      } else {
-        msg.textContent = 'Enter a valid email address.';
-      }
+      msg.hidden = false;
     });
   }
 })();

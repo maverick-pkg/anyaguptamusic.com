@@ -4,15 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Variant C · Gloss — Anya site preview</title>
-<meta name="description" content="Official website of ANYA. New single Slow Motion out now. Music, videos, tour dates and more.">
+<meta name="description" content="Official website of Anya Gupta. The debut album Becoming arrives August 17, featuring the single You're Original.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Jost:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Jost:ital,wght@0,300..700;1,300..700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <style>
   /* ============ RESET / BASE ============ */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  html, body { overflow-x: clip; }
+  html { overflow-x: hidden; }
+  body { overflow-x: hidden; }
   img, svg { max-width: 100%; display: block; }
 
   :root {
@@ -65,6 +66,12 @@
   ::selection { background: var(--rose-500); color: #fff; }
 
   a { color: inherit; text-decoration: none; }
+
+  :focus-visible {
+    outline: 2px solid var(--rose-300);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 
   .wrap { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
 
@@ -150,26 +157,6 @@
     box-shadow: 0 24px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.16);
   }
 
-  /* placeholder slot chip */
-  .slot-chip {
-    position: absolute;
-    right: 0.7rem;
-    bottom: 0.7rem;
-    z-index: 3;
-    font-size: 0.55rem;
-    font-weight: 500;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-    background: rgba(18,6,19,0.4);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 999px;
-    padding: 0.28rem 0.65rem 0.22rem;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    pointer-events: none;
-  }
-
   /* ============ NAV ============ */
   .nav {
     position: sticky;
@@ -191,11 +178,12 @@
   .brand {
     font-family: var(--serif);
     font-weight: 700;
-    font-size: 1.45rem;
-    letter-spacing: 0.34em;
-    text-indent: 0.34em;
+    font-size: 1.25rem;
+    letter-spacing: 0.28em;
+    text-indent: 0.28em;
     width: 100%;
     text-align: center;
+    white-space: nowrap;
   }
   .nav-links {
     display: flex;
@@ -231,7 +219,7 @@
   .nav-links a:hover { color: var(--ink); }
   .nav-links a:hover::after { width: 100%; left: 0; }
 
-  @media (min-width: 860px) {
+  @media (min-width: 900px) {
     .nav-inner { flex-wrap: nowrap; justify-content: space-between; padding: 1rem 2rem; }
     .brand { width: auto; text-align: left; }
   }
@@ -245,13 +233,13 @@
     justify-content: center;
     text-align: center;
     overflow: clip;
-    padding: 5rem 1.25rem 6rem;
+    padding: 4.5rem 1.25rem 6rem;
   }
   .hero-art { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
   .hero-aura {
     position: absolute;
     left: 50%;
-    top: 52%;
+    top: 42%;
     width: 140vmin;
     height: 140vmin;
     transform: translate(-50%, -50%);
@@ -259,17 +247,8 @@
       radial-gradient(closest-side at 50% 42%, rgba(255,224,240,0.32), rgba(231,159,189,0.16) 34%, rgba(122,62,142,0.12) 58%, transparent 74%);
     filter: blur(2px);
   }
-  .hero-rings { position: absolute; left: 50%; top: 52%; width: min(120vmin, 900px); height: min(120vmin, 900px); transform: translate(-50%, -50%); opacity: 0.7; }
-  .hero-figure {
-    position: absolute;
-    left: 50%;
-    bottom: -2%;
-    width: min(78vmin, 520px);
-    transform: translateX(-50%);
-    opacity: 0.85;
-    mix-blend-mode: luminosity;
-  }
-  .hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 1.4rem; }
+  .hero-rings { position: absolute; left: 50%; top: 42%; width: min(120vmin, 900px); height: min(120vmin, 900px); transform: translate(-50%, -50%); opacity: 0.7; }
+  .hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 1.4rem; width: 100%; }
   .hero-label {
     display: inline-flex;
     align-items: center;
@@ -285,6 +264,7 @@
     width: 2.4rem;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--rose-400));
+    flex-shrink: 0;
   }
   .hero-label::after { background: linear-gradient(90deg, var(--rose-400), transparent); }
   .hero-title {
@@ -296,15 +276,55 @@
     letter-spacing: 0.005em;
     max-width: 12ch;
   }
-  .hero-outnow {
-    font-size: 0.76rem;
+  .hero-subline {
+    color: var(--ink-dim);
+    font-size: 0.98rem;
+    max-width: 46ch;
+    line-height: 1.7;
+  }
+  .hero-count {
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 0.52em;
-    text-indent: 0.52em;
+    letter-spacing: 0.42em;
+    text-indent: 0.42em;
     text-transform: uppercase;
     color: var(--ink-dim);
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
   }
-  .hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-top: 0.8rem; }
+  .hero-count .count-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 2.1rem;
+    letter-spacing: 0.02em;
+    text-indent: 0;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-top: 0.4rem; }
+
+  .hero-photo {
+    width: min(680px, 100%);
+    padding: 0.55rem;
+    border-radius: 26px;
+    margin-top: 1.3rem;
+    position: relative;
+  }
+  .hero-photo img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: saturate(1.04) contrast(1.02);
+  }
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0.55rem;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(216,114,163,0.08), transparent 34%, rgba(18,6,19,0.22));
+    pointer-events: none;
+  }
 
   .sparkle { position: absolute; z-index: 1; pointer-events: none; opacity: 0; animation: twinkle 4.5s ease-in-out infinite; }
   @keyframes twinkle {
@@ -336,7 +356,7 @@
   .ticker-track {
     display: flex;
     width: max-content;
-    animation: slide 26s linear infinite;
+    animation: slide 32s linear infinite;
   }
   .ticker span {
     font-family: var(--serif);
@@ -356,10 +376,12 @@
   /* ---- MUSIC ---- */
   .music-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.4rem;
+    max-width: 1020px;
+    margin-inline: auto;
   }
-  @media (min-width: 760px) { .music-grid { grid-template-columns: repeat(3, 1fr); gap: 1.6rem; } }
+  @media (min-width: 760px) { .music-grid { gap: 1.6rem; } }
   .release { display: flex; flex-direction: column; gap: 0.75rem; }
   .cover {
     position: relative;
@@ -381,7 +403,7 @@
     pointer-events: none;
   }
   .release:hover .cover .shine { transform: translateX(120%); }
-  .cover svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .release-meta { display: flex; flex-direction: column; gap: 0.1rem; padding: 0 0.2rem; }
   .release-title { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 1.12rem; line-height: 1.25; }
   .release-year { font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-faint); }
@@ -401,6 +423,36 @@
   .listen-link::after { content: "→"; font-family: var(--sans); letter-spacing: 0; transition: transform 0.3s ease; }
   .listen-link:hover { color: var(--rose-200); gap: 0.7rem; }
 
+  .upcoming {
+    margin-top: 3.4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3rem;
+  }
+  .upcoming-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+  }
+  .upcoming-list li {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.65rem 1.4rem 0.6rem;
+    border-radius: 999px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);
+    color: var(--rose-200);
+  }
+
   /* ---- VIDEO ---- */
   .video-grid { display: grid; grid-template-columns: 1fr; gap: 1.6rem; }
   @media (min-width: 900px) { .video-grid { grid-template-columns: 1fr 1fr; } }
@@ -414,7 +466,32 @@
     box-shadow: 0 22px 55px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
     display: block;
   }
-  .video-frame svg.scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .video-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55) saturate(0.85);
+  }
+  .frame-badge {
+    position: absolute;
+    left: 0.8rem;
+    top: 0.8rem;
+    z-index: 3;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    background: rgba(18,6,19,0.5);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 999px;
+    padding: 0.32rem 0.75rem 0.26rem;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    pointer-events: none;
+  }
   .play-btn {
     position: absolute;
     left: 50%;
@@ -436,28 +513,55 @@
   .video-frame:hover .play-btn { transform: translate(-50%, -50%) scale(1.09); background: rgba(255,255,255,0.22); }
   .play-btn svg { width: 38%; height: 38%; margin-left: 8%; }
   .video-title { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 1.2rem; padding: 0 0.2rem; }
+  .video-note {
+    margin-top: 2.4rem;
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+    max-width: 54ch;
+    margin-inline: auto;
+  }
+  .video-note a {
+    color: var(--rose-300);
+    border-bottom: 1px solid rgba(231,159,189,0.45);
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .video-note a:hover { color: var(--rose-200); border-color: var(--rose-200); }
 
   /* ---- SHOWS ---- */
-  .shows-list { display: flex; flex-direction: column; gap: 0.9rem; max-width: 880px; margin-inline: auto; }
-  .show {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+  .shows-section { overflow: clip; }
+  .shows-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.7) brightness(0.5);
+  }
+  .shows-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18,6,19,0.94), rgba(18,6,19,0.6) 50%, rgba(18,6,19,0.94));
+  }
+  .shows-section .wrap { position: relative; z-index: 2; }
+  .shows-empty {
+    max-width: 640px;
+    margin-inline: auto;
+    padding: clamp(2rem, 6vw, 3.4rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 1.1rem 1.2rem;
-    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.4s ease, background-color 0.4s ease;
+    gap: 1.1rem;
   }
-  .show:hover { transform: translateY(-3px); border-color: rgba(231,159,189,0.4); }
-  .show-date { display: flex; flex-direction: column; align-items: center; line-height: 1.1; min-width: 3.6rem; }
-  .show-date .d-mon { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 1.15rem; color: var(--rose-300); }
-  .show-date .d-day { font-family: var(--serif); font-weight: 700; font-size: 1.5rem; }
-  .show-date .d-year { font-size: 0.58rem; letter-spacing: 0.3em; color: var(--ink-faint); margin-top: 0.2rem; }
-  .show-venue { display: flex; flex-direction: column; gap: 0.1rem; border-left: 1px solid rgba(255,255,255,0.12); padding-left: 1rem; }
-  .show-venue .v-name { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 1.12rem; line-height: 1.25; }
-  .show-venue .v-city { font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink-dim); }
-  @media (min-width: 700px) {
-    .show { grid-template-columns: 5.5rem 1fr auto; padding: 1.25rem 1.6rem; }
+  .shows-empty h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.4rem, 4.2vw, 2rem);
+    line-height: 1.25;
   }
+  .shows-empty p { color: var(--ink-dim); font-size: 0.94rem; max-width: 42ch; }
 
   /* ---- ABOUT ---- */
   .about-grid { display: grid; grid-template-columns: 1fr; gap: 2.2rem; align-items: center; }
@@ -473,12 +577,72 @@
     margin-inline: auto;
     width: 100%;
   }
-  .portrait svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .about-copy { display: flex; flex-direction: column; gap: 1.1rem; max-width: 56ch; }
   .about-copy .eyebrow { text-align: left; }
   .about-copy h2 { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.05; }
   .about-copy p { color: var(--ink-dim); font-size: 0.98rem; font-weight: 300; }
+  .about-head { display: flex; align-items: center; gap: 0.9rem; }
+  .om-medallion {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 8px 24px rgba(0,0,0,0.3);
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    line-height: 1;
+    color: var(--rose-300);
+  }
+  .pull-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.16rem;
+    line-height: 1.55;
+    color: var(--rose-200);
+    border-left: 2px solid rgba(231,159,189,0.45);
+    padding-left: 1.1rem;
+    text-align: left;
+    margin-block: 0.3rem;
+  }
   @media (max-width: 899px) { .about-copy { text-align: center; align-items: center; margin-inline: auto; } }
+
+  /* ---- GALLERY ---- */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  @media (min-width: 820px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+  .g-card {
+    padding: 0.45rem;
+    border-radius: 18px;
+    position: relative;
+    overflow: clip;
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.45s ease;
+  }
+  .g-card:hover { transform: translateY(-5px); box-shadow: 0 26px 56px rgba(216,114,163,0.24), inset 0 1px 0 rgba(255,255,255,0.24); }
+  .g-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 13px;
+  }
+  .g-card .shine {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.28) 48%, transparent 62%);
+    transform: translateX(-120%);
+    transition: transform 0.9s ease;
+    pointer-events: none;
+  }
+  .g-card:hover .shine { transform: translateX(120%); }
 
   /* ---- MAILING ---- */
   .mail-panel {
@@ -519,32 +683,37 @@
   }
   .mail-form input::placeholder { color: var(--ink-faint); }
   .mail-form input:focus { border-color: var(--rose-400); background: rgba(255,255,255,0.1); }
+  .mail-form input:focus-visible { outline: 2px solid var(--rose-300); outline-offset: 2px; }
+  .mail-note {
+    position: relative;
+    font-size: 0.92rem;
+    color: var(--rose-200);
+  }
+  .mail-note a {
+    color: var(--rose-300);
+    border-bottom: 1px solid rgba(231,159,189,0.45);
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .mail-note a:hover { color: var(--rose-200); border-color: var(--rose-200); }
 
   /* ---- CONTACT ---- */
-  .contact-block { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
-  .contact-block .email-link {
+  .contact-block { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
+  .email-pending { display: flex; flex-direction: column; align-items: center; gap: 0.55rem; }
+  .blank-line {
+    display: block;
+    width: min(300px, 68vw);
+    height: 1.4em;
+    border-bottom: 1px dashed rgba(246,234,243,0.4);
+  }
+  .pending-label {
     font-family: var(--serif);
     font-style: italic;
-    font-weight: 600;
-    font-size: clamp(1.25rem, 4.5vw, 2rem);
-    border-bottom: 1px solid rgba(231,159,189,0.4);
-    padding-bottom: 0.15rem;
-    transition: border-color 0.3s ease;
-    overflow-wrap: anywhere;
+    font-size: 0.95rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
   }
-  .contact-block .email-link:hover { border-color: var(--rose-300); }
 
-  /* ---- FOOTER ---- */
-  .footer {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 3rem 0 3.4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.6rem;
-    text-align: center;
-  }
-  .socials { display: flex; gap: 0.9rem; }
+  .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-top: 0.8rem; }
   .socials a {
     width: 46px;
     height: 46px;
@@ -558,8 +727,39 @@
   }
   .socials a:hover { transform: translateY(-3px); color: #fff; border-color: rgba(231,159,189,0.6); background: rgba(216,114,163,0.16); }
   .socials svg { width: 20px; height: 20px; }
-  .foot-brand { font-family: var(--serif); font-weight: 700; font-size: 1.3rem; letter-spacing: 0.4em; text-indent: 0.4em; }
-  .copyright { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-faint); }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 3rem 0 3.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    text-align: center;
+  }
+  .foot-brand { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; letter-spacing: 0.34em; text-indent: 0.34em; white-space: nowrap; }
+  .rs-chip {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at 35% 28%, #fdfbf6, #ece5d8 78%);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+  .rs-mark {
+    font-family: "UnifrakturMaguntia", serif;
+    font-size: 3rem;
+    line-height: 1;
+    letter-spacing: -0.14em;
+    padding-right: 0.14em;
+    background: linear-gradient(150deg, #23277d, #4a53c8 40%, #8f97f0 55%, #2e339b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .copyright { font-size: 0.68rem; letter-spacing: 0.18em; color: var(--ink-faint); }
 
   /* ============ REVEAL ANIMATIONS ============ */
   .reveal {
@@ -577,6 +777,7 @@
     .sparkle { opacity: 0.5; }
     .ticker-track { animation: none; }
   }
+.rs-mark .rs-img{width:56px;height:auto;display:block}
 </style>
 </head>
 <body>
@@ -584,19 +785,20 @@
 <!-- ============ NAV ============ -->
 <header class="nav">
   <nav class="nav-inner wrap" aria-label="Main navigation">
-    <a class="brand chrome" href="#top">ANYA</a>
+    <a class="brand chrome" href="#top">ANYA GUPTA</a>
     <ul class="nav-links">
       <li><a href="#music">Music</a></li>
       <li><a href="#video">Video</a></li>
       <li><a href="#shows">Shows</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="top" aria-label="Slow Motion — the new single, out now">
+<section class="hero" id="top" aria-label="Becoming — the debut album, August 17">
   <div class="hero-art" aria-hidden="true">
     <div class="hero-aura"></div>
     <svg class="hero-rings" viewBox="0 0 800 800" fill="none">
@@ -612,23 +814,6 @@
       <circle cx="400" cy="400" r="340" stroke="url(#ringGrad)" stroke-width="0.6" opacity="0.5"/>
       <circle cx="400" cy="400" r="396" stroke="url(#ringGrad)" stroke-width="0.5" opacity="0.35"/>
     </svg>
-    <svg class="hero-figure" viewBox="0 0 400 420" role="img" aria-label="Placeholder silhouette of the artist, to be replaced with a photo">
-      <defs>
-        <linearGradient id="figGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#12040f"/>
-          <stop offset="0.65" stop-color="#230b22"/>
-          <stop offset="1" stop-color="#12040f" stop-opacity="0"/>
-        </linearGradient>
-        <filter id="soften" x="-10%" y="-10%" width="120%" height="120%">
-          <feGaussianBlur stdDeviation="2.2"/>
-        </filter>
-      </defs>
-      <g filter="url(#soften)" fill="url(#figGrad)">
-        <path d="M200 30c-46 0-80 36-80 86 0 24 6 44 15 60-8 46-30 56-30 56 18 8 34 6 34 6 4 24 20 44 41 52v34c-52 12-118 34-140 96h320c-22-62-88-84-140-96v-34c21-8 37-28 41-52 0 0 16 2 34-6 0 0-22-10-30-56 9-16 15-36 15-60 0-50-34-86-80-86z"/>
-        <path d="M128 108c-10 60-6 130 4 196l24 26c-16-70-20-152-8-216z" opacity="0.85"/>
-        <path d="M272 108c10 60 6 130-4 196l-24 26c16-70 20-152 8-216z" opacity="0.85"/>
-      </g>
-    </svg>
     <!-- sparkles -->
     <svg class="sparkle" style="left:14%; top:24%; width:26px; animation-delay:0.2s" viewBox="0 0 24 24" fill="#f8dbe8"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>
     <svg class="sparkle" style="right:16%; top:18%; width:18px; animation-delay:1.4s" viewBox="0 0 24 24" fill="#f3c1d6"><path d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12 7-1 11-5 12-12z"/></svg>
@@ -638,23 +823,26 @@
   </div>
 
   <div class="hero-inner">
-    <p class="hero-label reveal visible">The New Single</p>
-    <h1 class="chrome-wrap reveal visible" style="--d:0.12s"><span class="hero-title chrome">Slow Motion</span></h1>
-    <p class="hero-outnow reveal visible" style="--d:0.22s">Out Now</p>
-    <div class="hero-ctas reveal visible" style="--d:0.32s">
-      <a class="btn btn-solid" href="#">Listen Now</a>
-      <a class="btn btn-ghost" href="#video">Watch the Video</a>
+    <p class="hero-label reveal visible">The debut album · August 17</p>
+    <h1 class="chrome-wrap reveal visible" style="--d:0.12s"><span class="hero-title chrome">Becoming</span></h1>
+    <p class="hero-subline reveal visible" style="--d:0.2s">Seven songs about self-love, individuality, and the light we all carry &mdash; featuring the single &ldquo;You&rsquo;re Original.&rdquo;</p>
+    <p class="hero-count reveal visible" style="--d:0.28s"><span class="count-num chrome" id="countDays">&hellip;</span> days until the album</p>
+    <div class="hero-ctas reveal visible" style="--d:0.36s">
+      <a class="btn btn-solid" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">Listen now</a>
+      <a class="btn btn-ghost" href="#signup">Join the list</a>
     </div>
+    <figure class="hero-photo glass reveal visible" style="--d:0.46s">
+      <img src="../assets/photos/hero-desktop.jpg" alt="Anya Gupta, fifteen-year-old singer-songwriter, in a portrait for her debut album Becoming.">
+    </figure>
   </div>
 
-  <span class="slot-chip" style="bottom:4.4rem">photo</span>
   <a class="scroll-hint" href="#music" aria-label="Scroll to music">Scroll</a>
 </section>
 
 <!-- ============ TICKER ============ -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>Slow Motion · Out Now · </span><span>Slow Motion · Out Now · </span><span>Slow Motion · Out Now · </span><span>Slow Motion · Out Now · </span><span>Slow Motion · Out Now · </span><span>Slow Motion · Out Now · </span><span>Slow Motion · Out Now · </span><span>Slow Motion · Out Now · </span>
+    <span>Becoming · the debut album · August 17 · featuring You&rsquo;re Original · </span><span>Becoming · the debut album · August 17 · featuring You&rsquo;re Original · </span><span>Becoming · the debut album · August 17 · featuring You&rsquo;re Original · </span><span>Becoming · the debut album · August 17 · featuring You&rsquo;re Original · </span>
   </div>
 </div>
 
@@ -662,183 +850,58 @@
 <section class="section" id="music">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Discography</p>
+      <p class="eyebrow">The singles</p>
       <h2 class="chrome-wrap"><span class="chrome">Music</span></h2>
     </div>
 
     <div class="music-grid">
 
-      <!-- Slow Motion -->
       <article class="release reveal" style="--d:0s">
-        <div class="cover">
-          <svg viewBox="0 0 300 300" role="img" aria-label="Slow Motion cover art placeholder — chrome ripple">
-            <defs>
-              <linearGradient id="c1a" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#f8e4f0"/><stop offset="0.3" stop-color="#c795c9"/>
-                <stop offset="0.52" stop-color="#6e3f7e"/><stop offset="0.62" stop-color="#f2c9dd"/>
-                <stop offset="0.82" stop-color="#8e5b98"/><stop offset="1" stop-color="#f8e4f0"/>
-              </linearGradient>
-            </defs>
-            <rect width="300" height="300" fill="url(#c1a)"/>
-            <g stroke="#ffffff" stroke-opacity="0.35" fill="none">
-              <ellipse cx="150" cy="150" rx="118" ry="34"/>
-              <ellipse cx="150" cy="150" rx="90" ry="24" stroke-opacity="0.5"/>
-              <ellipse cx="150" cy="150" rx="60" ry="15" stroke-opacity="0.65"/>
-              <ellipse cx="150" cy="150" rx="30" ry="7" stroke-opacity="0.8"/>
-            </g>
-            <circle cx="150" cy="150" r="5" fill="#fff"/>
-          </svg>
+        <a class="cover" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener" aria-label="Listen to You're Original on Spotify">
+          <img src="../assets/covers/youre-original.jpg" alt="Cover art for You're Original, a single by Anya Gupta.">
           <span class="shine"></span>
-          <span class="slot-chip">cover</span>
-        </div>
+        </a>
         <div class="release-meta">
-          <h3 class="release-title">Slow Motion</h3>
-          <p class="release-year">2026</p>
-          <a class="listen-link" href="#">Listen Now</a>
+          <h3 class="release-title">You&rsquo;re Original</h3>
+          <p class="release-year">Single · 2024 · the album&rsquo;s lead track</p>
+          <a class="listen-link" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">Listen now</a>
         </div>
       </article>
 
-      <!-- Paper Hearts -->
       <article class="release reveal" style="--d:0.08s">
-        <div class="cover">
-          <svg viewBox="0 0 300 300" role="img" aria-label="Paper Hearts cover art placeholder — rose gradient with heart">
-            <defs>
-              <linearGradient id="c2a" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#f3c1d6"/><stop offset="1" stop-color="#a24a7e"/>
-              </linearGradient>
-              <linearGradient id="c2b" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/><stop offset="1" stop-color="#ffd9ea" stop-opacity="0.55"/>
-              </linearGradient>
-            </defs>
-            <rect width="300" height="300" fill="url(#c2a)"/>
-            <path d="M150 232c-52-38-88-70-88-108 0-26 20-46 45-46 18 0 33 10 43 26 10-16 25-26 43-26 25 0 45 20 45 46 0 38-36 70-88 108z" fill="url(#c2b)" opacity="0.9"/>
-            <path d="M150 104v128" stroke="#a24a7e" stroke-width="1.4" stroke-dasharray="6 5" opacity="0.7"/>
-          </svg>
+        <a class="cover" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener" aria-label="Listen to Tat Twam Asi on Spotify">
+          <img src="../assets/covers/tat-twam-asi.jpg" alt="Cover art for Tat Twam Asi, a single by Anya Gupta.">
           <span class="shine"></span>
-          <span class="slot-chip">cover</span>
-        </div>
+        </a>
         <div class="release-meta">
-          <h3 class="release-title">Paper Hearts</h3>
-          <p class="release-year">2025</p>
-          <a class="listen-link" href="#">Listen Now</a>
+          <h3 class="release-title">Tat Twam Asi</h3>
+          <p class="release-year">Single · 2025 · 100K+ streams</p>
+          <a class="listen-link" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">Listen now</a>
         </div>
       </article>
 
-      <!-- Seventeen -->
       <article class="release reveal" style="--d:0.16s">
-        <div class="cover">
-          <svg viewBox="0 0 300 300" role="img" aria-label="Seventeen cover art placeholder — numeral seventeen on deep plum">
-            <defs>
-              <radialGradient id="c3a" cx="0.5" cy="0.35" r="0.9">
-                <stop offset="0" stop-color="#3d1a47"/><stop offset="1" stop-color="#150718"/>
-              </radialGradient>
-              <linearGradient id="c3b" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffffff"/><stop offset="0.5" stop-color="#e79fbd"/><stop offset="1" stop-color="#8e5b98"/>
-              </linearGradient>
-            </defs>
-            <rect width="300" height="300" fill="url(#c3a)"/>
-            <text x="150" y="196" text-anchor="middle" font-family="'Bodoni Moda', Didot, serif" font-style="italic" font-weight="700" font-size="150" fill="url(#c3b)">17</text>
-            <path d="M244 52c.6 4.5 3.2 7.1 7.7 7.7-4.5.6-7.1 3.2-7.7 7.7-.6-4.5-3.2-7.1-7.7-7.7 4.5-.6 7.1-3.2 7.7-7.7z" fill="#f8dbe8"/>
-            <path d="M58 234c.5 3.6 2.6 5.7 6.2 6.2-3.6.5-5.7 2.6-6.2 6.2-.5-3.6-2.6-5.7-6.2-6.2 3.6-.5 5.7-2.6 6.2-6.2z" fill="#e79fbd"/>
-          </svg>
+        <a class="cover" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener" aria-label="Listen to Awaken the Lights on Spotify">
+          <img src="../assets/covers/awaken-the-lights.jpg" alt="Cover art for Awaken the Lights, a single by Anya Gupta.">
           <span class="shine"></span>
-          <span class="slot-chip">cover</span>
-        </div>
+        </a>
         <div class="release-meta">
-          <h3 class="release-title">Seventeen</h3>
-          <p class="release-year">2025</p>
-          <a class="listen-link" href="#">Listen Now</a>
+          <h3 class="release-title">Awaken the Lights</h3>
+          <p class="release-year">Single · 2024</p>
+          <a class="listen-link" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">Listen now</a>
         </div>
       </article>
 
-      <!-- Blue Hour -->
-      <article class="release reveal" style="--d:0.24s">
-        <div class="cover">
-          <svg viewBox="0 0 300 300" role="img" aria-label="Blue Hour cover art placeholder — dusk horizon with setting sun">
-            <defs>
-              <linearGradient id="c4a" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#1b2450"/><stop offset="0.55" stop-color="#7d5a9e"/><stop offset="0.78" stop-color="#e79fbd"/><stop offset="1" stop-color="#2a1030"/>
-              </linearGradient>
-              <radialGradient id="c4b" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0" stop-color="#ffe9f4"/><stop offset="0.6" stop-color="#f5b8cf"/><stop offset="1" stop-color="#f5b8cf" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="300" height="300" fill="url(#c4a)"/>
-            <circle cx="150" cy="196" r="56" fill="url(#c4b)"/>
-            <circle cx="150" cy="196" r="30" fill="#ffe9f4" opacity="0.9"/>
-            <rect y="222" width="300" height="78" fill="#1c0a22" opacity="0.85"/>
-            <path d="M0 222h300" stroke="#ffd9ea" stroke-width="1" opacity="0.6"/>
-            <circle cx="64" cy="64" r="1.6" fill="#fff" opacity="0.8"/>
-            <circle cx="238" cy="46" r="1.2" fill="#fff" opacity="0.7"/>
-            <circle cx="200" cy="92" r="1" fill="#fff" opacity="0.6"/>
-          </svg>
-          <span class="shine"></span>
-          <span class="slot-chip">cover</span>
-        </div>
-        <div class="release-meta">
-          <h3 class="release-title">Blue Hour</h3>
-          <p class="release-year">2024</p>
-          <a class="listen-link" href="#">Listen Now</a>
-        </div>
-      </article>
+    </div>
 
-      <!-- Homesick -->
-      <article class="release reveal" style="--d:0.32s">
-        <div class="cover">
-          <svg viewBox="0 0 300 300" role="img" aria-label="Homesick cover art placeholder — glowing window at dusk">
-            <defs>
-              <linearGradient id="c5a" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#3a1626"/><stop offset="1" stop-color="#c97d6f"/>
-              </linearGradient>
-              <radialGradient id="c5b" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0" stop-color="#ffdfb0" stop-opacity="0.9"/><stop offset="1" stop-color="#ffdfb0" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="300" height="300" fill="url(#c5a)"/>
-            <circle cx="150" cy="150" r="86" fill="url(#c5b)"/>
-            <rect x="118" y="112" width="64" height="82" rx="4" fill="#ffe9c8" opacity="0.92"/>
-            <path d="M150 112v82M118 153h64" stroke="#3a1626" stroke-width="3"/>
-            <rect x="112" y="200" width="76" height="6" rx="3" fill="#2a0f1c" opacity="0.8"/>
-            <path d="M236 70c.5 3.6 2.6 5.7 6.2 6.2-3.6.5-5.7 2.6-6.2 6.2-.5-3.6-2.6-5.7-6.2-6.2 3.6-.5 5.7-2.6 6.2-6.2z" fill="#ffe9c8" opacity="0.85"/>
-          </svg>
-          <span class="shine"></span>
-          <span class="slot-chip">cover</span>
-        </div>
-        <div class="release-meta">
-          <h3 class="release-title">Homesick</h3>
-          <p class="release-year">2024</p>
-          <a class="listen-link" href="#">Listen Now</a>
-        </div>
-      </article>
-
-      <!-- Start Again -->
-      <article class="release reveal" style="--d:0.4s">
-        <div class="cover">
-          <svg viewBox="0 0 300 300" role="img" aria-label="Start Again cover art placeholder — minimal orbit ring on pearl">
-            <defs>
-              <linearGradient id="c6a" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#f6ecf4"/><stop offset="1" stop-color="#cfb3d6"/>
-              </linearGradient>
-              <linearGradient id="c6b" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#8e5b98"/><stop offset="1" stop-color="#d872a3"/>
-              </linearGradient>
-            </defs>
-            <rect width="300" height="300" fill="url(#c6a)"/>
-            <circle cx="150" cy="150" r="82" fill="none" stroke="url(#c6b)" stroke-width="2"/>
-            <circle cx="150" cy="68" r="8" fill="url(#c6b)"/>
-            <circle cx="150" cy="150" r="3.5" fill="#8e5b98"/>
-            <circle cx="150" cy="150" r="112" fill="none" stroke="#8e5b98" stroke-width="0.6" stroke-dasharray="2 6" opacity="0.6"/>
-          </svg>
-          <span class="shine"></span>
-          <span class="slot-chip">cover</span>
-        </div>
-        <div class="release-meta">
-          <h3 class="release-title">Start Again</h3>
-          <p class="release-year">2023</p>
-          <a class="listen-link" href="#">Listen Now</a>
-        </div>
-      </article>
-
+    <div class="upcoming reveal">
+      <p class="eyebrow">Completing the album · August 17</p>
+      <ul class="upcoming-list">
+        <li>Let You Be</li>
+        <li>Breakup With My Ego</li>
+        <li>Not For You</li>
+        <li>Lifevest</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -854,125 +917,47 @@
     <div class="video-grid">
 
       <article class="video-card reveal">
-        <a class="video-frame" href="#" aria-label="Play Slow Motion official video (placeholder)">
-          <svg class="scene" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Video placeholder — chrome-lit stage scene">
-            <defs>
-              <linearGradient id="v1a" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#2b1032"/><stop offset="0.6" stop-color="#6e3f7e"/><stop offset="1" stop-color="#d872a3"/>
-              </linearGradient>
-              <radialGradient id="v1b" cx="0.5" cy="0.2" r="0.8">
-                <stop offset="0" stop-color="#ffe9f4" stop-opacity="0.65"/><stop offset="1" stop-color="#ffe9f4" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="640" height="360" fill="url(#v1a)"/>
-            <ellipse cx="320" cy="60" rx="300" ry="130" fill="url(#v1b)"/>
-            <g stroke="#ffffff" stroke-opacity="0.28" fill="none">
-              <path d="M0 300 Q320 240 640 300"/>
-              <path d="M0 322 Q320 268 640 322"/>
-              <path d="M0 344 Q320 296 640 344"/>
-            </g>
-            <path d="M320 128c-20 0-34 16-34 38 0 11 3 20 7 27-4 20-13 24-13 24 8 4 15 3 15 3 2 10 9 19 18 22v14c-22 6-50 15-60 42h134c-10-27-38-36-60-42v-14c9-3 16-12 18-22 0 0 7 1 15-3 0 0-9-4-13-24 4-7 7-16 7-27 0-22-14-38-34-38z" fill="#160619" opacity="0.9"/>
-            <path d="M540 70c.6 4.5 3.2 7.1 7.7 7.7-4.5.6-7.1 3.2-7.7 7.7-.6-4.5-3.2-7.1-7.7-7.7 4.5-.6 7.1-3.2 7.7-7.7z" fill="#ffe9f4" opacity="0.9"/>
-            <path d="M96 96c.5 3.6 2.6 5.7 6.2 6.2-3.6.5-5.7 2.6-6.2 6.2-.5-3.6-2.6-5.7-6.2-6.2 3.6-.5 5.7-2.6 6.2-6.2z" fill="#f3c1d6" opacity="0.8"/>
-          </svg>
+        <figure class="video-frame">
+          <img src="../assets/photos/music-backdrop.jpg" alt="Still of Anya Gupta, standing in for the upcoming You're Original official video.">
+          <span class="frame-badge">Premieres with the album</span>
           <span class="play-btn" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="#ffffff"><path d="M6 3.8v16.4c0 1 1.1 1.6 2 1.1l13.2-8.2c.8-.5.8-1.7 0-2.2L8 2.7c-.9-.5-2 .1-2 1.1z"/></svg>
           </span>
-          <span class="slot-chip">video</span>
-        </a>
-        <h3 class="video-title">Slow Motion <span style="font-style:normal; font-family:var(--sans); font-weight:300; font-size:0.72em; color:var(--ink-faint); letter-spacing:0.14em;">(OFFICIAL VIDEO)</span></h3>
+        </figure>
+        <h3 class="video-title">You&rsquo;re Original <span style="font-style:normal; font-family:var(--sans); font-weight:300; font-size:0.72em; color:var(--ink-faint); letter-spacing:0.14em;">&mdash; OFFICIAL VIDEO</span></h3>
       </article>
 
       <article class="video-card reveal" style="--d:0.12s">
-        <a class="video-frame" href="#" aria-label="Play Blue Hour live session (placeholder)">
-          <svg class="scene" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Video placeholder — dusk-lit live session scene">
-            <defs>
-              <linearGradient id="v2a" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#141c42"/><stop offset="0.55" stop-color="#4d3a78"/><stop offset="1" stop-color="#b06a9a"/>
-              </linearGradient>
-              <radialGradient id="v2b" cx="0.72" cy="0.4" r="0.5">
-                <stop offset="0" stop-color="#ffe1c4" stop-opacity="0.85"/><stop offset="1" stop-color="#ffe1c4" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="640" height="360" fill="url(#v2a)"/>
-            <circle cx="460" cy="144" r="120" fill="url(#v2b)"/>
-            <circle cx="460" cy="144" r="42" fill="#ffe9d2" opacity="0.85"/>
-            <rect y="268" width="640" height="92" fill="#0e0514" opacity="0.85"/>
-            <path d="M0 268h640" stroke="#ffd9ea" stroke-opacity="0.5"/>
-            <g fill="#0e0514" opacity="0.95">
-              <rect x="120" y="196" width="10" height="76" rx="3"/>
-              <ellipse cx="125" cy="188" rx="16" ry="10"/>
-              <path d="M188 272c0-40 18-62 40-62s40 22 40 62z"/>
-            </g>
-            <circle cx="120" cy="60" r="1.6" fill="#fff" opacity="0.8"/>
-            <circle cx="220" cy="40" r="1.2" fill="#fff" opacity="0.7"/>
-            <circle cx="320" cy="84" r="1" fill="#fff" opacity="0.6"/>
-            <circle cx="580" cy="52" r="1.4" fill="#fff" opacity="0.75"/>
-          </svg>
+        <figure class="video-frame">
+          <img src="../assets/photos/contact-band.jpg" alt="Still of Anya Gupta with her band, standing in for the upcoming Becoming sessions video.">
+          <span class="frame-badge">Premieres with the album</span>
           <span class="play-btn" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="#ffffff"><path d="M6 3.8v16.4c0 1 1.1 1.6 2 1.1l13.2-8.2c.8-.5.8-1.7 0-2.2L8 2.7c-.9-.5-2 .1-2 1.1z"/></svg>
           </span>
-          <span class="slot-chip">video</span>
-        </a>
-        <h3 class="video-title">Blue Hour <span style="font-style:normal; font-family:var(--sans); font-weight:300; font-size:0.72em; color:var(--ink-faint); letter-spacing:0.14em;">(LIVE SESSION)</span></h3>
+        </figure>
+        <h3 class="video-title">Becoming <span style="font-style:normal; font-family:var(--sans); font-weight:300; font-size:0.72em; color:var(--ink-faint); letter-spacing:0.14em;">&mdash; SESSIONS</span></h3>
       </article>
 
     </div>
+
+    <p class="video-note reveal">New videos premiere alongside the album. <a href="https://www.youtube.com/@theanyagupta" target="_blank" rel="noopener">Subscribe on YouTube</a> to catch them the moment they drop.</p>
   </div>
 </section>
 
 <!-- ============ SHOWS ============ -->
-<section class="section" id="shows">
+<section class="section shows-section" id="shows">
+  <img class="shows-bg" src="../assets/photos/shows-band.jpg" alt="" aria-hidden="true">
+  <div class="shows-scrim" aria-hidden="true"></div>
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">On Tour</p>
+      <p class="eyebrow">Live</p>
       <h2 class="chrome-wrap"><span class="chrome">Shows</span></h2>
     </div>
 
-    <div class="shows-list">
-      <article class="show glass reveal">
-        <div class="show-date">
-          <span class="d-mon">AUG</span><span class="d-day">14</span><span class="d-year">2026</span>
-        </div>
-        <div class="show-venue">
-          <h3 class="v-name">The Note Room</h3>
-          <p class="v-city">Chicago, IL</p>
-        </div>
-        <a class="btn btn-ghost btn-sm" href="#">Tickets</a>
-      </article>
-
-      <article class="show glass reveal" style="--d:0.08s">
-        <div class="show-date">
-          <span class="d-mon">SEP</span><span class="d-day">05</span><span class="d-year">2026</span>
-        </div>
-        <div class="show-venue">
-          <h3 class="v-name">Echo Hall</h3>
-          <p class="v-city">Minneapolis, MN</p>
-        </div>
-        <a class="btn btn-ghost btn-sm" href="#">Tickets</a>
-      </article>
-
-      <article class="show glass reveal" style="--d:0.16s">
-        <div class="show-date">
-          <span class="d-mon">SEP</span><span class="d-day">26</span><span class="d-year">2026</span>
-        </div>
-        <div class="show-venue">
-          <h3 class="v-name">The Parlor</h3>
-          <p class="v-city">Nashville, TN</p>
-        </div>
-        <a class="btn btn-ghost btn-sm" href="#">Tickets</a>
-      </article>
-
-      <article class="show glass reveal" style="--d:0.24s">
-        <div class="show-date">
-          <span class="d-mon">OCT</span><span class="d-day">17</span><span class="d-year">2026</span>
-        </div>
-        <div class="show-venue">
-          <h3 class="v-name">Harbor Stage</h3>
-          <p class="v-city">Austin, TX</p>
-        </div>
-        <a class="btn btn-ghost btn-sm" href="#">Tickets</a>
-      </article>
+    <div class="shows-empty glass reveal">
+      <h3>New dates are being booked for the <em>Becoming</em> era.</h3>
+      <p>Join the mailing list and you&rsquo;ll hear about every show before anyone else.</p>
+      <a class="btn btn-solid" href="#signup">Get first access</a>
     </div>
   </div>
 </section>
@@ -982,55 +967,73 @@
   <div class="wrap">
     <div class="about-grid">
       <div class="portrait reveal">
-        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Portrait placeholder — silhouette of the artist against a rose glow, to be replaced with a photo">
-          <defs>
-            <linearGradient id="pBg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#3d1a47"/><stop offset="0.5" stop-color="#8e5b98"/><stop offset="1" stop-color="#e79fbd"/>
-            </linearGradient>
-            <radialGradient id="pGlow" cx="0.5" cy="0.38" r="0.6">
-              <stop offset="0" stop-color="#ffe9f4" stop-opacity="0.75"/><stop offset="1" stop-color="#ffe9f4" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="pFig" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#170619"/><stop offset="1" stop-color="#2c0f2c"/>
-            </linearGradient>
-            <filter id="pSoft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.6"/></filter>
-          </defs>
-          <rect width="400" height="500" fill="url(#pBg)"/>
-          <circle cx="200" cy="190" r="170" fill="url(#pGlow)"/>
-          <circle cx="200" cy="190" r="132" fill="none" stroke="#ffffff" stroke-opacity="0.3"/>
-          <g filter="url(#pSoft)" fill="url(#pFig)">
-            <path d="M200 84c-42 0-72 33-72 78 0 22 5 40 14 54-7 42-27 51-27 51 16 7 30 5 30 5 4 22 18 40 37 47v31c-47 11-106 31-126 87v63h288v-63c-20-56-79-76-126-87v-31c19-7 33-25 37-47 0 0 14 2 30-5 0 0-20-9-27-51 9-14 14-32 14-54 0-45-30-78-72-78z"/>
-            <path d="M136 156c-9 55-5 118 3 178l22 24c-14-64-18-138-7-196z" opacity="0.9"/>
-            <path d="M264 156c9 55 5 118-3 178l-22 24c14-64 18-138 7-196z" opacity="0.9"/>
-          </g>
-          <path d="M330 92c.7 5.2 3.7 8.2 8.9 8.9-5.2.7-8.2 3.7-8.9 8.9-.7-5.2-3.7-8.2-8.9-8.9 5.2-.7 8.2-3.7 8.9-8.9z" fill="#fff" opacity="0.9"/>
-          <path d="M76 300c.5 3.9 2.8 6.2 6.7 6.7-3.9.5-6.2 2.8-6.7 6.7-.5-3.9-2.8-6.2-6.7-6.7 3.9-.5 6.2-2.8 6.7-6.7z" fill="#ffe9f4" opacity="0.8"/>
-        </svg>
-        <span class="slot-chip">photo</span>
+        <img src="../assets/photos/about.jpg" alt="Portrait of Anya Gupta, a fifteen-year-old singer-songwriter from Tennessee.">
       </div>
 
       <div class="about-copy reveal" style="--d:0.12s">
         <p class="eyebrow">About</p>
-        <h2 class="chrome-wrap"><span class="chrome">Anya</span></h2>
-        <p>ANYA writes pop songs that feel like secrets told at 2 a.m. — glossy on the surface, raw underneath. Raised on a steady diet of radio ballads and her mother's record collection, she started uploading bedroom demos at sixteen and hasn't stopped since. Her breakout EP turned late-night heartbreak into something you could dance to, earning early praise from tastemakers and a fiercely loyal following.</p>
-        <p>With her new single "Slow Motion," ANYA steps fully into her own light: bigger hooks, sharper edges, and a voice that refuses to blur into the background. It's the sound of an artist done waiting for permission — and this is only the beginning.</p>
+        <div class="about-head">
+          <span class="om-medallion" aria-hidden="true">&#2384;</span>
+          <h2 class="chrome-wrap"><span class="chrome">Anya Gupta</span></h2>
+        </div>
+        <p>Anya Gupta is a fifteen-year-old singer-songwriter from Tennessee whose music celebrates self-love, individuality, and the light we all carry within us.</p>
+        <blockquote class="pull-quote">&ldquo;For me, songwriting is a way to clear my mind. When I write about the challenges I face as a teenager, it helps me understand them and move through them.&rdquo;</blockquote>
+        <p>She began studying voice at age six and has spent nearly a decade performing &mdash; honing her songwriting at Langston Studios and earning finalist honors in The Factor and Delta Songwriting Star. Her debut album <em>Becoming</em> arrives August 17: seven songs, including the singles &ldquo;Tat Twam Asi,&rdquo; &ldquo;Awaken the Lights,&rdquo; and &ldquo;You&rsquo;re Original,&rdquo; inviting listeners to celebrate who they are and let their inner light shine.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ MAILING LIST ============ -->
-<section class="section" id="mailing" aria-label="Mailing list">
+<!-- ============ GALLERY ============ -->
+<section class="section" id="gallery">
   <div class="wrap">
-    <div class="mail-panel glass reveal">
-      <p class="eyebrow">Mailing List</p>
+    <div class="section-head reveal">
+      <p class="eyebrow">Moments</p>
+      <h2 class="chrome-wrap"><span class="chrome">Gallery</span></h2>
+    </div>
+
+    <div class="gallery-grid">
+      <figure class="g-card glass reveal" style="--d:0s">
+        <img src="../assets/photos/gallery-01.jpg" alt="Anya Gupta in a studio portrait.">
+        <span class="shine"></span>
+      </figure>
+      <figure class="g-card glass reveal" style="--d:0.06s">
+        <img src="../assets/photos/gallery-02.jpg" alt="Anya Gupta posing in the studio.">
+        <span class="shine"></span>
+      </figure>
+      <figure class="g-card glass reveal" style="--d:0.12s">
+        <img src="../assets/photos/gallery-03.jpg" alt="Anya Gupta during a studio session.">
+        <span class="shine"></span>
+      </figure>
+      <figure class="g-card glass reveal" style="--d:0.18s">
+        <img src="../assets/photos/gallery-04.jpg" alt="Anya Gupta in a studio scene.">
+        <span class="shine"></span>
+      </figure>
+      <figure class="g-card glass reveal" style="--d:0.24s">
+        <img src="../assets/photos/gallery-05.jpg" alt="Anya Gupta playing guitar outdoors.">
+        <span class="shine"></span>
+      </figure>
+      <figure class="g-card glass reveal" style="--d:0.3s">
+        <img src="../assets/photos/gallery-06.jpg" alt="Anya Gupta with her arms wide by a pool, joyful.">
+        <span class="shine"></span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAILING LIST ============ -->
+<section class="section" id="signup" aria-label="Mailing list">
+  <div class="wrap">
+    <div class="mail-panel glass reveal" aria-live="polite">
+      <p class="eyebrow">Mailing list</p>
       <h2 class="chrome-wrap"><span class="chrome">Be the First to Know</span></h2>
-      <p>New music, presale codes, and everything ANYA — straight to your inbox.</p>
+      <p>Album news, shows, and everything <em>Becoming</em> &mdash; straight to your inbox.</p>
       <form class="mail-form" novalidate>
-        <label for="email" class="sr-only" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);">Email address</label>
+        <label for="email" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);">Email address</label>
         <input id="email" type="email" name="email" placeholder="your@email.com" autocomplete="email">
         <button class="btn btn-solid" type="submit">Join</button>
       </form>
+      <p class="mail-note" id="mailNote" hidden>The list opens very soon &mdash; follow <a href="https://www.instagram.com/anyagupta.music" target="_blank" rel="noopener">@anyagupta.music</a> in the meantime.</p>
     </div>
   </div>
 </section>
@@ -1040,41 +1043,58 @@
   <div class="wrap">
     <div class="contact-block reveal">
       <p class="eyebrow">Contact</p>
-      <p style="color:var(--ink-dim); font-size:0.85rem; letter-spacing:0.12em;">Booking &amp; press:</p>
-      <a class="email-link chrome-wrap" href="mailto:booking@anyamusic.com"><span class="chrome">booking@anyamusic.com</span></a>
+      <p style="color:var(--ink-dim); font-size:0.85rem; letter-spacing:0.12em;">For booking &amp; press:</p>
+      <div class="email-pending">
+        <span class="blank-line" aria-hidden="true"></span>
+        <span class="pending-label">booking email coming soon</span>
+      </div>
+
+      <div class="socials">
+        <a href="https://www.instagram.com/anyagupta.music" target="_blank" rel="noopener" aria-label="Anya Gupta on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4.2"/>
+            <circle cx="17.2" cy="6.8" r="1.15" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@anyagupta.music" target="_blank" rel="noopener" aria-label="Anya Gupta on TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M14.6 3c.4 2.3 1.9 3.9 4.2 4.2v2.7c-1.5 0-2.9-.5-4.2-1.4v5.7c0 3.1-2.4 5.4-5.4 5.4-3 0-5.3-2.3-5.3-5.3 0-3 2.5-5.4 5.6-5.2v2.8c-1.5-.3-2.9 1-2.9 2.5 0 1.4 1.2 2.6 2.6 2.6 1.5 0 2.7-1.2 2.7-2.7V3h2.7z"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@theanyagupta" target="_blank" rel="noopener" aria-label="Anya Gupta on YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M21.5 8.1c-.2-1.3-.9-2.1-2.2-2.3C17.4 5.5 12 5.5 12 5.5s-5.4 0-7.3.3c-1.3.2-2 1-2.2 2.3C2.3 9.9 2.3 12 2.3 12s0 2.1.2 3.9c.2 1.3.9 2.1 2.2 2.3 1.9.3 7.3.3 7.3.3s5.4 0 7.3-.3c1.3-.2 2-1 2.2-2.3.2-1.8.2-3.9.2-3.9s0-2.1-.2-3.9zM10 15V9l5.2 3L10 15z"/>
+          </svg>
+        </a>
+        <a href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener" aria-label="Anya Gupta on Spotify">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9.2"/>
+            <path d="M7.4 9.8c3.1-.9 6.9-.5 9.4 1.1M7.9 12.6c2.5-.7 5.5-.4 7.6.9M8.5 15.3c2-.5 4.2-.3 5.9.8"/>
+          </svg>
+        </a>
+        <a href="https://music.apple.com/us/artist/anya-gupta/1728554823" target="_blank" rel="noopener" aria-label="Anya Gupta on Apple Music">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20 2.5 8.5 4.6v10.7c-.5-.2-1-.3-1.6-.2-1.9.2-3.2 1.6-3 3.2.2 1.5 1.8 2.6 3.7 2.3 1.7-.2 2.9-1.4 2.9-2.9V9l8.5-1.6v5.2c-.5-.2-1-.3-1.6-.2-1.9.2-3.2 1.7-3 3.2.2 1.6 1.8 2.6 3.7 2.4 1.7-.2 2.9-1.4 2.9-2.9V2.5z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/61556419742590" target="_blank" rel="noopener" aria-label="Anya Gupta on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.5 21.5v-7.4h2.5l.4-2.9h-2.9V9.3c0-.8.3-1.4 1.5-1.4h1.5V5.3c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.2H8.1v2.9h2.5v7.4h2.9z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer wrap">
-  <div class="socials">
-    <a href="#" aria-label="ANYA on Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" role="img" aria-label="Instagram icon">
-        <rect x="3" y="3" width="18" height="18" rx="5"/>
-        <circle cx="12" cy="12" r="4.2"/>
-        <circle cx="17.2" cy="6.8" r="1.15" fill="currentColor" stroke="none"/>
-      </svg>
-    </a>
-    <a href="#" aria-label="ANYA on TikTok">
-      <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="TikTok icon">
-        <path d="M14.6 3c.4 2.3 1.9 3.9 4.2 4.2v2.7c-1.5 0-2.9-.5-4.2-1.4v5.7c0 3.1-2.4 5.4-5.4 5.4-3 0-5.3-2.3-5.3-5.3 0-3 2.5-5.4 5.6-5.2v2.8c-1.5-.3-2.9 1-2.9 2.5 0 1.4 1.2 2.6 2.6 2.6 1.5 0 2.7-1.2 2.7-2.7V3h2.7z"/>
-      </svg>
-    </a>
-    <a href="#" aria-label="ANYA on YouTube">
-      <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="YouTube icon">
-        <path d="M21.5 8.1c-.2-1.3-.9-2.1-2.2-2.3C17.4 5.5 12 5.5 12 5.5s-5.4 0-7.3.3c-1.3.2-2 1-2.2 2.3C2.3 9.9 2.3 12 2.3 12s0 2.1.2 3.9c.2 1.3.9 2.1 2.2 2.3 1.9.3 7.3.3 7.3.3s5.4 0 7.3-.3c1.3-.2 2-1 2.2-2.3.2-1.8.2-3.9.2-3.9s0-2.1-.2-3.9zM10 15V9l5.2 3L10 15z"/>
-      </svg>
-    </a>
-    <a href="#" aria-label="ANYA on Spotify">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" role="img" aria-label="Spotify icon">
-        <circle cx="12" cy="12" r="9.2"/>
-        <path d="M7.4 9.8c3.1-.9 6.9-.5 9.4 1.1M7.9 12.6c2.5-.7 5.5-.4 7.6.9M8.5 15.3c2-.5 4.2-.3 5.9.8"/>
-      </svg>
-    </a>
+  <p class="foot-brand chrome">ANYA GUPTA</p>
+  <div class="rs-chip">
+    <div class="rs-mark" role="img" aria-label="RadhaSoami"><img class="rs-img" src="../assets/rs-radhasoami.png" alt="RadhaSoami"></div>
   </div>
-  <p class="foot-brand chrome">ANYA</p>
-  <p class="copyright">&copy; 2026 ANYA. All rights reserved.</p>
+  <p class="copyright">&copy; 2026 Anya Gupta · all rights reserved</p>
 </footer>
 
 <script>
@@ -1096,17 +1116,21 @@
       items.forEach(function (el) { io.observe(el); });
     }
 
-    // Non-functional placeholder mailing form
+    // Countdown to the album — August 17, 2026
+    var countEl = document.getElementById("countDays");
+    if (countEl) {
+      var target = new Date(2026, 7, 17);
+      var days = Math.max(0, Math.ceil((target - Date.now()) / 86400000));
+      countEl.textContent = days;
+    }
+
+    // Mailing list — honest not-yet-open message, never a fake success
     var form = document.querySelector(".mail-form");
+    var note = document.getElementById("mailNote");
     if (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        var btn = form.querySelector("button");
-        if (btn) {
-          btn.textContent = "You're In";
-          btn.disabled = true;
-          btn.style.opacity = "0.75";
-        }
+        if (note) { note.hidden = false; }
       });
     }
   })();

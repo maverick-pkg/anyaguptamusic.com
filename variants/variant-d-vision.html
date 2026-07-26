@@ -241,6 +241,13 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
 .socials svg{width:20px;height:20px;fill:currentColor}
 footer{background:var(--ink);color:var(--paper);padding:2.4rem 0;text-align:center}
 footer .monogram{font-size:2rem}
+/* RadhaSoami mark — still and dignified on a light chip */
+.rs-mark{
+  width:84px;height:84px;border-radius:50%;background:var(--paper);
+  display:grid;place-items:center;margin:0 auto 1.1rem;
+  box-shadow:0 3px 12px rgba(0,0,0,.35);
+}
+.rs-mark img{width:54px;height:auto;display:block}
 footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#bfb4b8;margin-top:.6rem}
 
 /* reveal */
@@ -462,6 +469,9 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
 </section>
 
 <footer>
+  <div class="rs-mark" role="img" aria-label="RadhaSoami">
+    <img src="../assets/rs-radhasoami.png" alt="RadhaSoami">
+  </div>
   <span class="monogram" aria-hidden="true">AG</span>
   <p>© 2026 Anya Gupta · all rights reserved</p>
 </footer>
