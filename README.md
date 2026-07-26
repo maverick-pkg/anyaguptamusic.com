@@ -5,9 +5,10 @@ Single-page official website for Anya, modeled on label-built artist sites
 
 ## Status
 
-Design-direction phase: three candidate variants live in `variants/`
-(midnight / scrapbook / gloss). Once a direction is chosen, it becomes
-`index.html` and real content replaces the placeholders.
+Live site: `index.html` — variant D ("Vision"), chosen by Anya, built from her
+vision board. Blush/peach/gold collage design with real content: Becoming
+album countdown (Aug 17), released singles with real cover art, bio, gallery,
+RadhaSoami mark in footer. Historical design candidates remain in `variants/`.
 
 ## Placeholder content to replace
 

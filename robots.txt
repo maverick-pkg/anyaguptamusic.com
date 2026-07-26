@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://anyaguptamusic.com/sitemap.xml
