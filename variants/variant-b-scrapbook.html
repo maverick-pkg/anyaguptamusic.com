@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANYA — Slow Motion, the new single, out now</title>
+<meta name="description" content="Official site of ANYA. New single Slow Motion out now. Music, videos, tour dates and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Libre+Franklin:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET / TOKENS ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#faf5ea;
+  --cream-2:#f3ebda;
+  --paper:#fffdf6;
+  --lav:#c9b8ef;
+  --lav-soft:#eae3f8;
+  --lav-deep:#8f79c9;
+  --butter:#f7d365;
+  --butter-soft:#fdf3d3;
+  --ink:#2b2149;
+  --ink-60:rgba(43,33,73,.6);
+  --ink-30:rgba(43,33,73,.3);
+  --ink-12:rgba(43,33,73,.12);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Libre Franklin',-apple-system,Helvetica,Arial,sans-serif;
+  --hand:'Caveat','Comic Sans MS',cursive;
+  --shadow-paper:0 12px 32px rgba(43,33,73,.14);
+  --nav-h:4.25rem;
+}
+html{overflow-x:clip;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  overflow-x:clip;
+  background:var(--cream);
+  color:var(--ink);
+  font:400 1rem/1.7 var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%}
+a{color:inherit}
+::selection{background:var(--butter);color:var(--ink)}
+:focus-visible{outline:3px solid var(--lav-deep);outline-offset:3px;border-radius:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:1rem;top:-4rem;z-index:200;background:var(--ink);color:var(--cream);padding:.6rem 1rem;border-radius:6px;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:1rem}
+
+.wrap{width:min(72rem,100% - 3rem);margin-inline:auto}
+@media (max-width:640px){.wrap{width:min(72rem,100% - 2.5rem)}}
+
+section{position:relative;scroll-margin-top:calc(var(--nav-h) + 1rem)}
+.section-pad{padding-block:clamp(4rem,9vw,7rem)}
+
+/* film grain over everything */
+.grain{position:fixed;inset:0;z-index:120;pointer-events:none;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.055'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* torn paper dividers */
+.tear{display:block;width:100%;height:clamp(26px,4vw,52px);margin-bottom:-1px}
+
+/* squiggle divider */
+.squiggle-divider{display:flex;justify-content:center;padding-block:.5rem}
+.squiggle-divider svg{width:min(220px,50%);height:18px;color:var(--lav-deep);opacity:.65}
+
+/* ============ TYPE HELPERS ============ */
+.hand{font-family:var(--hand);font-weight:600}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font:600 .78rem/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--ink)}
+.eyebrow .spark{width:15px;height:15px;color:var(--lav-deep);flex:none}
+.section-head{margin-bottom:clamp(2.25rem,5vw,3.5rem)}
+.section-head .lead-in{display:block;font-family:var(--hand);font-size:clamp(1.4rem,2.6vw,1.75rem);font-weight:600;color:var(--lav-deep);transform:rotate(-1.5deg);margin-bottom:.15rem}
+.section-head h2{font:900 clamp(2.5rem,6vw,4rem)/1.02 var(--serif);letter-spacing:.01em;text-transform:uppercase}
+.section-head .scribble{display:block;width:clamp(130px,22vw,220px);height:16px;margin-top:.5rem;color:var(--butter)}
+.hl{background-image:linear-gradient(transparent 58%,rgba(247,211,101,.8) 58%,rgba(247,211,101,.8) 94%,transparent 94%)}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-block;font:800 .78rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:1rem 1.7rem;box-shadow:3px 3px 0 var(--lav);transition:transform .18s ease,box-shadow .18s ease;cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px) rotate(-1deg);box-shadow:6px 6px 0 var(--lav)}
+.btn-primary{background:var(--ink);color:var(--cream);box-shadow:3px 3px 0 var(--butter)}
+.btn-primary:hover{box-shadow:6px 6px 0 var(--butter)}
+.btn-ticket{background:var(--butter);box-shadow:3px 3px 0 var(--ink);padding:.85rem 1.4rem}
+.btn-ticket:hover{box-shadow:5px 5px 0 var(--ink)}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,245,234,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1.5px solid var(--ink-12)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:var(--nav-h);flex-wrap:wrap;padding-block:.6rem}
+.wordmark{font:900 1.7rem/1 var(--serif);letter-spacing:.12em;text-decoration:none;color:var(--ink);position:relative}
+.wordmark .wordmark-star{position:absolute;top:-7px;right:-16px;width:13px;height:13px;color:var(--lav-deep)}
+.nav nav{display:flex;flex-wrap:wrap;gap:.35rem .5rem}
+.nav nav a{font:600 .72rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding:.55rem .65rem;border-radius:999px;position:relative;transition:color .15s}
+.nav nav a::after{content:"";position:absolute;left:.6rem;right:.6rem;bottom:.25rem;height:3px;border-radius:3px;background:var(--butter);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.nav nav a:hover::after,.nav nav a:focus-visible::after{transform:scaleX(1)}
+@media (max-width:640px){
+  .nav-in{justify-content:center;text-align:center;padding-block:.5rem;gap:.15rem}
+  .wordmark{flex:1 0 100%;font-size:1.45rem;padding-top:.1rem}
+  .nav nav{justify-content:center;flex:1 0 100%;padding-bottom:.2rem;gap:.1rem}
+  .nav nav a{font-size:.63rem;letter-spacing:.12em;padding:.45rem .4rem}
+  section{scroll-margin-top:7.5rem}
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;overflow:hidden;
+  min-height:calc(100svh - var(--nav-h));
+  display:flex;align-items:center;
+  background:
+    radial-gradient(58% 46% at 88% 8%,rgba(247,211,101,.5),transparent 70%),
+    radial-gradient(52% 55% at 4% 92%,rgba(201,184,239,.6),transparent 72%),
+    radial-gradient(30% 30% at 20% 15%,rgba(201,184,239,.28),transparent 70%),
+    var(--cream);
+  padding-block:clamp(3rem,7vw,5rem);
+}
+.hero-in{display:grid;gap:clamp(2.5rem,6vw,4rem);align-items:center}
+@media (min-width:900px){.hero-in{grid-template-columns:1.05fr .95fr}}
+.hero-copy{position:relative;z-index:2}
+.hero-title{font:italic 900 clamp(3rem,10.5vw,6.4rem)/1.02 var(--serif);letter-spacing:-.01em;margin:.75rem 0 .1rem}
+.hero-title .hl{padding-inline:.06em}
+.hero-scribble{display:block;width:clamp(180px,32vw,330px);height:20px;color:var(--lav-deep);margin:.2rem 0 .7rem}
+.hero-sub{font-family:var(--hand);font-size:clamp(1.4rem,2.8vw,1.8rem);font-weight:500;color:var(--ink-60);transform:rotate(-.6deg);max-width:26ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.9rem}
+
+/* hero doodles */
+.hero-doodle{position:absolute;color:var(--lav-deep);opacity:.8;pointer-events:none}
+.hd-1{width:26px;top:12%;left:55%;transform:rotate(14deg);color:var(--butter);filter:saturate(1.2)}
+.hd-2{width:17px;top:24%;left:3%;transform:rotate(-15deg)}
+.hd-3{width:20px;bottom:10%;right:6%;transform:rotate(22deg)}
+@media (max-width:899px){.hd-1{left:80%;top:6%}}
+
+/* polaroid */
+.polaroid{position:relative;background:var(--paper);padding:clamp(10px,1.6vw,16px) clamp(10px,1.6vw,16px) clamp(50px,7vw,66px);box-shadow:var(--shadow-paper);border-radius:2px}
+.polaroid .photo{position:relative;overflow:hidden;border-radius:1px}
+.polaroid-caption{position:absolute;left:0;right:0;bottom:clamp(8px,1.4vw,14px);text-align:center;font-family:var(--hand);font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:600;color:var(--ink-60)}
+.photo-tag{position:absolute;right:10px;bottom:10px;z-index:3;font:600 .58rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,253,246,.95);background:rgba(43,33,73,.42);padding:.32rem .6rem;border-radius:999px;backdrop-filter:blur(2px)}
+.tape{position:absolute;z-index:5;width:96px;height:27px;background:linear-gradient(100deg,rgba(250,231,163,.9),rgba(244,213,113,.75));box-shadow:0 2px 6px rgba(43,33,73,.15);clip-path:polygon(2% 0,98% 4%,100% 30%,97% 55%,100% 80%,98% 100%,3% 96%,0 70%,2% 40%,0 12%)}
+.tape-lav{background:linear-gradient(100deg,rgba(216,201,244,.9),rgba(196,178,238,.72))}
+.tape-tl{top:-12px;left:-30px;transform:rotate(-40deg)}
+.tape-tr{top:-12px;right:-30px;transform:rotate(40deg)}
+.tape-br{bottom:36px;right:-34px;transform:rotate(-42deg)}
+.tape-top{top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg)}
+
+.hero-art{position:relative;justify-self:center;width:min(420px,88%);z-index:1}
+.polaroid-hero{transform:rotate(-2.4deg)}
+.hero-photo{aspect-ratio:4/5;background:linear-gradient(165deg,#ece2fb 0%,#c9b8ef 45%,#f2d787 100%)}
+.hero-photo svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* OUT NOW burst sticker */
+.burst{position:absolute;top:-26px;right:-14px;width:clamp(104px,14vw,132px);aspect-ratio:1;z-index:6;filter:drop-shadow(0 5px 10px rgba(43,33,73,.22))}
+.burst svg{width:100%;height:100%;display:block}
+@media (prefers-reduced-motion:no-preference){
+  .burst svg{animation:spin 28s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+}
+.burst-text{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font:800 .82rem/1.2 var(--sans);letter-spacing:.1em;color:var(--ink);transform:rotate(-11deg)}
+
+/* ============ MUSIC ============ */
+.music{background:var(--cream)}
+.release-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.6rem,4vw,2.75rem) clamp(1.1rem,3vw,2.5rem)}
+@media (min-width:760px){.release-grid{grid-template-columns:repeat(3,1fr)}}
+.release{position:relative}
+.cover-wrap{display:block;position:relative;text-decoration:none}
+.cover{position:relative;overflow:hidden;aspect-ratio:1;border-radius:2px;box-shadow:0 8px 22px rgba(43,33,73,.16);transition:transform .25s ease,box-shadow .25s ease}
+.release:nth-child(odd) .cover{transform:rotate(-1.6deg)}
+.release:nth-child(even) .cover{transform:rotate(1.3deg)}
+.cover-wrap:hover .cover,.cover-wrap:focus-visible .cover{transform:rotate(0) translateY(-5px);box-shadow:0 16px 30px rgba(43,33,73,.22)}
+.cover svg{position:absolute;inset:0;width:100%;height:100%}
+.cover .photo-tag{right:8px;bottom:8px;font-size:.52rem}
+.release-title{font:700 clamp(1.05rem,2vw,1.3rem)/1.25 var(--serif);margin-top:1rem}
+.release-meta{font:400 .8rem/1.5 var(--sans);letter-spacing:.06em;color:var(--ink-60);margin-top:.15rem}
+.listen{font-family:var(--hand);font-size:1.12rem;font-weight:600;color:var(--lav-deep);text-decoration:none;position:relative;white-space:nowrap}
+.listen::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;border-radius:2px;background:currentColor;transform:scaleX(.35);transform-origin:left;transition:transform .2s ease;opacity:.6}
+.listen:hover::after,.listen:focus-visible::after{transform:scaleX(1);opacity:1}
+.sticker-new{position:absolute;top:-12px;left:-12px;z-index:6;background:var(--butter);border:2px solid var(--ink);border-radius:999px;font:700 1.05rem/1 var(--hand);padding:.45rem .7rem .4rem;transform:rotate(-12deg);box-shadow:2px 2px 0 var(--ink)}
+.mini-tape{width:66px;height:20px;top:-9px;left:50%;transform:translateX(-50%) rotate(-3deg)}
+
+/* covers */
+.cover-1{background:linear-gradient(150deg,#dcccf6 0%,#c9b8ef 38%,#f0d685 78%,#f7d365 100%)}
+.cover-2{background:#fbf4e3}
+.cover-3{background:linear-gradient(160deg,#f9dd80,#f2c94c)}
+.cover-4{background:linear-gradient(180deg,#8f79c9 0%,#4b3d78 58%,#2b2149 100%)}
+.cover-5{background:#e9e2f8}
+.cover-6{background:#f4ecdc}
+
+/* ============ VIDEO ============ */
+.video-section{background:var(--lav-soft)}
+.video-grid{display:grid;gap:clamp(2rem,5vw,3rem)}
+@media (min-width:900px){.video-grid{grid-template-columns:1fr 1fr}}
+.video-card{display:block;text-decoration:none;color:inherit}
+.video-frame{position:relative;overflow:hidden;aspect-ratio:16/9;border-radius:3px;box-shadow:var(--shadow-paper);transition:transform .25s ease}
+.video-card:nth-child(1) .video-frame{transform:rotate(-.8deg)}
+.video-card:nth-child(2) .video-frame{transform:rotate(.8deg)}
+.video-card:hover .video-frame,.video-card:focus-visible .video-frame{transform:rotate(0) translateY(-4px)}
+.video-frame .scene{position:absolute;inset:0;width:100%;height:100%}
+.vf-1{background:linear-gradient(170deg,#d9c8f5 0%,#b7a3e6 45%,#f0cf7e 100%)}
+.vf-2{background:linear-gradient(180deg,#41346b 0%,#2b2149 70%,#221a3a 100%)}
+.play{position:absolute;inset:0;display:grid;place-items:center;z-index:4}
+.play-btn{width:clamp(58px,8vw,76px);aspect-ratio:1;border-radius:50%;background:var(--paper);border:2.5px solid var(--ink);display:grid;place-items:center;box-shadow:4px 4px 0 rgba(43,33,73,.55);transition:transform .2s ease}
+.play-btn svg{width:38%;height:38%;margin-left:8%;color:var(--ink)}
+.video-card:hover .play-btn,.video-card:focus-visible .play-btn{transform:scale(1.08) rotate(-4deg)}
+.video-title{font:700 clamp(1.15rem,2.2vw,1.45rem)/1.3 var(--serif);margin-top:1.1rem}
+.video-note{font-family:var(--hand);font-size:1.15rem;color:var(--ink-60)}
+
+/* ============ SHOWS ============ */
+.shows{background:var(--cream);background-image:repeating-linear-gradient(180deg,transparent 0 44px,rgba(143,121,201,.09) 44px 45px)}
+.shows-list{list-style:none;max-width:56rem}
+.show{display:grid;gap:.3rem;align-items:center;padding:1.35rem .85rem;border-bottom:2px dashed var(--ink-30);transition:background .2s}
+.show:first-child{border-top:2px dashed var(--ink-30)}
+.show:hover{background:rgba(247,211,101,.16)}
+@media (min-width:760px){.show{grid-template-columns:7.6rem 1.35fr 1fr auto;gap:1.25rem;padding:1.35rem 1.1rem}}
+.show-date{display:flex;align-items:baseline;gap:.4rem}
+.d-mon{font-family:var(--hand);font-size:1.5rem;font-weight:700;color:var(--lav-deep)}
+.d-day{font:900 1.65rem/1 var(--serif)}
+.d-yr{font:600 .68rem/1 var(--sans);letter-spacing:.14em;color:var(--ink-60)}
+.show-venue{font:700 1.2rem/1.3 var(--serif)}
+.show-city{font:400 .85rem/1.5 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60)}
+.show .btn-ticket{justify-self:start;margin-top:.45rem}
+@media (min-width:760px){.show .btn-ticket{justify-self:end;margin-top:0}}
+.shows-note{margin-top:1.75rem;font-family:var(--hand);font-size:1.35rem;color:var(--ink-60);transform:rotate(-1deg);display:inline-flex;align-items:center;gap:.5rem}
+.shows-note svg{width:18px;height:18px;color:var(--butter)}
+
+/* ============ ABOUT ============ */
+.about{background:var(--butter-soft)}
+.about-in{display:grid;gap:clamp(2.5rem,6vw,4.5rem);align-items:center}
+@media (min-width:900px){.about-in{grid-template-columns:.9fr 1.1fr}}
+.about-art{justify-self:center;width:min(380px,86%);position:relative}
+.polaroid-about{transform:rotate(2deg)}
+.about-photo{aspect-ratio:4/5;background:linear-gradient(200deg,#fae6a8 0%,#eee0f2 55%,#d9c8f5 100%)}
+.about-photo svg{position:absolute;inset:0;width:100%;height:100%}
+.about-doodle{position:absolute;width:30px;bottom:-6px;left:-22px;color:var(--lav-deep);transform:rotate(-18deg)}
+.about-copy p{max-width:52ch}
+.about-copy p + p{margin-top:1.1rem}
+.pull-quote{font-family:var(--hand);font-size:clamp(1.5rem,3vw,1.9rem);font-weight:600;color:var(--lav-deep);transform:rotate(-1.2deg);margin-top:1.6rem;display:inline-block}
+
+/* ============ MAILING LIST ============ */
+.join{background:var(--lav-soft)}
+.join-card{position:relative;max-width:40rem;margin-inline:auto;background:var(--paper);border-radius:3px;box-shadow:var(--shadow-paper);padding:clamp(2.25rem,6vw,3.5rem) clamp(1.4rem,5vw,3rem);text-align:center;transform:rotate(-.5deg)}
+.join-card h2{font:900 clamp(1.9rem,5vw,2.8rem)/1.1 var(--serif);text-transform:uppercase}
+.join-sub{font-family:var(--hand);font-size:clamp(1.3rem,2.4vw,1.6rem);color:var(--ink-60);margin-top:.5rem}
+.signup{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem;margin-top:1.8rem}
+.signup input{flex:1 1 15rem;max-width:22rem;font:400 1rem/1 var(--sans);color:var(--ink);background:transparent;border:0;border-bottom:2.5px dashed var(--ink);padding:.9rem .35rem;border-radius:0}
+.signup input::placeholder{color:var(--ink-30);font-family:var(--hand);font-size:1.25rem}
+.signup input:focus-visible{outline:none;border-bottom-color:var(--lav-deep)}
+.signup-note{margin-top:1.1rem;font-family:var(--hand);font-size:1.35rem;color:var(--lav-deep)}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--cream);text-align:center}
+.contact .section-head{margin-bottom:1.25rem}
+.contact-line{font:italic 500 clamp(1.25rem,3vw,1.8rem)/1.5 var(--serif)}
+.contact-line a{color:var(--ink);text-decoration-color:var(--lav-deep);text-decoration-thickness:2.5px;text-underline-offset:5px;transition:text-decoration-color .2s}
+.contact-line a:hover{text-decoration-color:var(--butter)}
+
+/* ============ FOOTER ============ */
+.footer{background:var(--ink);color:var(--cream);text-align:center;padding:clamp(2.75rem,6vw,4rem) 0 clamp(2.25rem,5vw,3rem)}
+.socials{display:flex;justify-content:center;gap:1.1rem;margin-bottom:1.75rem}
+.socials a{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(250,245,234,.35);color:var(--cream);transition:background .2s,color .2s,transform .2s,border-color .2s}
+.socials a svg{width:21px;height:21px}
+.socials a:hover,.socials a:focus-visible{background:var(--butter);color:var(--ink);border-color:var(--butter);transform:translateY(-3px) rotate(-4deg)}
+.footer-wordmark{font:900 1.5rem/1 var(--serif);letter-spacing:.16em}
+.footer-copy{font:400 .74rem/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:rgba(250,245,234,.55);margin-top:.6rem}
+.footer-hand{font-family:var(--hand);font-size:1.2rem;color:rgba(250,245,234,.5);margin-top:1rem;transform:rotate(-1deg);display:inline-block}
+
+/* ============ REVEAL ANIMATION ============ */
+/* CSS scroll-driven entrances: no JS gating, so content is always visible
+   (and paints correctly) even before/without script execution */
+.reveal{opacity:1}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion:no-preference) {
+    .reveal{
+      animation:rise-in .8s cubic-bezier(.19,1,.22,1) both;
+      animation-timeline:view();
+      animation-range:entry 8% entry 42%;
+    }
+  }
+}
+@keyframes rise-in{
+  from{opacity:0;transform:translateY(26px)}
+  to{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .burst svg{animation:none}
+  *{transition-duration:.001s !important}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- shared svg defs: torn edges + doodles -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="tearA" d="M0 34 L48 22 96 36 150 18 208 32 260 14 318 30 372 20 428 34 486 16 540 30 600 22 656 36 714 18 770 30 828 14 884 32 940 20 996 34 1052 18 1108 30 1164 22 1220 36 1276 16 1332 30 1388 20 1440 32 L1440 60 0 60 Z"/>
+    <path id="tearB" d="M0 26 L54 36 110 18 172 32 226 16 288 34 344 22 402 36 458 18 514 30 574 20 632 34 690 16 748 30 806 22 862 36 918 18 976 32 1032 20 1090 34 1146 16 1204 30 1262 22 1318 34 1376 18 1440 28 L1440 60 0 60 Z"/>
+    <path id="spark" d="M12 0C13.2 7.2 16.8 10.8 24 12c-7.2 1.2-10.8 4.8-12 12-1.2-7.2-4.8-10.8-12-12C7.2 10.8 10.8 7.2 12 0Z"/>
+    <path id="star" d="M12 1.6l2.8 6.9 7.4.5-5.7 4.8 1.8 7.2-6.3-4-6.3 4 1.8-7.2L1.8 9l7.4-.5L12 1.6z"/>
+    <path id="heart" d="M12 21.2C5.6 15.7 2.4 11.9 2.4 8.2 2.4 5.4 4.6 3.2 7.4 3.2c1.8 0 3.5.9 4.6 2.4 1.1-1.5 2.8-2.4 4.6-2.4 2.8 0 5 2.2 5 5 0 3.7-3.2 7.5-9.6 13z"/>
+    <path id="squig" d="M4 12 C 24 4, 44 18, 66 10 S 108 14, 130 8 S 172 16, 196 9 S 236 13, 256 8" />
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="wordmark" href="#top">ANYA
+      <svg class="wordmark-star" viewBox="0 0 24 24" aria-hidden="true"><use href="#spark" fill="currentColor"/></svg>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#music">Music</a>
+      <a href="#video">Video</a>
+      <a href="#shows">Shows</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-label="Latest single: Slow Motion">
+  <svg class="hero-doodle hd-1" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="currentColor"/></svg>
+  <svg class="hero-doodle hd-2" viewBox="0 0 24 24" aria-hidden="true"><use href="#spark" fill="currentColor"/></svg>
+  <svg class="hero-doodle hd-3" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="currentColor"/></svg>
+
+  <div class="wrap hero-in">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">
+        <svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><use href="#spark" fill="currentColor"/></svg>
+        The New Single
+        <svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><use href="#spark" fill="currentColor"/></svg>
+      </p>
+      <h1 class="hero-title"><span class="hl">Slow Motion</span></h1>
+      <svg class="hero-scribble" viewBox="0 0 330 22" aria-hidden="true" preserveAspectRatio="none">
+        <path d="M4 15 C 44 5, 86 19, 128 11 S 214 15, 258 9 S 306 13, 326 8" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+      <p class="hero-sub">every little thing, slowed down just enough to feel it</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#">Listen Now</a>
+        <a class="btn" href="#video">Watch the Video</a>
+      </div>
+    </div>
+
+    <div class="hero-art reveal" style="--d:.15s">
+      <div class="polaroid polaroid-hero">
+        <span class="tape tape-tl" aria-hidden="true"></span>
+        <span class="tape tape-lav tape-br" aria-hidden="true"></span>
+        <div class="photo hero-photo">
+          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Art-directed placeholder promo photo for Slow Motion: cut-paper silhouette against a lavender and butter-yellow sunset">
+            <circle cx="205" cy="165" r="105" fill="#f7d365" opacity=".92"/>
+            <circle cx="205" cy="165" r="128" fill="none" stroke="#fffdf6" stroke-width="2.5" stroke-dasharray="3 9" opacity=".8"/>
+            <path d="M62 78 q26 -14 52 0 M74 100 q20 -10 40 0" fill="none" stroke="#fffdf6" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+            <path d="M200 96 c-36 0 -62 27 -62 60 0 13 4 24 10 33 -32 36 -50 82 -50 134 l0 177 204 0 0 -177 c0 -52 -18 -98 -50 -134 6 -9 10 -20 10 -33 0 -33 -26 -60 -62 -60 z" fill="#332757"/>
+            <path d="M0 432 q60 -26 120 -8 t130 -4 t150 6 l0 74 -400 0 z" fill="#c9b8ef" opacity=".85"/>
+            <use href="#spark" fill="#fffdf6" opacity=".9" transform="translate(316 84) scale(.9)"/>
+            <use href="#star" fill="#fffdf6" opacity=".7" transform="translate(46 320) scale(.7)"/>
+          </svg>
+          <span class="photo-tag">photo</span>
+        </div>
+        <p class="polaroid-caption">slow motion — out now &#9825;</p>
+      </div>
+      <div class="burst" role="img" aria-label="Sticker: out now">
+        <svg viewBox="0 0 150 150" aria-hidden="true">
+          <g fill="#f7d365">
+            <rect x="25" y="25" width="100" height="100"/>
+            <rect x="25" y="25" width="100" height="100" transform="rotate(30 75 75)"/>
+            <rect x="25" y="25" width="100" height="100" transform="rotate(60 75 75)"/>
+          </g>
+          <circle cx="75" cy="75" r="46" fill="none" stroke="#2b2149" stroke-width="2" stroke-dasharray="4 6"/>
+        </svg>
+        <span class="burst-text">OUT<br>NOW</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="squiggle-divider" aria-hidden="true">
+  <svg viewBox="0 0 260 20" preserveAspectRatio="none"><use href="#squig" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+</div>
+
+<!-- ============ MUSIC ============ -->
+<section class="music section-pad" id="music">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="lead-in">the records so far…</span>
+      <h2>Music</h2>
+      <svg class="scribble" viewBox="0 0 220 18" aria-hidden="true" preserveAspectRatio="none">
+        <path d="M4 12 C 36 4, 72 16, 110 9 S 182 13, 216 7" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="release-grid">
+
+      <article class="release reveal">
+        <a class="cover-wrap" href="#" aria-label="Slow Motion, 2026 — listen now">
+          <div class="cover cover-1">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Slow Motion cover art placeholder: concentric rings drifting over a lavender-to-butter gradient">
+              <g fill="none" stroke="#2b2149" stroke-linecap="round">
+                <circle cx="46" cy="42" r="9" stroke-width="1.6" opacity=".85"/>
+                <circle cx="46" cy="42" r="17" stroke-width="1.4" opacity=".6"/>
+                <circle cx="46" cy="42" r="25" stroke-width="1.2" opacity=".4"/>
+                <circle cx="46" cy="42" r="33" stroke-width="1.1" stroke-dasharray="1 5" opacity=".55"/>
+                <path d="M8 82 q12 -6 24 0 t24 0 t24 0 t24 0" stroke-width="1.8" opacity=".7"/>
+                <path d="M8 90 q12 -6 24 0 t24 0 t24 0 t24 0" stroke-width="1.8" opacity=".4"/>
+              </g>
+            </svg>
+            <span class="photo-tag">cover</span>
+          </div>
+          <span class="sticker-new" aria-hidden="true">new!</span>
+        </a>
+        <h3 class="release-title">Slow Motion</h3>
+        <p class="release-meta">2026 &middot; <a class="listen" href="#">listen now</a></p>
+      </article>
+
+      <article class="release reveal" style="--d:.06s">
+        <a class="cover-wrap" href="#" aria-label="Paper Hearts, 2025 — listen now">
+          <div class="cover cover-2">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Paper Hearts cover art placeholder: scattered cut-paper hearts on cream">
+              <use href="#heart" fill="#c9b8ef" transform="translate(14 16) scale(1.35)"/>
+              <use href="#heart" fill="#f7d365" transform="translate(58 10) scale(1.05) rotate(14 12 12)"/>
+              <use href="#heart" fill="none" stroke="#2b2149" stroke-width="1.6" transform="translate(38 44) scale(1.7) rotate(-9 12 12)"/>
+              <use href="#heart" fill="#8f79c9" transform="translate(10 66) scale(.95) rotate(-16 12 12)"/>
+              <use href="#heart" fill="#2b2149" transform="translate(72 66) scale(.8) rotate(20 12 12)"/>
+              <path d="M0 0 L100 0 100 12 84 16 66 10 48 15 30 9 12 14 0 10 Z" fill="#e9e2f8" opacity=".9"/>
+            </svg>
+            <span class="photo-tag">cover</span>
+          </div>
+          <span class="tape mini-tape" aria-hidden="true"></span>
+        </a>
+        <h3 class="release-title">Paper Hearts</h3>
+        <p class="release-meta">2025 &middot; <a class="listen" href="#">listen now</a></p>
+      </article>
+
+      <article class="release reveal" style="--d:.12s">
+        <a class="cover-wrap" href="#" aria-label="Seventeen, 2025 — listen now">
+          <div class="cover cover-3">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Seventeen cover art placeholder: oversized numeral seventeen in ink on butter yellow">
+              <text x="50" y="72" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="62" font-style="italic" font-weight="900" fill="#2b2149">17</text>
+              <use href="#star" fill="#2b2149" transform="translate(10 10) scale(.55)"/>
+              <use href="#spark" fill="#fffdf6" transform="translate(78 14) scale(.6)"/>
+              <use href="#star" fill="#8f79c9" transform="translate(76 76) scale(.5)"/>
+            </svg>
+            <span class="photo-tag">cover</span>
+          </div>
+        </a>
+        <h3 class="release-title">Seventeen</h3>
+        <p class="release-meta">2025 &middot; <a class="listen" href="#">listen now</a></p>
+      </article>
+
+      <article class="release reveal" style="--d:.06s">
+        <a class="cover-wrap" href="#" aria-label="Blue Hour, 2024 — listen now">
+          <div class="cover cover-4">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Blue Hour cover art placeholder: a low butter-yellow sun sinking into a dusky purple horizon">
+              <circle cx="50" cy="62" r="21" fill="#f7d365" opacity=".28"/>
+              <circle cx="50" cy="62" r="15" fill="#f7d365"/>
+              <rect x="0" y="66" width="100" height="34" fill="#221a3a"/>
+              <path d="M0 66 L100 66" stroke="#c9b8ef" stroke-width=".8" opacity=".7"/>
+              <circle cx="16" cy="18" r="1" fill="#faf5ea"/>
+              <circle cx="34" cy="10" r=".8" fill="#faf5ea" opacity=".8"/>
+              <circle cx="80" cy="22" r="1.1" fill="#faf5ea"/>
+              <circle cx="66" cy="12" r=".7" fill="#faf5ea" opacity=".7"/>
+              <use href="#spark" fill="#faf5ea" transform="translate(84 40) scale(.4)" opacity=".9"/>
+            </svg>
+            <span class="photo-tag">cover</span>
+          </div>
+        </a>
+        <h3 class="release-title">Blue Hour</h3>
+        <p class="release-meta">2024 &middot; <a class="listen" href="#">listen now</a></p>
+      </article>
+
+      <article class="release reveal" style="--d:.12s">
+        <a class="cover-wrap" href="#" aria-label="Homesick, 2024 — listen now">
+          <div class="cover cover-5">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Homesick cover art placeholder: a hand-drawn little house on lavender, framed like a postage stamp">
+              <rect x="6" y="6" width="88" height="88" fill="none" stroke="#2b2149" stroke-width="1.6" stroke-dasharray="2 5"/>
+              <g fill="none" stroke="#2b2149" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M32 66 L32 46 L50 32 L68 46 L68 66 Z"/>
+                <path d="M45 66 L45 54 L55 54 L55 66"/>
+                <path d="M60 40 L60 32 L65 32 L65 44"/>
+              </g>
+              <use href="#heart" fill="#f7d365" transform="translate(56 12) scale(.6) rotate(12 12 12)"/>
+              <path d="M28 80 q22 8 44 0" fill="none" stroke="#8f79c9" stroke-width="2.4" stroke-linecap="round"/>
+            </svg>
+            <span class="photo-tag">cover</span>
+          </div>
+          <span class="tape tape-lav mini-tape" aria-hidden="true"></span>
+        </a>
+        <h3 class="release-title">Homesick</h3>
+        <p class="release-meta">2024 &middot; <a class="listen" href="#">listen now</a></p>
+      </article>
+
+      <article class="release reveal" style="--d:.18s">
+        <a class="cover-wrap" href="#" aria-label="Start Again, 2023 — listen now">
+          <div class="cover cover-6">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Start Again cover art placeholder: a hand-drawn circular arrow looping back on itself on warm cream">
+              <rect x="5" y="5" width="90" height="90" fill="none" stroke="#2b2149" stroke-width="1"/>
+              <rect x="9" y="9" width="82" height="82" fill="none" stroke="#2b2149" stroke-width=".6" opacity=".5"/>
+              <path d="M64 30 A 24 24 0 1 0 72 52" fill="none" stroke="#2b2149" stroke-width="3.2" stroke-linecap="round"/>
+              <path d="M72 52 l-9 -3 M72 52 l1 -10" stroke="#2b2149" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+              <use href="#spark" fill="#8f79c9" transform="translate(60 62) scale(.55)"/>
+              <use href="#star" fill="#f7d365" transform="translate(24 20) scale(.45)"/>
+            </svg>
+            <span class="photo-tag">cover</span>
+          </div>
+        </a>
+        <h3 class="release-title">Start Again</h3>
+        <p class="release-meta">2023 &middot; <a class="listen" href="#">listen now</a></p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<svg class="tear" style="color:var(--lav-soft);background:var(--cream)" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><use href="#tearA" fill="currentColor"/></svg>
+
+<!-- ============ VIDEO ============ -->
+<section class="video-section section-pad" id="video" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="lead-in">press play &#9825;</span>
+      <h2>Video</h2>
+      <svg class="scribble" viewBox="0 0 220 18" aria-hidden="true" preserveAspectRatio="none">
+        <path d="M4 12 C 36 4, 72 16, 110 9 S 182 13, 216 7" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="video-grid">
+
+      <a class="video-card reveal" href="#" aria-label="Play video: Slow Motion (Official Video)">
+        <div class="video-frame vf-1">
+          <svg class="scene" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Video still placeholder: a lone figure in a wash of lavender and gold light">
+            <circle cx="160" cy="150" r="72" fill="#f7d365" opacity=".55"/>
+            <path d="M0 0 L130 180 L98 180 L0 46 Z" fill="#fffdf6" opacity=".14"/>
+            <path d="M320 0 L215 180 L245 180 L320 60 Z" fill="#fffdf6" opacity=".12"/>
+            <g fill="#332757">
+              <circle cx="160" cy="94" r="9"/>
+              <path d="M151 106 c-4 14 -5 28 -3 42 l4 32 h6 l1 -26 h2 l1 26 h6 l4 -32 c2 -14 1 -28 -3 -42 c-6 -4 -12 -4 -18 0 z"/>
+            </g>
+            <rect x="0" y="168" width="320" height="12" fill="#332757" opacity=".35"/>
+            <use href="#spark" fill="#fffdf6" transform="translate(48 30) scale(.7)" opacity=".9"/>
+            <use href="#star" fill="#fffdf6" transform="translate(258 40) scale(.55)" opacity=".7"/>
+          </svg>
+          <span class="play" aria-hidden="true">
+            <span class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M5 3.5 L21 12 L5 20.5 Z" fill="currentColor"/></svg>
+            </span>
+          </span>
+          <span class="photo-tag">video</span>
+        </div>
+        <h3 class="video-title">Slow Motion (Official Video)</h3>
+        <p class="video-note">the one with the sunset</p>
+      </a>
+
+      <a class="video-card reveal" style="--d:.1s" href="#" aria-label="Play video: Blue Hour (Live Session)">
+        <div class="video-frame vf-2">
+          <svg class="scene" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Video still placeholder: stage spotlights crossing over a silhouette at a microphone">
+            <path d="M40 0 L150 180 L60 180 L-10 0 Z" fill="#c9b8ef" opacity=".24"/>
+            <path d="M290 0 L180 180 L268 180 L330 0 Z" fill="#f7d365" opacity=".2"/>
+            <g fill="#171129">
+              <circle cx="160" cy="96" r="9"/>
+              <path d="M151 108 c-4 14 -5 26 -3 40 l4 30 h6 l1 -24 h2 l1 24 h6 l4 -30 c2 -14 1 -26 -3 -40 c-6 -4 -12 -4 -18 0 z"/>
+              <path d="M176 100 l14 -8 M190 92 l0 86" stroke="#171129" stroke-width="3" stroke-linecap="round" fill="none"/>
+            </g>
+            <rect x="0" y="170" width="320" height="10" fill="#171129" opacity=".7"/>
+            <circle cx="52" cy="24" r="1.2" fill="#faf5ea" opacity=".9"/>
+            <circle cx="272" cy="18" r="1" fill="#faf5ea" opacity=".7"/>
+            <circle cx="230" cy="34" r=".8" fill="#faf5ea" opacity=".6"/>
+          </svg>
+          <span class="play" aria-hidden="true">
+            <span class="play-btn">
+              <svg viewBox="0 0 24 24"><path d="M5 3.5 L21 12 L5 20.5 Z" fill="currentColor"/></svg>
+            </span>
+          </span>
+          <span class="photo-tag">video</span>
+        </div>
+        <h3 class="video-title">Blue Hour (Live Session)</h3>
+        <p class="video-note">one take, one candle</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<svg class="tear" style="color:var(--cream);background:var(--lav-soft)" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><use href="#tearB" fill="currentColor"/></svg>
+
+<!-- ============ SHOWS ============ -->
+<section class="shows section-pad" id="shows" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="lead-in">come say hi</span>
+      <h2>Shows</h2>
+      <svg class="scribble" viewBox="0 0 220 18" aria-hidden="true" preserveAspectRatio="none">
+        <path d="M4 12 C 36 4, 72 16, 110 9 S 182 13, 216 7" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <ul class="shows-list">
+      <li class="show reveal">
+        <span class="show-date"><span class="d-mon">AUG</span><span class="d-day">14</span><span class="d-yr">2026</span></span>
+        <span class="show-venue">The Note Room</span>
+        <span class="show-city">Chicago, IL</span>
+        <a class="btn btn-ticket" href="#">Tickets</a>
+      </li>
+      <li class="show reveal" style="--d:.06s">
+        <span class="show-date"><span class="d-mon">SEP</span><span class="d-day">05</span><span class="d-yr">2026</span></span>
+        <span class="show-venue">Echo Hall</span>
+        <span class="show-city">Minneapolis, MN</span>
+        <a class="btn btn-ticket" href="#">Tickets</a>
+      </li>
+      <li class="show reveal" style="--d:.12s">
+        <span class="show-date"><span class="d-mon">SEP</span><span class="d-day">26</span><span class="d-yr">2026</span></span>
+        <span class="show-venue">The Parlor</span>
+        <span class="show-city">Nashville, TN</span>
+        <a class="btn btn-ticket" href="#">Tickets</a>
+      </li>
+      <li class="show reveal" style="--d:.18s">
+        <span class="show-date"><span class="d-mon">OCT</span><span class="d-day">17</span><span class="d-yr">2026</span></span>
+        <span class="show-venue">Harbor Stage</span>
+        <span class="show-city">Austin, TX</span>
+        <a class="btn btn-ticket" href="#">Tickets</a>
+      </li>
+    </ul>
+
+    <p class="shows-note reveal">
+      more dates soon, promise
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="currentColor"/></svg>
+    </p>
+  </div>
+</section>
+
+<svg class="tear" style="color:var(--butter-soft);background:var(--cream)" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><use href="#tearA" fill="currentColor"/></svg>
+
+<!-- ============ ABOUT ============ -->
+<section class="about section-pad" id="about" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+  <div class="wrap about-in">
+    <div class="about-art reveal">
+      <div class="polaroid polaroid-about">
+        <span class="tape tape-top" aria-hidden="true"></span>
+        <div class="photo about-photo">
+          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Art-directed placeholder portrait: cut-paper silhouette with a swooping ponytail on butter and lavender">
+            <circle cx="150" cy="130" r="88" fill="#f7d365" opacity=".85"/>
+            <g fill="#332757">
+              <circle cx="196" cy="180" r="62"/>
+              <path d="M248 152 c42 -22 76 -10 86 18 c-28 -8 -50 2 -64 26 c-7 -15 -14 -30 -22 -44 z"/>
+              <path d="M186 238 l20 0 4 40 -28 0 z"/>
+              <path d="M96 500 c6 -96 48 -150 104 -150 s98 54 104 150 z"/>
+            </g>
+            <path d="M60 330 q22 -10 44 0 M68 352 q16 -8 32 0" fill="none" stroke="#fffdf6" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+            <use href="#star" fill="#fffdf6" opacity=".85" transform="translate(318 74) scale(.8)"/>
+            <use href="#spark" fill="#8f79c9" opacity=".9" transform="translate(40 96) scale(.7)"/>
+          </svg>
+          <span class="photo-tag">photo</span>
+        </div>
+        <p class="polaroid-caption">hi, it&rsquo;s me &#9825;</p>
+      </div>
+      <svg class="about-doodle" viewBox="0 0 24 24" aria-hidden="true"><use href="#star" fill="currentColor"/></svg>
+    </div>
+
+    <div class="about-copy reveal" style="--d:.1s">
+      <div class="section-head" style="margin-bottom:1.5rem">
+        <span class="lead-in">a little context</span>
+        <h2>About</h2>
+        <svg class="scribble" viewBox="0 0 220 18" aria-hidden="true" preserveAspectRatio="none">
+          <path d="M4 12 C 36 4, 72 16, 110 9 S 182 13, 216 7" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>ANYA writes the kind of pop songs that feel like reading a diary you were handed on purpose — bright, blunt, and a little bit heartbroken. Raised on her mom&rsquo;s mixtapes and a secondhand keyboard, she started posting bedroom demos at fifteen and quietly never stopped, trading polish for honesty until the honesty became the polish.</p>
+      <p>Her new single &ldquo;Slow Motion&rdquo; takes the smallest moment — a hallway, a half-finished sentence — and stretches it until it aches. After a year of opening slots, borrowed vans, and rooms that kept selling out anyway, this fall the rooms get bigger. Bring a friend; she&rsquo;ll probably write a song about it.</p>
+      <span class="pull-quote">&ldquo;write it down, sing it loud&rdquo;</span>
+    </div>
+  </div>
+</section>
+
+<svg class="tear" style="color:var(--lav-soft);background:var(--butter-soft)" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><use href="#tearB" fill="currentColor"/></svg>
+
+<!-- ============ MAILING LIST ============ -->
+<section class="join section-pad" id="join" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+  <div class="wrap">
+    <div class="join-card reveal">
+      <span class="tape tape-tl" aria-hidden="true"></span>
+      <span class="tape tape-lav tape-tr" aria-hidden="true"></span>
+      <h2>Be the First<br>to Know</h2>
+      <p class="join-sub">tour dates, new songs, secrets. no spam, pinky promise.</p>
+      <form class="signup" id="signup-form" novalidate>
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
+        <button class="btn btn-primary" type="submit">Join</button>
+      </form>
+      <p class="signup-note" id="signup-note" hidden>you&rsquo;re on the list &#9825; (demo)</p>
+    </div>
+  </div>
+</section>
+
+<svg class="tear" style="color:var(--cream);background:var(--lav-soft)" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><use href="#tearA" fill="currentColor"/></svg>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact section-pad" id="contact" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+  <div class="wrap reveal">
+    <div class="section-head" style="display:flex;flex-direction:column;align-items:center">
+      <span class="lead-in">say hello</span>
+      <h2>Contact</h2>
+      <svg class="scribble" viewBox="0 0 220 18" aria-hidden="true" preserveAspectRatio="none">
+        <path d="M4 12 C 36 4, 72 16, 110 9 S 182 13, 216 7" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="contact-line">Booking &amp; press: <a href="mailto:booking@anyamusic.com">booking@anyamusic.com</a></p>
+  </div>
+</section>
+
+<svg class="tear" style="color:var(--ink);background:var(--cream)" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><use href="#tearB" fill="currentColor"/></svg>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="socials">
+      <a href="#" aria-label="ANYA on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.1" cy="6.9" r="1.3" fill="currentColor"/></svg>
+      </a>
+      <a href="#" aria-label="ANYA on TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </a>
+      <a href="#" aria-label="ANYA on YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.5 15.5v-7l6.3 3.5z"/></svg>
+      </a>
+      <a href="#" aria-label="ANYA on Spotify">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.57-1.05 8.5-.6 11.66 1.34.35.22.46.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.16-2.56-11.98-1.4a.94.94 0 1 1-.55-1.8c4.37-1.32 9.8-.68 13.51 1.6.44.27.58.85.31 1.29zm.13-3.41C15.24 8.32 8.88 8.11 5.19 9.23a1.13 1.13 0 1 1-.66-2.16c4.24-1.29 11.28-1.04 15.72 1.6a1.13 1.13 0 0 1-1.15 1.95z"/></svg>
+      </a>
+    </div>
+    <p class="footer-wordmark">ANYA</p>
+    <p class="footer-copy">&copy; 2026 ANYA. All rights reserved.</p>
+    <p class="footer-hand">cut, taped &amp; glued together with love</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('signup-form');
+  if (form) {
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var note = document.getElementById('signup-note');
+      if (note) note.hidden = false;
+      var btn = form.querySelector('button');
+      if (btn) btn.textContent = 'Joined ♡';
+    });
+  }
+})();
+</script>
+</body>
+</html>
