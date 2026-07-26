@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variant D · Vision — Anya Gupta site preview</title>
+<meta name="description" content="Anya Gupta — Becoming, the debut album, August 17. Featuring the single You're Original.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Caveat:wght@500;600&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blush:#f6ded6;
+  --blush-deep:#efcfc4;
+  --paper:#faf6ee;
+  --ink:#211d20;
+  --ink-soft:#4c4449;
+  --peach:#f0a276;
+  --peach-deep:#e08454;
+  --gold:#c2a163;
+  --gold-pale:#e7d3ac;
+  --neon:#ff4d5e;
+  --tape:rgba(214,190,150,.55);
+  --serif:"Playfair Display",Didot,"Bodoni MT","Bodoni 72",Georgia,serif;
+  --script:Caveat,"Snell Roundhand","Segoe Script",cursive;
+  --sans:Karla,"Avenir Next",Avenir,"Helvetica Neue",Arial,sans-serif;
+  --shadow:0 14px 34px rgba(60,34,28,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  font-family:var(--sans);color:var(--ink);background:var(--blush);
+  font-size:17px;line-height:1.6;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);line-height:1.05;text-wrap:balance}
+.eyebrow{
+  font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+.script{font-family:var(--script);font-weight:600;color:var(--peach-deep);font-size:1.9rem;line-height:1;transform:rotate(-2deg);display:inline-block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+
+/* paper cutout strips (like the board's word labels) */
+.strip{
+  display:inline-block;background:var(--paper);padding:.28em .8em;
+  box-shadow:0 3px 10px rgba(60,34,28,.14);
+}
+
+/* ── nav ─────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--blush) 88%,white 12%);
+  border-bottom:1px solid rgba(33,29,32,.08);backdrop-filter:blur(8px);
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem clamp(18px,4vw,44px);max-width:1160px;margin:0 auto}
+.monogram{
+  font-family:var(--serif);font-weight:900;font-size:1.5rem;letter-spacing:.02em;text-decoration:none;
+  background:linear-gradient(160deg,#8a6f38,var(--gold) 38%,#f3e7c8 52%,var(--gold) 66%,#8a6f38);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  position:relative;padding-right:.9em;
+}
+.monogram::after{content:"✦";position:absolute;right:0;top:-.15em;font-size:.55em;color:var(--gold);-webkit-text-fill-color:var(--gold)}
+nav ul{display:flex;gap:clamp(.7rem,2.4vw,1.8rem);list-style:none;flex-wrap:wrap;justify-content:flex-end}
+nav ul a{
+  text-decoration:none;font-weight:700;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  padding:.35em 0;border-bottom:2px solid transparent;
+}
+nav ul a:hover,nav ul a:focus-visible{border-bottom-color:var(--peach-deep)}
+:focus-visible{outline:2px solid var(--peach-deep);outline-offset:3px}
+
+/* ── hero ─────────────────────────── */
+header{position:relative;padding:clamp(2.4rem,6vw,5rem) 0 clamp(3rem,7vw,5.5rem);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.6rem,4vw,3.5rem);align-items:center}
+.hero-copy .strip{transform:rotate(-1.2deg)}
+.hero-title{
+  font-size:clamp(3.6rem,10.5vw,8.2rem);font-weight:900;font-style:italic;margin:.18em 0 .1em;
+  position:relative;letter-spacing:-.015em;
+}
+.hero-title .glow{
+  background:linear-gradient(120deg,var(--peach-deep),var(--peach) 55%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{font-size:1.05rem;color:var(--ink-soft);max-width:34ch}
+.hero-sub b{color:var(--ink)}
+.count{
+  display:flex;gap:.6rem;align-items:baseline;margin:1.1rem 0 1.4rem;font-family:var(--serif);
+}
+.count b{font-size:2.4rem;font-weight:900;font-variant-numeric:tabular-nums}
+.count span{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-family:var(--sans);font-weight:700;color:var(--ink-soft)}
+.cta-row{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:700;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:.95em 1.7em;border:2px solid var(--ink);transition:transform .15s ease,background .15s ease,color .15s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-solid{background:var(--ink);color:var(--paper)}
+.btn-solid:hover{background:var(--peach-deep);border-color:var(--peach-deep)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+/* polaroid */
+.polaroid{
+  background:var(--paper);padding:14px 14px 52px;box-shadow:var(--shadow);position:relative;
+}
+.polaroid .cap{
+  position:absolute;left:0;right:0;bottom:12px;text-align:center;
+  font-family:var(--script);font-size:1.35rem;color:var(--ink-soft);
+}
+.tape{position:relative}
+.tape::before,.tape::after{
+  content:"";position:absolute;width:96px;height:30px;background:var(--tape);top:-14px;z-index:2;
+  box-shadow:0 2px 5px rgba(60,34,28,.12);
+}
+.tape::before{left:-28px;transform:rotate(-38deg)}
+.tape::after{right:-28px;transform:rotate(35deg)}
+.hero-photo{transform:rotate(2deg)}
+.hero-photo img{aspect-ratio:4/5;object-fit:cover;object-position:60% 30%}
+.hero-script{position:absolute;z-index:3;right:4%;bottom:-8px;font-size:clamp(2.2rem,4.5vw,3.4rem);transform:rotate(-6deg)}
+.spark{position:absolute;color:var(--gold);pointer-events:none;font-size:1.1rem}
+@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+.spark{animation:twinkle 2.8s ease-in-out infinite}
+.spark:nth-child(2){animation-delay:.9s}.spark:nth-child(3){animation-delay:1.7s}
+
+/* ── ticker ─────────────────────────── */
+.ticker{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding:.55rem 0}
+.ticker-in{display:inline-block;animation:tick 26s linear infinite;font-weight:700;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase}
+.ticker-in .n{color:var(--neon)}
+.ticker-in .g{color:var(--gold-pale)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-in{animation:none}.spark{animation:none}}
+
+/* ── sections ─────────────────────────── */
+section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
+.sec-head{display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap;margin-bottom:clamp(1.6rem,4vw,2.6rem)}
+.sec-head h2{font-size:clamp(2.3rem,5.5vw,3.6rem);font-weight:900}
+.paper-sec{background:var(--paper)}
+.torn{display:block;width:100%;height:26px;color:var(--paper)}
+.torn.flip{transform:scaleY(-1)}
+
+/* music */
+.singles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.1rem,3vw,2.2rem)}
+.single{background:var(--paper);padding:12px 12px 16px;box-shadow:var(--shadow);text-decoration:none;transition:transform .18s ease}
+.single:hover{transform:translateY(-6px) rotate(-.5deg)}
+.single img{aspect-ratio:1;object-fit:cover}
+.single .t{font-family:var(--serif);font-weight:700;font-size:1.15rem;margin:.7em 0 .1em}
+.single .y{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+.single .listen{display:inline-block;margin-top:.55em;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;border-bottom:2px solid var(--peach-deep)}
+.upcoming{margin-top:clamp(2.2rem,5vw,3.4rem)}
+.upcoming h3{font-size:1.15rem;font-family:var(--sans);font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.1rem}
+.tracks{display:flex;flex-wrap:wrap;gap:.9rem;list-style:none}
+.tracks li{
+  background:var(--paper);box-shadow:0 3px 10px rgba(60,34,28,.14);padding:.6em 1.1em;
+  font-family:var(--serif);font-weight:700;font-size:1.12rem;
+}
+.tracks li:nth-child(odd){transform:rotate(-1.2deg)}
+.tracks li:nth-child(even){transform:rotate(1deg)}
+.tracks .lock{font-size:.68rem;font-family:var(--sans);font-weight:700;letter-spacing:.2em;color:var(--peach-deep);display:block;text-transform:uppercase}
+
+/* video */
+.videos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.1rem,3vw,2.2rem)}
+.vid{background:var(--ink);aspect-ratio:16/9;position:relative;box-shadow:var(--shadow);overflow:hidden}
+.vid img{width:100%;height:100%;object-fit:cover;opacity:.55;filter:saturate(.4)}
+.vid .play{
+  position:absolute;inset:0;display:grid;place-items:center;color:var(--paper);
+}
+.vid .play .ring{
+  width:76px;height:76px;border:2px solid var(--paper);border-radius:50%;display:grid;place-items:center;font-size:1.4rem;
+  background:rgba(33,29,32,.35);backdrop-filter:blur(2px);
+}
+.vid .label{
+  position:absolute;left:14px;bottom:12px;color:var(--paper);font-weight:700;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+}
+.vid .soon{position:absolute;top:12px;right:12px;background:var(--neon);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.4em .8em}
+
+/* shows */
+.shows-band{
+  background:linear-gradient(rgba(33,29,32,.42),rgba(33,29,32,.42)),url("../assets/photos/shows-band.jpg") center 30%/cover no-repeat;
+  color:var(--paper);
+}
+.shows-band .script{color:var(--gold-pale)}
+.shows-empty{
+  max-width:52ch;background:rgba(250,246,238,.94);color:var(--ink);padding:clamp(1.4rem,4vw,2.2rem);
+  box-shadow:var(--shadow);
+}
+.shows-empty p{margin-bottom:1rem}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.8rem,5vw,3.6rem);align-items:center}
+.about-photo{transform:rotate(-2deg);max-width:420px}
+.about-photo img{aspect-ratio:4/5;object-fit:cover;object-position:50% 20%}
+.about-copy p{margin-bottom:1.05em;max-width:58ch}
+.pull{
+  font-family:var(--serif);font-style:italic;font-weight:700;font-size:1.5rem;line-height:1.3;
+  border-left:4px solid var(--peach);padding-left:1em;margin:1.3em 0;color:var(--ink);
+}
+.om{
+  display:inline-grid;place-items:center;width:52px;height:52px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#d9b97e,#a5854a);color:#3c2f16;
+  font-size:1.5rem;box-shadow:0 3px 9px rgba(60,34,28,.25);margin-bottom:1rem;
+}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2rem)}
+.gal .polaroid img{aspect-ratio:4/5;object-fit:cover}
+.gal .polaroid:nth-child(1){transform:rotate(-2.4deg)}
+.gal .polaroid:nth-child(2){transform:rotate(1.6deg)}
+.gal .polaroid:nth-child(3){transform:rotate(-1deg)}
+.gal .polaroid:nth-child(4){transform:rotate(2.2deg)}
+.gal .polaroid:nth-child(5){transform:rotate(-1.8deg)}
+.gal .polaroid:nth-child(6){transform:rotate(1.2deg)}
+.gal .polaroid:hover{transform:rotate(0) scale(1.02);transition:transform .2s ease}
+
+/* signup */
+.signup{
+  background:linear-gradient(120deg,var(--peach) 0%,var(--peach-deep) 100%);color:#3a1f10;
+}
+.signup .sec-head h2{color:#2f1608}
+.signup .script{color:#7c3c1c}
+.signup form{display:flex;gap:.8rem;flex-wrap:wrap;max-width:560px}
+.signup input{
+  flex:1 1 260px;padding:1em 1.2em;border:2px solid #2f1608;background:var(--paper);
+  font-family:var(--sans);font-size:.95rem;
+}
+.signup .btn{border-color:#2f1608;background:#2f1608;color:var(--paper)}
+.signup .btn:hover{background:transparent;color:#2f1608}
+.signup .note{font-size:.85rem;margin-top:.9rem;max-width:52ch}
+.signup .msg{font-weight:700;margin-top:.9rem;display:none}
+
+/* contact + footer */
+.contact-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.8rem,5vw,3.4rem);align-items:center}
+.blank{
+  font-family:var(--script);font-size:1.5rem;color:var(--ink-soft);
+  border-bottom:3px dashed var(--peach-deep);padding:0 .6em;white-space:nowrap;
+}
+.socials{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.2rem}
+.socials a{
+  width:46px;height:46px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;
+  transition:background .15s ease,color .15s ease,transform .15s ease;
+}
+.socials a:hover{background:var(--ink);color:var(--paper);transform:translateY(-3px)}
+.socials svg{width:20px;height:20px;fill:currentColor}
+footer{background:var(--ink);color:var(--paper);padding:2.4rem 0;text-align:center}
+footer .monogram{font-size:2rem}
+footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#bfb4b8;margin-top:.6rem}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px)}
+.rv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* responsive */
+@media(max-width:860px){
+  .hero-grid,.about-grid,.contact-wrap{grid-template-columns:1fr}
+  .hero-photo{max-width:420px;margin:0 auto}
+  .singles{grid-template-columns:1fr 1fr}
+  .videos{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr 1fr}
+  .about-photo{margin:0 auto}
+}
+@media(max-width:520px){
+  .singles{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr;max-width:340px;margin:0 auto}
+  nav ul{gap:.7rem}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="nav-in">
+    <a class="monogram" href="#top" aria-label="Anya Gupta home">AG</a>
+    <ul>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#shows">Shows</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
+  <span class="spark" style="top:12%;left:6%">✦</span>
+  <span class="spark" style="top:22%;right:9%">✦</span>
+  <span class="spark" style="bottom:16%;left:44%">✦</span>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="strip eyebrow">The debut album · August 17</span>
+      <h1 class="hero-title"><span class="glow">Becoming</span></h1>
+      <p class="hero-sub">Seven songs about self-love, individuality, and the light we all carry — featuring the single <b>“You’re Original.”</b></p>
+      <div class="count" aria-live="polite">
+        <b id="days">—</b><span>days until the album</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF">Listen now</a>
+        <a class="btn btn-line" href="#signup">Join the list</a>
+      </div>
+    </div>
+    <div class="hero-photo polaroid tape">
+      <img src="../assets/photos/hero-mobile.jpg" alt="Anya Gupta seated beside a vintage record player, coral rose in her hair">
+      <span class="cap">august, in slow motion</span>
+      <span class="script hero-script">glow ✦</span>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-in">
+    <span class="n">Becoming</span> · the debut album · august 17 · featuring <span class="g">You’re Original</span> · out now everywhere · &nbsp;
+    <span class="n">Becoming</span> · the debut album · august 17 · featuring <span class="g">You’re Original</span> · out now everywhere · &nbsp;
+  </div>
+</div>
+
+<svg class="torn" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 26 L0 12 L48 16 L96 8 L160 14 L228 6 L300 15 L370 9 L448 17 L520 7 L600 13 L672 6 L748 15 L820 8 L900 16 L968 7 L1040 14 L1110 9 L1200 13 L1200 26 Z"/></svg>
+<section class="paper-sec" id="music">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Music</h2>
+      <span class="script">wake up · sing · repeat</span>
+    </div>
+    <div class="singles">
+      <a class="single tape rv" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF">
+        <img src="../assets/covers/youre-original.jpg" alt="You're Original — single cover">
+        <div class="t">You’re Original</div>
+        <div class="y">Single · 2024 · the album’s lead track</div>
+        <span class="listen">Listen now</span>
+      </a>
+      <a class="single tape rv" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF">
+        <img src="../assets/covers/tat-twam-asi.jpg" alt="Tat Twam Asi — single cover">
+        <div class="t">Tat Twam Asi</div>
+        <div class="y">Single · 2025 · 100K+ streams</div>
+        <span class="listen">Listen now</span>
+      </a>
+      <a class="single tape rv" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF">
+        <img src="../assets/covers/awaken-the-lights.jpg" alt="Awaken the Lights — single cover">
+        <div class="t">Awaken the Lights</div>
+        <div class="y">Single · 2024</div>
+        <span class="listen">Listen now</span>
+      </a>
+    </div>
+    <div class="upcoming rv">
+      <h3>Completing the album · August 17</h3>
+      <ul class="tracks">
+        <li><span class="lock">Track ✦</span>Let You Be</li>
+        <li><span class="lock">Track ✦</span>Breakup With My Ego</li>
+        <li><span class="lock">Track ✦</span>Not For You</li>
+        <li><span class="lock">Track ✦</span>Lifevest</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<svg class="torn flip" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 26 L0 12 L48 16 L96 8 L160 14 L228 6 L300 15 L370 9 L448 17 L520 7 L600 13 L672 6 L748 15 L820 8 L900 16 L968 7 L1040 14 L1110 9 L1200 13 L1200 26 Z"/></svg>
+
+<section id="video">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Video</h2>
+      <span class="script">the secret of getting ahead is getting started</span>
+    </div>
+    <div class="videos">
+      <div class="vid rv">
+        <img src="../assets/photos/music-backdrop.jpg" alt="">
+        <div class="play"><div class="ring">▶</div></div>
+        <span class="soon">Premieres with the album</span>
+        <span class="label">You’re Original — official video</span>
+      </div>
+      <div class="vid rv">
+        <img src="../assets/photos/contact-band.jpg" alt="">
+        <div class="play"><div class="ring">▶</div></div>
+        <span class="soon">Premieres with the album</span>
+        <span class="label">Becoming — sessions</span>
+      </div>
+    </div>
+    <p class="rv" style="margin-top:1.2rem;max-width:56ch">New videos premiere alongside the album. <a href="https://www.youtube.com/@theanyagupta"><b>Subscribe on YouTube</b></a> to catch them the moment they drop.</p>
+  </div>
+</section>
+
+<section class="shows-band" id="shows">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2 style="color:var(--paper)">Shows</h2>
+      <span class="script">adventure awaits</span>
+    </div>
+    <div class="shows-empty rv">
+      <p><b>New dates are being booked for the Becoming era.</b></p>
+      <p>Join the mailing list and you’ll hear about every show before anyone else.</p>
+      <a class="btn btn-solid" href="#signup">Get first access</a>
+    </div>
+  </div>
+</section>
+
+<svg class="torn" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 26 L0 12 L48 16 L96 8 L160 14 L228 6 L300 15 L370 9 L448 17 L520 7 L600 13 L672 6 L748 15 L820 8 L900 16 L968 7 L1040 14 L1110 9 L1200 13 L1200 26 Z"/></svg>
+<section class="paper-sec" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo polaroid tape rv">
+      <img src="../assets/photos/about.jpg" alt="Portrait of Anya Gupta with a coral rose in her hair">
+      <span class="cap">collect moments</span>
+    </div>
+    <div class="about-copy rv">
+      <span class="om" aria-hidden="true">ॐ</span>
+      <div class="sec-head" style="margin-bottom:1rem"><h2>About Anya</h2></div>
+      <p>Anya Gupta is a fifteen-year-old singer-songwriter from Tennessee whose music celebrates self-love, individuality, and the light we all carry within us.</p>
+      <div class="pull">“For me, songwriting is a way to clear my mind. When I write about the challenges I face as a teenager, it helps me understand them and move through them.”</div>
+      <p>She began studying voice at age six and has spent nearly a decade performing — honing her songwriting at Langston Studios and earning finalist honors in The Factor and Delta Songwriting Star. Her debut album <b><i>Becoming</i></b> arrives August 17: seven songs, including the singles “Tat Twam Asi,” “Awaken the Lights,” and “You’re Original,” inviting listeners to celebrate who they are and let their inner light shine.</p>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" aria-label="Photos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Moments</h2>
+      <span class="script">stay close to people who feel like sunshine</span>
+    </div>
+    <div class="gal">
+      <figure class="polaroid tape rv"><img src="../assets/photos/gallery-01.jpg" alt="Anya beside the record player, looking to camera"><figcaption class="cap">glow</figcaption></figure>
+      <figure class="polaroid tape rv"><img src="../assets/photos/gallery-02.jpg" alt="Anya resting her chin on her arms atop a vintage radio"><figcaption class="cap">daydream</figcaption></figure>
+      <figure class="polaroid tape rv"><img src="../assets/photos/gallery-03.jpg" alt="Anya lying among vinyl records holding a microphone"><figcaption class="cap">on record</figcaption></figure>
+      <figure class="polaroid tape rv"><img src="../assets/photos/gallery-04.jpg" alt="Anya lying across vinyl records holding a coral rose overhead"><figcaption class="cap">freedom</figcaption></figure>
+      <figure class="polaroid tape rv"><img src="../assets/photos/gallery-05.jpg" alt="Anya smiling down at her guitar mid-strum"><figcaption class="cap">the craft</figcaption></figure>
+      <figure class="polaroid tape rv"><img src="../assets/photos/gallery-06.jpg" alt="Anya with arms outstretched, face to the sun, standing in a pool"><figcaption class="cap">just go</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="signup" id="signup">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Be first to know</h2>
+      <span class="script">never settle</span>
+    </div>
+    <form class="rv" novalidate>
+      <label for="em" class="eyebrow" style="flex-basis:100%;color:#4a2a16">Email address</label>
+      <input id="em" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
+      <button class="btn" type="submit">Join</button>
+      <span class="msg" role="status">The list opens very soon — follow <a href="https://www.instagram.com/anyagupta.music"><b>@anyagupta.music</b></a> in the meantime. ✦</span>
+    </form>
+    <p class="note">Album news, show dates, and first listens — a few emails a year, no noise.</p>
+  </div>
+</section>
+
+<section id="contact" class="paper-sec">
+  <div class="wrap contact-wrap">
+    <div class="rv">
+      <div class="sec-head" style="margin-bottom:1rem"><h2>Contact</h2></div>
+      <p style="max-width:46ch">For booking &amp; press:</p>
+      <p style="margin-top:.6rem"><span class="blank">booking email coming soon</span></p>
+      <div class="socials">
+        <a href="https://www.instagram.com/anyagupta.music" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.7-.3 1.8-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.7.3 1.8.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.7.3-1.8.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.7-.3-1.8-.3-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.1-2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg></a>
+        <a href="https://www.tiktok.com/@anyagupta.music" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 2h3c.1 1 .5 2 1.2 2.9.8 1 1.9 1.6 3.2 1.8v3.1c-1.6-.1-3.1-.6-4.4-1.5v6.9a6.9 6.9 0 1 1-6.9-6.9c.4 0 .7 0 1 .1v3.2a3.7 3.7 0 1 0 2.6 3.6L16.6 2z" transform="translate(-1.5 1)"/></svg></a>
+        <a href="https://www.youtube.com/@theanyagupta" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 7.2a3 3 0 0 0-2.1-2.2C19.5 4.5 12 4.5 12 4.5s-7.5 0-9.4.5A3 3 0 0 0 .5 7.2 31.6 31.6 0 0 0 0 12c0 1.6.2 3.2.5 4.8a3 3 0 0 0 2.1 2.2c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.2c.3-1.6.5-3.2.5-4.8 0-1.6-.2-3.2-.5-4.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
+        <a href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" aria-label="Spotify"><svg viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.5 17.3c-.2.4-.7.5-1 .3-2.9-1.8-6.5-2.2-10.8-1.2-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 4.7-1.1 8.7-.6 11.9 1.4.3.2.4.7.2 1zm1.4-3.2c-.3.4-.8.6-1.2.3-3.3-2-8.3-2.6-12.2-1.4-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.5-1.4 10-.7 13.8 1.6.4.2.5.8.1 1.2zm.2-3.3C15.2 8.5 8.6 8.3 4.8 9.4c-.5.2-1.1-.1-1.3-.7-.2-.6.1-1.1.7-1.3 4.4-1.3 11.6-1.1 16.1 1.6.5.3.7 1 .4 1.5-.3.4-1 .6-1.5.3z"/></svg></a>
+        <a href="https://music.apple.com/us/artist/anya-gupta/1728554823" aria-label="Apple Music"><svg viewBox="0 0 24 24"><path d="M17.7 1H6.3A5.3 5.3 0 0 0 1 6.3v11.4A5.3 5.3 0 0 0 6.3 23h11.4a5.3 5.3 0 0 0 5.3-5.3V6.3A5.3 5.3 0 0 0 17.7 1zm-.6 4.8v9.4c0 1.7-1.3 3-2.9 3-1.2 0-2.1-.9-2.1-2s.9-2 2.1-2c.3 0 .7.1 1 .2V8.3l-6 1.3v7.6c0 1.7-1.3 3-2.9 3-1.2 0-2.1-.9-2.1-2s.9-2 2.1-2c.3 0 .7.1 1 .2V6.9c0-.5.3-.9.8-1l7.9-1.7c.6-.1 1.1.3 1.1 1z"/></svg></a>
+        <a href="https://www.facebook.com/61556419742590" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3.1V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a>
+      </div>
+    </div>
+    <div class="polaroid tape rv" style="transform:rotate(1.8deg)">
+      <img src="../assets/photos/hero-desktop.jpg" alt="Anya beside the Victrola record player against a powder blue backdrop" style="aspect-ratio:3/2;object-fit:cover">
+      <span class="cap">do something great</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="monogram" aria-hidden="true">AG</span>
+  <p>© 2026 Anya Gupta · all rights reserved</p>
+</footer>
+
+<script>
+// countdown to album day
+(function(){
+  var t = new Date(2026,7,17), now = new Date();
+  var d = Math.max(0, Math.ceil((t - now)/86400000));
+  document.getElementById('days').textContent = d;
+})();
+// mailing list placeholder (no fake success)
+document.querySelector('.signup form').addEventListener('submit', function(e){
+  e.preventDefault();
+  this.querySelector('.msg').style.display = 'block';
+});
+// reveals
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
