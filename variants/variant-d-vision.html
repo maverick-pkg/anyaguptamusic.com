@@ -178,8 +178,11 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
   color:var(--paper);
 }
 .shows-band .script{color:var(--gold-pale)}
+@media(min-width:861px){
+  .shows-band{background-size:auto,150%;background-position:0 0,90% 30%}
+}
 .shows-empty{
-  max-width:52ch;background:rgba(250,246,238,.94);color:var(--ink);padding:clamp(1.4rem,4vw,2.2rem);
+  max-width:52ch;margin-left:auto;background:rgba(250,246,238,.94);color:var(--ink);padding:clamp(1.4rem,4vw,2.2rem);
   box-shadow:var(--shadow);
 }
 .shows-empty p{margin-bottom:1rem}
@@ -322,7 +325,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
         <b id="days">—</b><span>days until the album</span>
       </div>
       <div class="cta-row">
-        <a class="btn btn-solid" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF">Listen now</a>
+        <a class="btn btn-solid" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">Listen now</a>
         <a class="btn btn-line" href="#signup">Join the list</a>
       </div>
     </div>
@@ -400,19 +403,19 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
       <span class="script">wake up · sing · repeat</span>
     </div>
     <div class="singles">
-      <a class="single tape rv" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF">
+      <a class="single tape rv" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">
         <img src="../assets/covers/youre-original.jpg" alt="You're Original — single cover">
         <div class="t">You’re Original</div>
         <div class="y">Single · 2024 · the album’s lead track</div>
         <span class="listen">Listen now</span>
       </a>
-      <a class="single tape rv" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF">
+      <a class="single tape rv" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">
         <img src="../assets/covers/tat-twam-asi.jpg" alt="Tat Twam Asi — single cover">
         <div class="t">Tat Twam Asi</div>
         <div class="y">Single · 2025 · 100K+ streams</div>
         <span class="listen">Listen now</span>
       </a>
-      <a class="single tape rv" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF">
+      <a class="single tape rv" href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" target="_blank" rel="noopener">
         <img src="../assets/covers/awaken-the-lights.jpg" alt="Awaken the Lights — single cover">
         <div class="t">Awaken the Lights</div>
         <div class="y">Single · 2024</div>
@@ -452,7 +455,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
         <span class="label">Becoming — sessions</span>
       </div>
     </div>
-    <p class="rv" style="margin-top:1.2rem;max-width:56ch">New videos premiere alongside the album. <a href="https://www.youtube.com/@theanyagupta"><b>Subscribe on YouTube</b></a> to catch them the moment they drop.</p>
+    <p class="rv" style="margin-top:1.2rem;max-width:56ch">New videos premiere alongside the album. <a href="https://www.youtube.com/@theanyagupta" target="_blank" rel="noopener"><b>Subscribe on YouTube</b></a> to catch them the moment they drop.</p>
   </div>
 </section>
 
@@ -573,7 +576,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
       <label for="em" class="eyebrow" style="flex-basis:100%;color:#4a2a16">Email address</label>
       <input id="em" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
       <button class="btn" type="submit">Join</button>
-      <span class="msg" role="status">The list opens very soon — follow <a href="https://www.instagram.com/anyagupta.music"><b>@anyagupta.music</b></a> in the meantime. ✦</span>
+      <span class="msg" role="status">The list opens very soon — follow <a href="https://www.instagram.com/anyagupta.music" target="_blank" rel="noopener"><b>@anyagupta.music</b></a> in the meantime. ✦</span>
     </form>
     <p class="note">Album news, show dates, and first listens — a few emails a year, no noise.</p>
   </div>
@@ -586,12 +589,12 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
       <p style="max-width:46ch">For booking &amp; press:</p>
       <p style="margin-top:.6rem"><span class="blank">booking email coming soon</span></p>
       <div class="socials">
-        <a href="https://www.instagram.com/anyagupta.music" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.7-.3 1.8-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.7.3 1.8.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.7.3-1.8.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.7-.3-1.8-.3-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.1-2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg></a>
-        <a href="https://www.tiktok.com/@anyagupta.music" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 2h3c.1 1 .5 2 1.2 2.9.8 1 1.9 1.6 3.2 1.8v3.1c-1.6-.1-3.1-.6-4.4-1.5v6.9a6.9 6.9 0 1 1-6.9-6.9c.4 0 .7 0 1 .1v3.2a3.7 3.7 0 1 0 2.6 3.6L16.6 2z" transform="translate(-1.5 1)"/></svg></a>
-        <a href="https://www.youtube.com/@theanyagupta" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 7.2a3 3 0 0 0-2.1-2.2C19.5 4.5 12 4.5 12 4.5s-7.5 0-9.4.5A3 3 0 0 0 .5 7.2 31.6 31.6 0 0 0 0 12c0 1.6.2 3.2.5 4.8a3 3 0 0 0 2.1 2.2c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.2c.3-1.6.5-3.2.5-4.8 0-1.6-.2-3.2-.5-4.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
-        <a href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" aria-label="Spotify"><svg viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.5 17.3c-.2.4-.7.5-1 .3-2.9-1.8-6.5-2.2-10.8-1.2-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 4.7-1.1 8.7-.6 11.9 1.4.3.2.4.7.2 1zm1.4-3.2c-.3.4-.8.6-1.2.3-3.3-2-8.3-2.6-12.2-1.4-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.5-1.4 10-.7 13.8 1.6.4.2.5.8.1 1.2zm.2-3.3C15.2 8.5 8.6 8.3 4.8 9.4c-.5.2-1.1-.1-1.3-.7-.2-.6.1-1.1.7-1.3 4.4-1.3 11.6-1.1 16.1 1.6.5.3.7 1 .4 1.5-.3.4-1 .6-1.5.3z"/></svg></a>
-        <a href="https://music.apple.com/us/artist/anya-gupta/1728554823" aria-label="Apple Music"><svg viewBox="0 0 24 24"><path d="M17.7 1H6.3A5.3 5.3 0 0 0 1 6.3v11.4A5.3 5.3 0 0 0 6.3 23h11.4a5.3 5.3 0 0 0 5.3-5.3V6.3A5.3 5.3 0 0 0 17.7 1zm-.6 4.8v9.4c0 1.7-1.3 3-2.9 3-1.2 0-2.1-.9-2.1-2s.9-2 2.1-2c.3 0 .7.1 1 .2V8.3l-6 1.3v7.6c0 1.7-1.3 3-2.9 3-1.2 0-2.1-.9-2.1-2s.9-2 2.1-2c.3 0 .7.1 1 .2V6.9c0-.5.3-.9.8-1l7.9-1.7c.6-.1 1.1.3 1.1 1z"/></svg></a>
-        <a href="https://www.facebook.com/61556419742590" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3.1V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a>
+        <a href="https://www.instagram.com/anyagupta.music" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.7-.3 1.8-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.7.3 1.8.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.7.3-1.8.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.7-.3-1.8-.3-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.1-2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg></a>
+        <a href="https://www.tiktok.com/@anyagupta.music" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.6 2h3c.1 1 .5 2 1.2 2.9.8 1 1.9 1.6 3.2 1.8v3.1c-1.6-.1-3.1-.6-4.4-1.5v6.9a6.9 6.9 0 1 1-6.9-6.9c.4 0 .7 0 1 .1v3.2a3.7 3.7 0 1 0 2.6 3.6L16.6 2z" transform="translate(-1.5 1)"/></svg></a>
+        <a href="https://www.youtube.com/@theanyagupta" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 7.2a3 3 0 0 0-2.1-2.2C19.5 4.5 12 4.5 12 4.5s-7.5 0-9.4.5A3 3 0 0 0 .5 7.2 31.6 31.6 0 0 0 0 12c0 1.6.2 3.2.5 4.8a3 3 0 0 0 2.1 2.2c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.2c.3-1.6.5-3.2.5-4.8 0-1.6-.2-3.2-.5-4.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
+        <a href="https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.5 17.3c-.2.4-.7.5-1 .3-2.9-1.8-6.5-2.2-10.8-1.2-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 4.7-1.1 8.7-.6 11.9 1.4.3.2.4.7.2 1zm1.4-3.2c-.3.4-.8.6-1.2.3-3.3-2-8.3-2.6-12.2-1.4-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.5-1.4 10-.7 13.8 1.6.4.2.5.8.1 1.2zm.2-3.3C15.2 8.5 8.6 8.3 4.8 9.4c-.5.2-1.1-.1-1.3-.7-.2-.6.1-1.1.7-1.3 4.4-1.3 11.6-1.1 16.1 1.6.5.3.7 1 .4 1.5-.3.4-1 .6-1.5.3z"/></svg></a>
+        <a href="https://music.apple.com/us/artist/anya-gupta/1728554823" aria-label="Apple Music" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.7 1H6.3A5.3 5.3 0 0 0 1 6.3v11.4A5.3 5.3 0 0 0 6.3 23h11.4a5.3 5.3 0 0 0 5.3-5.3V6.3A5.3 5.3 0 0 0 17.7 1zm-.6 4.8v9.4c0 1.7-1.3 3-2.9 3-1.2 0-2.1-.9-2.1-2s.9-2 2.1-2c.3 0 .7.1 1 .2V8.3l-6 1.3v7.6c0 1.7-1.3 3-2.9 3-1.2 0-2.1-.9-2.1-2s.9-2 2.1-2c.3 0 .7.1 1 .2V6.9c0-.5.3-.9.8-1l7.9-1.7c.6-.1 1.1.3 1.1 1z"/></svg></a>
+        <a href="https://www.facebook.com/61556419742590" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3.1V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a>
       </div>
     </div>
     <div class="polaroid tape rv" style="transform:rotate(1.8deg)">
