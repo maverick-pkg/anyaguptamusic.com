@@ -2,7 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://anyaguptamusic.com/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://anyaguptamusic.com/songs/youre-original/</loc>
+    <lastmod>2026-07-27</lastmod>
+  </url>
+  <url>
+    <loc>https://anyaguptamusic.com/songs/tat-twam-asi/</loc>
+    <lastmod>2026-07-27</lastmod>
+  </url>
+  <url>
+    <loc>https://anyaguptamusic.com/songs/awaken-the-lights/</loc>
+    <lastmod>2026-07-27</lastmod>
   </url>
 </urlset>
