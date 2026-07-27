@@ -193,6 +193,11 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
   color:var(--paper);
 }
 .shows-band .script{color:var(--gold-pale)}
+.shows-photo{display:none}
+@media(max-width:860px){
+  .shows-band{background:var(--ink)}
+  .shows-photo{display:block;width:100%;height:auto;margin-bottom:1.4rem;box-shadow:var(--shadow)}
+}
 @media(min-width:861px){
   .shows-band{background-size:auto,150%;background-position:0 0,90% 30%}
   .shows-band .sec-head{max-width:42ch;margin-left:auto;margin-right:0;justify-content:center;text-align:center}
@@ -534,6 +539,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
       <h2 style="color:var(--paper)">Shows</h2>
       <span class="script">adventure awaits</span>
     </div>
+    <img class="shows-photo" loading="lazy" decoding="async" src="assets/photos/shows-band.jpg" alt="Anya with her guitar, standing in a pool">
     <div class="shows-empty rv">
       <p><b>New dates are being booked for the Becoming era.</b></p>
       <p>Join the mailing list and you’ll hear about every show before anyone else.</p>
