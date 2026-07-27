@@ -12,7 +12,6 @@ RadhaSoami mark in footer. Historical design candidates remain in `variants/`.
 
 ## Still pending
 
-- Mailing-list form: wire to Mailchimp once the account is created
 - Becoming cover art + pre-save link when available
 - Possible hero refresh from the July 28 "You're Original" photoshoot
 
