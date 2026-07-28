@@ -7,7 +7,7 @@ Single-page official website for Anya, modeled on label-built artist sites
 
 Live site: `index.html` — variant D ("Vision"), chosen by Anya, built from her
 vision board. Blush/peach/gold collage design with real content: Becoming
-album countdown (Aug 17), released singles with real cover art, bio, gallery,
+album countdown (Sep 18), released singles with real cover art, bio, gallery,
 RadhaSoami mark in footer. Historical design candidates remain in `variants/`.
 
 ## Still pending
