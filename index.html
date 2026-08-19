@@ -44,8 +44,8 @@
   --shadow:0 14px 34px rgba(60,34,28,.16);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:clip}
-body{overflow-x:clip}
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
+body{overflow-x:hidden;overflow-x:clip}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   font-family:var(--sans);color:var(--ink);background:var(--blush);
@@ -69,8 +69,8 @@ h1,h2,h3{font-family:var(--serif);line-height:1.05;text-wrap:balance}
 
 /* ── nav ─────────────────────────── */
 nav{
-  position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--blush) 88%,white 12%);
-  border-bottom:1px solid rgba(33,29,32,.08);backdrop-filter:blur(8px);
+  position:sticky;top:0;z-index:50;background:#f8e3dc;background:color-mix(in srgb,var(--blush) 88%,white 12%);
+  border-bottom:1px solid rgba(33,29,32,.08);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
 }
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem clamp(18px,4vw,44px);max-width:1160px;margin:0 auto}
 .monogram{
