@@ -12,8 +12,9 @@ RadhaSoami mark in footer. Historical design candidates remain in `variants/`.
 
 ## Still pending
 
-- Becoming cover art + pre-save link when available
-- Possible hero refresh from the July 28 "You're Original" photoshoot
+- Release day (Sep 18): flip hero to "out now", album card in music grid,
+  four more lyrics pages, remaining video embeds, repoint /presave
+- After Sep 12 party: repoint /rsvp to the photo album
 
 ## Deployment target
 
