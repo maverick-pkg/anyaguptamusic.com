@@ -45,7 +45,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
-body{overflow-x:hidden;overflow-x:clip}
+body{overflow-x:clip}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   font-family:var(--sans);color:var(--ink);background:var(--blush);
@@ -85,7 +85,8 @@ nav ul a{
   text-decoration:none;font-weight:700;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
   padding:.35em 0;border-bottom:2px solid transparent;
 }
-nav ul a:hover,nav ul a:focus-visible{border-bottom-color:var(--peach-deep)}
+nav ul a:hover{border-bottom-color:var(--peach-deep)}
+nav ul a:focus-visible{border-bottom-color:var(--peach-deep)}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 .shows-band :focus-visible,footer :focus-visible{outline-color:var(--paper)}
 .signup :focus-visible{outline-color:#2f1608}
@@ -192,7 +193,7 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
 }
 .vid .play .ring{
   width:76px;height:76px;border:2px solid var(--paper);border-radius:50%;display:grid;place-items:center;font-size:1.4rem;
-  background:rgba(33,29,32,.35);backdrop-filter:blur(2px);
+  background:rgba(33,29,32,.35);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
 }
 .vid .label{
   position:absolute;left:14px;bottom:12px;color:var(--paper);font-weight:700;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
@@ -262,7 +263,7 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
 .signup form{display:flex;gap:.8rem;flex-wrap:wrap;max-width:560px}
 .signup input{
   flex:1 1 260px;padding:1em 1.2em;border:2px solid #2f1608;background:var(--paper);
-  font-family:var(--sans);font-size:.95rem;
+  font-family:var(--sans);font-size:max(16px,.95rem);
 }
 .signup .btn{border-color:#2f1608;background:#2f1608;color:var(--paper)}
 .signup .btn:hover{background:transparent;color:#2f1608}
@@ -688,7 +689,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
       <h2>Be first to know</h2>
       <span class="script">never settle</span>
     </div>
-    <form class="rv" action="https://anyaguptamusic.us7.list-manage.com/subscribe/post?u=f5eb1357a0b9ee6e32ff0b4e5&amp;id=8ca2a0c0d0&amp;f_id=00c3f5e3f0" method="post" target="_blank" rel="noopener">
+    <form class="rv" action="https://anyaguptamusic.us7.list-manage.com/subscribe/post?u=f5eb1357a0b9ee6e32ff0b4e5&amp;id=8ca2a0c0d0&amp;f_id=00c3f5e3f0" method="post">
       <label for="em" class="eyebrow" style="flex-basis:100%;color:#4a2a16">Email address</label>
       <input id="em" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
       <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_f5eb1357a0b9ee6e32ff0b4e5_8ca2a0c0d0" tabindex="-1" value=""></div>
