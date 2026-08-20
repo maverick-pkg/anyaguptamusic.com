@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta name="rsvp-endpoint" content="">
 <title>You’re Invited — Becoming Pre-Launch Party</title>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -37,20 +38,55 @@ h1{font-family:var(--serif);font-weight:900;font-style:italic;font-size:clamp(2.
 .when{margin:1.4rem 0 .4rem;font-weight:700;font-size:1.2rem;letter-spacing:.02em}
 .venue{font-family:var(--serif);font-weight:700;font-size:1.35rem;color:#b85a28}
 .addr{color:var(--ink-soft)}
-.addr a{text-decoration:none;border-bottom:2px solid var(--peach-deep)}
 .divider{height:1px;background:rgba(33,29,32,.12);margin:1.4rem 0}
 .list{font-weight:700;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);line-height:2}
 .friend{font-family:var(--script);font-weight:600;font-size:1.5rem;color:#c96a3a;margin:1rem 0}
-.cta-row{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.4rem}
-.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;padding:.95em 1.6em;border:2px solid var(--ink);transition:transform .15s ease,background .15s ease,color .15s ease}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;padding:.95em 1.6em;border:2px solid var(--ink);transition:transform .15s ease,background .15s ease,color .15s ease;background:transparent;color:var(--ink);font-family:var(--sans);cursor:pointer}
 .btn:hover{transform:translateY(-2px)}
 .btn-solid{background:var(--ink);color:var(--paper)}
 .btn-solid:hover{background:var(--peach-deep);border-color:var(--peach-deep)}
 .btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn[disabled]{opacity:.55;cursor:default}
+.btn[disabled]:hover{transform:none;background:var(--ink);color:var(--paper)}
 .note{margin-top:1.6rem;font-size:.85rem;color:var(--ink-soft)}
 footer{text-align:center;padding:1.6rem 0 2.4rem}
 footer img{width:44px;margin:0 auto .4rem}
 footer p{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ——— RSVP form ——— */
+.form-title{font-family:var(--serif);font-weight:900;font-style:italic;font-size:1.6rem;color:#b85a28;margin-bottom:.2rem}
+.form-sub{font-size:.9rem;color:var(--ink-soft);margin-bottom:1.2rem}
+.field{margin-bottom:1.05rem}
+.field label{display:block;font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.35rem}
+.field input[type=text],.field input[type=email],.field input[type=number],.field textarea{
+  width:100%;font-family:var(--sans);font-size:16px;color:var(--ink);
+  background:#fff;border:2px solid var(--ink);padding:.7em .8em;border-radius:0;-webkit-appearance:none;appearance:none}
+.field textarea{min-height:4.5em;resize:vertical}
+.field .hint{font-size:.8rem;color:var(--ink-soft);margin-top:.3rem}
+fieldset{border:0;margin:0 0 1.05rem}
+legend{font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.45rem;padding:0}
+.choice{display:flex;gap:.6rem;align-items:flex-start;padding:.55em .7em;border:2px solid rgba(33,29,32,.22);margin-bottom:.5rem;background:#fff;cursor:pointer}
+.choice input{margin-top:.28em;width:1.05em;height:1.05em;accent-color:var(--peach-deep);flex:0 0 auto}
+.choice span{font-size:.95rem;line-height:1.45}
+.consent{border:2px solid var(--gold);background:rgba(214,190,150,.14);padding:1rem 1rem .6rem;margin:1.3rem 0 1.05rem}
+.consent h2{font-family:var(--serif);font-weight:700;font-style:italic;font-size:1.15rem;color:#8f6e30;margin-bottom:.4rem}
+.consent p{font-size:.9rem;color:var(--ink);margin-bottom:.7rem}
+.consent .fine{font-size:.8rem;color:var(--ink-soft);margin:.2rem 0 .6rem}
+.hp{position:absolute;left:-5000px;top:-5000px;height:1px;width:1px;overflow:hidden}
+.sig{font-size:.8rem;color:var(--ink-soft);margin:.9rem 0 1rem}
+.status{margin-top:1rem;font-size:.95rem}
+.status.err{color:#a33a1f;font-weight:700}
+/* reveal */
+.reveal{border:2px solid var(--peach-deep);background:#fff;padding:1.3rem;margin-top:1.2rem}
+.reveal .script{font-size:1.5rem}
+.reveal .venue{margin:.3rem 0 .1rem}
+.reveal .r-addr{font-size:1.05rem;margin-bottom:.4rem}
+.reveal .when{margin:.6rem 0 .9rem;font-size:1.05rem}
+.reveal .cta-row{margin-top:.9rem}
+.cta-row{display:flex;gap:.9rem;flex-wrap:wrap}
+.hold{margin-top:1.3rem;font-size:.85rem;color:var(--ink-soft)}
+.hold a{border-bottom:2px solid var(--peach-deep);text-decoration:none}
+[hidden]{display:none !important}
 @media(prefers-reduced-motion:reduce){.btn:hover{transform:none}}
 </style>
 </head>
@@ -64,16 +100,74 @@ footer p{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:va
     <div class="hero-img"><img src="/assets/covers/becoming.jpg" width="1500" height="1500" alt="Becoming — the debut album cover: Anya Gupta with a coral rose in her hair, holding a microphone"></div>
     <p class="when">Saturday, September 12, 2026 · 6:00 PM</p>
     <p class="venue">Germantown, Tennessee</p>
-    <p class="addr">The exact location arrives with your RSVP confirmation ✦</p>
+    <p class="addr">The exact location appears as soon as you RSVP below ✦</p>
     <div class="divider"></div>
     <p class="list">Live performance · Artist Q&amp;A · Photo moments<br>Food &amp; refreshments</p>
     <p class="friend">bring a friend and share the evening with us</p>
-    <div class="cta-row">
-      <a class="btn btn-solid" href="mailto:email@anyaguptamusic.com?subject=RSVP%20%E2%80%94%20Becoming%20Pre-Launch%20Party&body=Name%3A%0ANumber%20of%20guests%3A%0A">RSVP by email</a>
-      <a class="btn btn-line" href="/assets/becoming-party.ics">Add to calendar</a>
-      <a class="btn btn-line" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Becoming%20Pre-Launch%20Party%20%E2%80%94%20Anya%20Gupta&dates=20260912T230000Z/20260913T020000Z&location=Germantown%2C%20TN&details=The%20exact%20location%20arrives%20with%20your%20RSVP%20confirmation.">Google Calendar</a>
-    </div>
-    <p class="note">Button not working? Email us directly: <b>email@anyaguptamusic.com</b></p>
+    <div class="divider"></div>
+
+    <form id="rsvpForm" novalidate>
+      <p class="form-title">RSVP</p>
+      <p class="form-sub">One form per family, filled out by a parent or guardian. Takes about a minute.</p>
+
+      <div class="field">
+        <label for="f-parent">Parent / guardian name</label>
+        <input id="f-parent" name="parent" type="text" required autocomplete="name" autocapitalize="words">
+      </div>
+
+      <div class="field">
+        <label for="f-email">Your email</label>
+        <input id="f-email" name="email" type="email" required autocomplete="email" inputmode="email">
+        <p class="hint">Your confirmation and a calendar invite land here.</p>
+      </div>
+
+      <div class="field">
+        <label for="f-children">Child(ren) attending — first &amp; last name</label>
+        <input id="f-children" name="children" type="text" required autocapitalize="words">
+        <p class="hint">Separate two kids with a comma. Bringing a friend? Ask their parent to fill out this form too — the permission below only covers your own children.</p>
+      </div>
+
+      <fieldset>
+        <legend>Will you be there?</legend>
+        <label class="choice"><input type="radio" name="attending" value="yes" required><span><b>Joyfully accepts</b> — we’ll be there!</span></label>
+        <label class="choice"><input type="radio" name="attending" value="no"><span><b>Regretfully declines</b> — we can’t make it</span></label>
+      </fieldset>
+
+      <div class="field">
+        <label for="f-count">How many attending in total? <span style="text-transform:none;letter-spacing:0">(kids + adults)</span></label>
+        <input id="f-count" name="count" type="number" min="1" max="12" inputmode="numeric">
+      </div>
+
+      <div class="field">
+        <label for="f-note">Anything we should know? <span style="text-transform:none;letter-spacing:0">(allergies, questions — optional)</span></label>
+        <textarea id="f-note" name="note"></textarea>
+      </div>
+
+      <div class="consent">
+        <h2>Photo &amp; video permission</h2>
+        <p>We’ll be taking photos and video at the party. With your permission, moments that include your child may appear on <b>anyaguptamusic.com</b>, Anya’s social media, and press materials about her music. We never publish children’s names, and you can change your mind anytime — one email to <b>email@anyaguptamusic.com</b> and we’ll take a photo down.</p>
+        <label class="choice"><input type="radio" name="media" value="yes" required><span><b>Yes</b> — I’m a parent/guardian of the child(ren) named above and give permission for photos and video from this event to be used as described.</span></label>
+        <label class="choice"><input type="radio" name="media" value="no"><span><b>No</b> — please don’t publish photos of my child. (They’ll still be in every bit of the fun — our photographer simply keeps them out of anything public.)</span></label>
+        <p class="fine">Either answer is completely fine and never affects attendance.</p>
+      </div>
+
+      <div class="hp" aria-hidden="true">
+        <label for="f-website">Leave this field empty</label>
+        <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <p class="sig">Typing your name above and tapping RSVP acts as your signature on the photo permission.</p>
+
+      <div class="cta-row">
+        <button type="submit" class="btn btn-solid" id="submitBtn">RSVP ✦</button>
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </form>
+
+    <div id="done" hidden></div>
+
+    <p class="hold">Just holding the date for now? <a href="/assets/becoming-party.ics">Add to calendar</a> · <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Becoming%20Pre-Launch%20Party%20%E2%80%94%20Anya%20Gupta&dates=20260912T230000Z/20260913T020000Z&location=Germantown%2C%20TN&details=The%20exact%20location%20arrives%20with%20your%20RSVP%20confirmation.">Google Calendar</a></p>
+    <p class="note">Form not working? Email us instead: <b>email@anyaguptamusic.com</b></p>
     <p class="note">Private event — please RSVP so we can save you a seat, and kindly don’t share this page publicly.</p>
   </div>
   <footer>
@@ -81,5 +175,133 @@ footer p{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:va
     <p>© 2026 Anya Gupta</p>
   </footer>
 </div>
+
+<script>
+(function(){
+  var form=document.getElementById('rsvpForm');
+  var btn=document.getElementById('submitBtn');
+  var status=document.getElementById('status');
+  var done=document.getElementById('done');
+
+  function endpoint(){
+    var m=document.querySelector('meta[name="rsvp-endpoint"]');
+    return (m&&m.getAttribute('content')||'').trim();
+  }
+  function val(name){
+    var el=form.elements[name];
+    return el?(el.value||'').trim():'';
+  }
+  function radio(name){
+    var el=form.querySelector('input[name="'+name+'"]:checked');
+    return el?el.value:'';
+  }
+  function mailtoFallback(){
+    var body='RSVP — Becoming Pre-Launch Party\n'
+      +'Parent/guardian: '+val('parent')+'\n'
+      +'Email: '+val('email')+'\n'
+      +'Child(ren): '+val('children')+'\n'
+      +'Attending: '+(radio('attending')||'—')+'\n'
+      +'Total attending: '+(val('count')||'—')+'\n'
+      +'Photo & video permission: '+(radio('media')==='yes'?'YES — permission granted as described on the RSVP page':'NO — please do not publish photos of my child')+'\n'
+      +'(Typed by '+val('parent')+' — acts as my signature on the photo permission.)\n';
+    return 'mailto:email@anyaguptamusic.com?subject='
+      +encodeURIComponent('RSVP — Becoming Pre-Launch Party')
+      +'&body='+encodeURIComponent(body);
+  }
+  function el(tag,cls,text){
+    var n=document.createElement(tag);
+    if(cls)n.className=cls;
+    if(text)n.textContent=text;
+    return n;
+  }
+  function btnLink(href,text,solid){
+    var a=el('a','btn '+(solid?'btn-solid':'btn-line'),text);
+    a.href=href;
+    if(/^https?:/.test(href)){a.target='_blank';a.rel='noopener';}
+    return a;
+  }
+  function finish(nodes){
+    form.hidden=true;
+    done.hidden=false;
+    while(done.firstChild)done.removeChild(done.firstChild);
+    nodes.forEach(function(n){done.appendChild(n)});
+    done.setAttribute('tabindex','-1');
+    done.focus({preventScroll:false});
+  }
+  function showVenue(d){
+    var box=el('div','reveal');
+    box.appendChild(el('span','script','you’re on the list ✦'));
+    box.appendChild(el('p','venue',d.venue||''));
+    box.appendChild(el('p','r-addr',d.address||''));
+    box.appendChild(el('p','when','Saturday, September 12, 2026 · 6:00 PM'));
+    var row=el('div','cta-row');
+    if(d.map)row.appendChild(btnLink(d.map,'Directions',true));
+    if(d.gcal)row.appendChild(btnLink(d.gcal,'Google Calendar',false));
+    box.appendChild(row);
+    var mail=el('p','note','A confirmation with a calendar invite is on its way to '+val('email')+'. See you there!');
+    finish([box,mail]);
+  }
+  function showPending(){
+    var box=el('div','reveal');
+    box.appendChild(el('span','script','got it — you’re on our RSVP list ✦'));
+    box.appendChild(el('p','r-addr','We’ll email you the exact location shortly.'));
+    finish([box]);
+  }
+  function showDeclined(){
+    var box=el('div','reveal');
+    box.appendChild(el('span','script','we’ll miss you ✦'));
+    box.appendChild(el('p','r-addr','Thanks for letting us know. You can still be part of the big day —'));
+    var row=el('div','cta-row');
+    row.appendChild(btnLink('/presave/','Pre-save Becoming',true));
+    box.appendChild(row);
+    finish([box]);
+  }
+  function fail(msg){
+    btn.disabled=false;btn.textContent='RSVP ✦';
+    status.className='status err';
+    while(status.firstChild)status.removeChild(status.firstChild);
+    status.appendChild(document.createTextNode(msg+' '));
+    var a=el('a',null,'Tap here to RSVP by email instead');
+    a.href=mailtoFallback();
+    a.style.borderBottom='2px solid #e08454';a.style.textDecoration='none';
+    status.appendChild(a);
+    status.appendChild(document.createTextNode(' — your answers are already filled in.'));
+  }
+
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(!form.reportValidity())return;
+    var url=endpoint();
+    if(!url){
+      // Backend not live yet: hand off to a pre-filled email.
+      window.location.href=mailtoFallback();
+      status.className='status';
+      status.textContent='Your email app should open with everything filled in — just tap send to finish your RSVP.';
+      return;
+    }
+    btn.disabled=true;btn.textContent='Sending…';
+    status.className='status';status.textContent='';
+    var data=new URLSearchParams();
+    ['parent','email','children','count','note','website'].forEach(function(k){data.append(k,val(k))});
+    data.append('attending',radio('attending'));
+    data.append('media',radio('media'));
+    var ctrl=('AbortController' in window)?new AbortController():null;
+    var timer=ctrl?setTimeout(function(){ctrl.abort()},25000):null;
+    fetch(url,{method:'POST',body:data,signal:ctrl?ctrl.signal:undefined})
+      .then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.json();})
+      .then(function(d){
+        if(timer)clearTimeout(timer);
+        if(!d||!d.ok)throw new Error('bad response');
+        if(d.attending===false)return showDeclined();
+        if(d.matched&&d.address)return showVenue(d);
+        return showPending();
+      })
+      .catch(function(){
+        if(timer)clearTimeout(timer);
+        fail('That didn’t go through.');
+      });
+  });
+})();
+</script>
 </body>
 </html>
