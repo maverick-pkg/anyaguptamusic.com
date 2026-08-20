@@ -4,11 +4,14 @@
  * Paste this into an Apps Script project BOUND to a private Google Sheet
  * (Sheet → Extensions → Apps Script). See DEPLOY.md next to this file.
  *
+ * POLICY (user ruling 2026-08-19): every attending RSVP gets the venue
+ * automatically — on screen and by confirmation email. No guest-roster
+ * gate. Every submission is recorded and a notify email goes out per
+ * RSVP, so the Sheet is the door list and odd entries are visible.
+ *
  * PRIVACY RULES (this repo is public):
  *  - The real venue name/address is pasted ONLY here, at deploy time,
  *    inside your private Apps Script project. Never commit it to the repo.
- *  - The guest roster lives ONLY in the private Sheet's "GuestList" tab.
- *    Never commit guest names to the repo.
  */
 
 var CONFIG = {
@@ -23,22 +26,18 @@ var CONFIG = {
   NOTIFY: ''  // your own inbox for a heads-up per RSVP; '' = Sheet only
 };
 
-/** One-time: run this from the editor to create the tabs, then authorize. */
+var HEADERS = ['Timestamp', 'Parent/guardian', 'Email', 'Child(ren)',
+  'Attending', 'Photo permission', 'Total attending', 'Note'];
+
+/** One-time: run this from the editor to create/repair the RSVPs tab.
+ *  Safe to re-run; it only rewrites the header row. A leftover GuestList
+ *  tab from the earlier roster-gated version can simply be deleted. */
 function setup() {
   var ss = SpreadsheetApp.getActive();
   var rsvps = ss.getSheetByName('RSVPs') || ss.insertSheet('RSVPs');
-  if (rsvps.getLastRow() === 0) {
-    rsvps.appendRow(['Timestamp', 'Parent/guardian', 'Email', 'Child(ren)',
-      'Attending', 'Photo permission', 'Total attending', 'Note', 'Roster match']);
-    rsvps.setFrozenRows(1);
-  }
-  var roster = ss.getSheetByName('GuestList') || ss.insertSheet('GuestList');
-  if (roster.getLastRow() === 0) {
-    roster.appendRow(['Invited child — first & last name (one per row)']);
-    roster.appendRow(['Ava Example']);   // ← replace these two sample rows
-    roster.appendRow(['Liam Sample']);   //   with the real roster (Sheet only!)
-    roster.setFrozenRows(1);
-  }
+  rsvps.getRange('1:1').clearContent();
+  rsvps.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
+  rsvps.setFrozenRows(1);
 }
 
 function doPost(e) {
@@ -54,21 +53,22 @@ function doPost(e) {
     if (!parent || !email || !children) return json_({ ok: false });
 
     var ss = SpreadsheetApp.getActive();
-    var matched = matchRoster_(children, ss);
-
     ss.getSheetByName('RSVPs').appendRow([
       new Date(), parent, email, children,
-      attending ? 'yes' : 'no', mediaYes ? 'YES' : 'NO',
-      count, note, matched ? 'MATCH' : 'no match'
+      attending ? 'yes' : 'no', mediaYes ? 'YES' : 'NO', count, note
     ]);
 
-    if (attending && matched) {
+    // Refuse to reveal placeholder config — behaves as "we'll email you".
+    var configured = CONFIG.VENUE_ADDRESS.indexOf('PASTE') < 0;
+
+    if (attending && configured) {
       try { sendConfirmation_(parent, email, children, mediaYes); } catch (err) {}
     }
-    notifySelf_(parent, email, children, attending, mediaYes, count, note, matched);
+    notifySelf_(parent, email, children, attending, mediaYes, count, note);
 
-    var out = { ok: true, matched: matched, attending: attending };
-    if (attending && matched) {
+    var out = { ok: true, attending: attending };
+    if (attending && configured) {
+      out.matched = true; // page contract: matched + address => show venue
       out.venue = CONFIG.VENUE_NAME;
       out.address = CONFIG.VENUE_ADDRESS;
       out.map = 'https://maps.google.com/?q=' +
@@ -84,39 +84,6 @@ function doPost(e) {
 // ——— helpers ———
 
 function clip_(v) { return String(v || '').trim().slice(0, 500); }
-
-function norm_(s) {
-  return String(s || '').toLowerCase()
-    .replace(/[^a-zÀ-ɏ' -]/g, ' ')
-    .replace(/\s+/g, ' ').trim();
-}
-
-/** True if ANY submitted child matches the GuestList roster. */
-function matchRoster_(children, ss) {
-  var sheet = ss.getSheetByName('GuestList');
-  if (!sheet || sheet.getLastRow() < 2) return false;
-  var roster = sheet.getRange(2, 1, sheet.getLastRow() - 1, 1).getValues()
-    .map(function (r) { return norm_(r[0]); })
-    .filter(function (s) { return s && s.indexOf('example') < 0 && s.indexOf('sample') < 0; });
-  if (!roster.length) return false;
-
-  var firstCounts = {};
-  roster.forEach(function (full) {
-    var f = full.split(' ')[0];
-    firstCounts[f] = (firstCounts[f] || 0) + 1;
-  });
-
-  var submitted = String(children).split(/,|&| and /i)
-    .map(norm_).filter(function (s) { return s; });
-
-  return submitted.some(function (kid) {
-    if (roster.indexOf(kid) >= 0) return true;              // exact full-name match
-    var first = kid.split(' ')[0];                           // unique-first-name match
-    return firstCounts[first] === 1 && roster.some(function (full) {
-      return full.split(' ')[0] === first;
-    });
-  });
-}
 
 function gcalUrl_() {
   return 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
@@ -164,19 +131,17 @@ function sendConfirmation_(parent, email, children, mediaYes) {
   });
 }
 
-function notifySelf_(parent, email, children, attending, mediaYes, count, note, matched) {
+function notifySelf_(parent, email, children, attending, mediaYes, count, note) {
   if (!CONFIG.NOTIFY) return;
-  var flag = !attending ? 'Regrets' : (matched ? 'Confirmed' : 'NEEDS MANUAL REPLY');
+  var flag = attending ? 'Confirmed' : 'Regrets';
   try {
     MailApp.sendEmail({
       to: CONFIG.NOTIFY,
       subject: 'RSVP [' + flag + '] ' + parent + ' — ' + children,
       body: 'Parent: ' + parent + '\nEmail: ' + email + '\nChild(ren): ' + children +
-        '\nAttending: ' + (attending ? 'yes' : 'no') +
+        '\nAttending: ' + (attending ? 'yes — venue sent automatically' : 'no') +
         '\nPhoto permission: ' + (mediaYes ? 'YES' : 'NO') +
         '\nTotal attending: ' + (count || '—') + '\nNote: ' + (note || '—') +
-        '\nRoster match: ' + (matched ? 'yes — venue sent automatically' :
-          'NO — nothing sent; reply manually if they\'re legit') +
         '\n\nFull list: ' + SpreadsheetApp.getActive().getUrl()
     });
   } catch (err) {}
