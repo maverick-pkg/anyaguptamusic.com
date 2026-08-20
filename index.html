@@ -824,5 +824,32 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
   addEventListener('hashchange', revealHash);
 })();
 </script>
+<script data-goatcounter="https://anyaguptamusic.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+// outbound-click + signup events -> GoatCounter (no cookies, no personal data)
+(function(){
+  function ev(name){ if(window.goatcounter && goatcounter.count) goatcounter.count({path: name, event: true}); }
+  function slug(t){ return (t||'').toLowerCase().replace(/[\u2019']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if(!a || !a.href) return;
+    var h = a.href;
+    var card = a.closest('.single');
+    var song = card ? slug((card.querySelector('.t')||{}).textContent) : '';
+    if (h.indexOf('distrokid.com/hyperfollow') > -1) ev('presave');
+    else if (h.indexOf('open.spotify.com/artist') > -1) ev('follow-spotify');
+    else if (h.indexOf('open.spotify.com/track') > -1) ev('spotify' + (song ? '-' + song : ''));
+    else if (h.indexOf('music.apple.com') > -1) ev('apple' + (song ? '-' + song : ''));
+    else if (h.indexOf('youtube.com') > -1) ev('youtube');
+    else if (h.indexOf('instagram.com') > -1) ev('social-instagram');
+    else if (h.indexOf('tiktok.com') > -1) ev('social-tiktok');
+    else if (h.indexOf('facebook.com') > -1) ev('social-facebook');
+    else if (/\.pdf(\?|$)/.test(h)) ev('presskit-pdf');
+    else if (/\.zip(\?|$)/.test(h)) ev('press-zip');
+    else if (h.indexOf('mailto:') === 0) ev('contact-email');
+  }, true);
+  var f = document.querySelector('.signup form');
+  if (f) f.addEventListener('submit', function(){ ev('newsletter-signup'); });
+})();
+</script>
 </body>
 </html>
