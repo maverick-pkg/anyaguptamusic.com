@@ -56,9 +56,27 @@ Use **Deploy → Manage deployments → ✏️ edit → Version: New version →
 That keeps the SAME `/exec` URL. ("New deployment" would mint a different URL
 and the site would need a commit.)
 
+## Tracking photo consent
+
+Every form submission writes `YES` or `NO` in **column F ("Photo permission")**
+of the RSVPs tab. To make that readable at a glance and get a live
+photographer's list, paste `consent-tracker.gs` (this folder) at the BOTTOM of
+the existing `Code.gs` — do **not** replace the file, that would wipe your
+CONFIG venue values — then run **`installConsentTracking`** once from the
+function dropdown. Running a function in the editor does not require
+redeploying; the live `/exec` URL is unaffected.
+
+It color-codes column F and adds a **PHOTO CONSENT** tab with live counts, a
+CLEARED list, and a DO NOT PUBLISH list.
+
+⚠ RSVPs that arrive by **email or word of mouth never touch the sheet** and
+carry no consent. Add them as rows on the RSVPs tab by hand (put YES or NO in
+column F once you've asked the parent) — the PHOTO CONSENT tab picks them up
+automatically.
+
 ## After the party
 
-- Filter the `RSVPs` tab on `Photo permission = YES` → that's the
-  photographer's cleared list (export it for them before the event).
+- The PHOTO CONSENT tab's CLEARED column is the photographer's list
+  (export it for them before the event).
 - The Sheet is the consent record — keep it until the photo album is settled,
   then archive/delete per the privacy page.
