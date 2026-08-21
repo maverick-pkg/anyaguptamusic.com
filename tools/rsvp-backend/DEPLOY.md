@@ -69,10 +69,13 @@ redeploying; the live `/exec` URL is unaffected.
 It color-codes column F and adds a **PHOTO CONSENT** tab with live counts, a
 CLEARED list, and a DO NOT PUBLISH list.
 
-⚠ RSVPs that arrive by **email or word of mouth never touch the sheet** and
-carry no consent. Add them as rows on the RSVPs tab by hand (put YES or NO in
-column F once you've asked the parent) — the PHOTO CONSENT tab picks them up
-automatically.
+⚠ RSVPs that arrive **outside the form never touch the sheet** and carry no
+consent — someone using the page's "form not working, email us" fallback, the
+site's booking email, or just replying to whatever message carried the invite.
+The circulating invite card points only at the RSVP page, so this should be
+rare. When it happens, add the family as a row on the RSVPs tab by hand (put
+YES or NO in column F once you've asked the parent) — the PHOTO CONSENT tab
+picks up manual rows automatically.
 
 ## After the party
 
