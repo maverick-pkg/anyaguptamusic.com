@@ -180,6 +180,13 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
 .card-links a.lyrics-link{color:var(--ink-soft);border-bottom-color:var(--ink-soft)}
 .card-links a.lyrics-link:hover{color:var(--ink);border-bottom-color:var(--peach-deep)}
 .single .listen{display:inline-block;margin-top:.55em;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;border-bottom:2px solid var(--peach-deep)}
+.focus-mod{display:grid;grid-template-columns:minmax(170px,250px) 1fr;gap:clamp(1.2rem,3vw,2rem);align-items:center;background:var(--paper);box-shadow:0 14px 34px rgba(60,34,28,.14);padding:clamp(1.2rem,3vw,1.8rem);margin-bottom:clamp(2rem,5vw,3rem)}
+.focus-mod img{width:100%;height:auto;display:block;box-shadow:0 8px 22px rgba(60,34,28,.18)}
+.fm-eyebrow{font-weight:700;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
+.focus-mod h3{font-family:var(--serif);font-weight:900;font-style:italic;font-size:clamp(1.9rem,4.5vw,2.7rem);line-height:1.05;margin:.15em 0 .35em;background:linear-gradient(120deg,#b85a28,#c96a3a 55%,#8f6e30);-webkit-background-clip:text;background-clip:text;color:transparent}
+.focus-mod p{color:var(--ink-soft);max-width:52ch;margin-bottom:1.1rem}
+.focus-mod p b{color:var(--ink)}
+@media(max-width:640px){.focus-mod{grid-template-columns:1fr}.focus-mod img{max-width:250px;margin:0 auto}.fm-copy{text-align:center}.fm-copy .btn{display:inline-block}}
 .upcoming{margin-top:clamp(2.2rem,5vw,3.4rem)}
 .upcoming h3{font-size:1.15rem;font-family:var(--sans);font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.1rem}
 .tracks{display:flex;flex-wrap:wrap;gap:.9rem;list-style:none}
@@ -458,6 +465,15 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
     <div class="sec-head rv">
       <h2>Music</h2>
       <span class="script">wake up · sing · repeat</span>
+    </div>
+    <div class="focus-mod tape rv">
+      <img src="assets/covers/becoming.jpg" alt="Becoming — debut album cover: Anya Gupta with a coral rose in her hair, holding a microphone" width="660" height="660" loading="lazy" decoding="async">
+      <div class="fm-copy">
+        <span class="fm-eyebrow">The focus track · track 02 on the debut album</span>
+        <h3>Not For You</h3>
+        <p>Upbeat pop-rock about refusing to change yourself for anyone else — driven by electric guitar and live drums. On <b>Becoming</b>, September 18.</p>
+        <a class="btn btn-solid" href="https://distrokid.com/hyperfollow/anyagupta1/becoming" target="_blank" rel="noopener">Pre-save Becoming</a>
+      </div>
     </div>
     <div class="singles">
       <div class="single tape rv"><a class="single-main" href="https://open.spotify.com/track/5jeOUXiIg2JVpB4BpLy9t0" target="_blank" rel="noopener">
@@ -760,6 +776,8 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
   if (cta) { cta.textContent = 'Listen to Becoming'; cta.href = '/presave/'; }
   var eb = document.querySelector('.hero-copy .eyebrow');
   if (eb) eb.textContent = 'The debut album · out now';
+  var fm = document.querySelector('.focus-mod .btn');
+  if (fm) { fm.textContent = 'Listen to Becoming'; fm.href = '/presave/'; }
   var low = document.querySelector('.upcoming a[href*="hyperfollow"]');
   if (low) { low.textContent = 'Listen to Becoming'; low.href = '/presave/'; }
   document.querySelectorAll('.ticker-in').forEach(function(t){ t.innerHTML = '<span class="n">Becoming</span> · out now · stream it everywhere · <span class="g">Not For You</span> · <span class="g">You’re Original</span> · join the list · &nbsp;'.repeat(2); });
@@ -841,7 +859,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
     var h = a.href;
     var card = a.closest('.single');
     var song = card ? slug((card.querySelector('.t')||{}).textContent) : '';
-    if (h.indexOf('distrokid.com/hyperfollow') > -1) ev(a.closest('.hero-copy') ? 'presave-hero' : a.closest('.upcoming') ? 'presave-tracklist' : 'presave');
+    if (h.indexOf('distrokid.com/hyperfollow') > -1) ev(a.closest('.focus-mod') ? 'presave-focus' : a.closest('.hero-copy') ? 'presave-hero' : a.closest('.upcoming') ? 'presave-tracklist' : 'presave');
     else if (h.indexOf('open.spotify.com/artist') > -1) ev('follow-spotify');
     else if (h.indexOf('open.spotify.com/track') > -1) ev('spotify' + (song ? '-' + song : ''));
     else if (h.indexOf('music.apple.com') > -1) ev('apple' + (song ? '-' + song : ''));

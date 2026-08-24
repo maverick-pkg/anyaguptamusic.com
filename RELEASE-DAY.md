@@ -14,6 +14,7 @@ Work the list top to bottom; push once; verify live.
 - [ ] Hero eyebrow "The debut album · out now"; `.count` block removed.
 - [ ] Ticker: "Becoming · out now · stream it everywhere · Not For You · You're Original".
 - [ ] Tracklist: remove ✦ locks; all seven link to their lyrics pages.
+- [ ] Focus-track module: CTA → "Listen to 'Not For You'" + track link; keep the story copy.
 - [ ] Music section: add the **Becoming album card** (assets/covers/becoming.jpg) FIRST, then **Not For You** card before the three older singles.
 - [ ] Video section: "Becoming — sessions" card → the real premiere/playlist URL (never the generic channel once it exists).
 
