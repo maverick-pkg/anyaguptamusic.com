@@ -39,6 +39,7 @@ Work the list top to bottom; push once; verify live.
 - [ ] Regenerate PDF → `epk/Anya Gupta EPK.pdf` AND `assets/press/Anya-Gupta-EPK.pdf` AND Dropbox `Music/Anya/Biography/Anya Gupta EPK.pdf`.
 
 ## 7. Off-site, same day
+- [ ] MusicBrainz: "Add release" on her artist entry (41ae3f66-2051-4641-b5d7-cbe0baafd27c) — album *Becoming*, RG type Album, Digital Media, 7 tracks in canonical order/spellings, date 2026-09-18, [Worldwide], [no label], Apple + Spotify album links. ⚠ artist autocomplete: pick "Memphis pop singer-songwriter", never "US | pop".
 - [ ] DistroKid / HyperFollow bio: "arrives September 18" → out now.
 - [ ] Google Search Console: URL Inspection → Request indexing for /, /becoming/, four new song pages.
 - [ ] GoatCounter: confirm `presave-*` events drop and `spotify-*`/`apple-*` rise — that's the flip working.
