@@ -17,6 +17,7 @@ Work the list top to bottom; push once; verify live.
 - [ ] Focus-track module: CTA → "Listen to 'Not For You'" + track link; keep the story copy.
 - [ ] Music section: add the **Becoming album card** (assets/covers/becoming.jpg) FIRST, then **Not For You** card before the three older singles.
 - [ ] Video section: "Becoming — sessions" card → the real premiere/playlist URL (never the generic channel once it exists).
+- [ ] Video section: NFY teaser card (assets/photos/nfy-teaser.jpg → hyperfollow) → replace with the real "Not For You" video embed; drop the "Visuals · Sep 18" badge.
 
 ## 3. Meta + structured data (crawlers don't run JS — must be in the deploy)
 - [ ] `<title>`, meta description, og:title/description, twitter:title/description → "out now" copy, both roles kept.
@@ -27,10 +28,11 @@ Work the list top to bottom; push once; verify live.
 - [ ] /songs/not-for-you/ · /songs/let-you-be/ · /songs/breakup-with-my-ego/ · /songs/life-vest/ (slugs from canonical spellings).
 - [ ] Each with full MusicGroup entity + sameAs, Spotify/Apple track links, exit events, GoatCounter snippet.
 - [ ] Homepage tracklist links + sitemap entries + `lastmod`.
-- [ ] NFY page headline art = frame 1587 (family-approved) — strip EXIF.
+- [ ] NFY page headline art = frame 1587 (family-approved) — web-ready file (EXIF/XMP/IPTC stripped) staged at Dropbox `Music/Anya/Professional photoshoot July2026/Not for you/Website release-day/nfy-lyrics-page-1587.jpg`.
 
 ## 5. Album page
 - [ ] Build `/becoming/` — cover, tracklist, all seven lyrics links, listen links, credits only if splits are final. Add to sitemap.
+- [ ] Page art: frame 1637 "ANYA 22" (family-approved) — web-ready file staged at Dropbox `Music/Anya/Professional photoshoot July2026/Not for you/Website release-day/becoming-page-1637.jpg`.
 
 ## 6. EPK (three PDF locations!)
 - [ ] `epk/index.html`: lines saying "out September 18, 2026" → "out now" / "released September 18, 2026"; singles note; stats tile date.
