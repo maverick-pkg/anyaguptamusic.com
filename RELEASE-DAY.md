@@ -44,5 +44,6 @@ Work the list top to bottom; push once; verify live.
 - [ ] Google Search Console: URL Inspection → Request indexing for /, /becoming/, four new song pages.
 - [ ] GoatCounter: confirm `presave-*` events drop and `spotify-*`/`apple-*` rise — that's the flip working.
 
-## 8. September 26 (her birthday)
+## 8. September 22 (her birthday)
 - [ ] If age stays on the site: "fifteen-year-old" → "sixteen-year-old" in index.html About + epk/index.html (+ PDF ×3) + HyperFollow bio.
+- [ ] Note: this falls 4 days AFTER release — a "sweet sixteen + debut album" post is an easy content beat.
