@@ -27,6 +27,7 @@ Work the list top to bottom; push once; verify live.
 ## 4. Lyrics pages (generator: build_lyrics_pages.py pattern — regenerate from user-supplied docs)
 - [ ] /songs/not-for-you/ · /songs/let-you-be/ · /songs/breakup-with-my-ego/ · /songs/life-vest/ (slugs from canonical spellings).
 - [ ] Each with full MusicGroup entity + sameAs, Spotify/Apple track links, exit events, GoatCounter snippet.
+- [ ] Writers line + composer schema on every new page: **Anya Gupta, Sarah Simmons, Greg Langston** (all seven co-written; never publish split percentages).
 - [ ] Homepage tracklist links + sitemap entries + `lastmod`.
 - [ ] NFY page headline art = frame 1587 (family-approved) — web-ready file (EXIF/XMP/IPTC stripped) staged at Dropbox `Music/Anya/Professional photoshoot July2026/Not for you/Website release-day/nfy-lyrics-page-1587.jpg`.
 
