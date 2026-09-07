@@ -27,7 +27,19 @@ Work the list top to bottom; push once; verify live.
 ## 4. Lyrics pages (generator: build_lyrics_pages.py pattern — regenerate from user-supplied docs)
 - [ ] /songs/not-for-you/ · /songs/let-you-be/ · /songs/breakup-with-my-ego/ · /songs/life-vest/ (slugs from canonical spellings).
 - [ ] Each with full MusicGroup entity + sameAs, Spotify/Apple track links, exit events, GoatCounter snippet.
-- [ ] Writers line + composer schema on every new page. Base credit is **Anya Gupta, Sarah Simmons, Greg Langston** — but CONFIRM PER SONG before publishing: "Tat Twam Asi" has a fourth writer (Himani Gupta), so the roster is not uniform across the album. Never publish split percentages.
+- [ ] Writers line + composer schema on every new page. **Full roster confirmed 2026-09-07 — use exactly this, no percentages ever:**
+
+| # | Song | Written by |
+|---|------|-----------|
+| 01 | You're Original | Anya Gupta, Sarah Simmons, Greg Langston *(live)* |
+| 02 | Not For You | Anya Gupta, Sarah Simmons, Greg Langston |
+| 03 | Tat Twam Asi | Anya Gupta, Sarah Simmons, Greg Langston, **Himani Gupta** *(live)* |
+| 04 | Let You Be | Anya Gupta, Sarah Simmons, Greg Langston |
+| 05 | Breakup with My Ego | Anya Gupta, Sarah Simmons, Greg Langston |
+| 06 | Awaken the Lights | Anya Gupta, Sarah Simmons, Greg Langston *(live)* |
+| 07 | Life Vest | Anya Gupta, Sarah Simmons, Greg Langston |
+
+  Tat Twam Asi is the only track with a fourth writer. Copyright line stays "Lyrics © YYYY · all rights reserved" — no sole owner asserted.
 - [ ] Homepage tracklist links + sitemap entries + `lastmod`.
 - [ ] NFY page headline art = frame 1587 (family-approved) — web-ready file (EXIF/XMP/IPTC stripped) staged at Dropbox `Music/Anya/Professional photoshoot July2026/Not for you/Website release-day/nfy-lyrics-page-1587.jpg`.
 
