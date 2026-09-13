@@ -27,27 +27,41 @@ This file is Claude's runbook for the website.
 - Links that exist only after release are `%%TOKENS%%` — see `tools/release/links.json`.
 - `/rsvp/` (the thank-you page) is NOT in the build — flip it by hand (step 5).
 
-## Thursday night — after PKG can play the album on Spotify
-1. `git switch release-becoming && git merge main` (brings in anything changed on main since the
-   build — WREG airdate, thank-you wording). If `index.html` conflicts, re-run
-   `/usr/bin/python3 tools/release/build_release.py` instead of hand-merging (it rebuilds from main).
+## Thursday night — after PKG can play the album AND the four lyric videos are PUBLIC
+Order matters: the Not For You video must be public before step 2, and nothing is pushed until
+the step-8 gates pass. The branch tip as built still holds every `%%TOKEN%%`.
+1. `git switch release-becoming && git merge main` — brings in anything changed on main since the
+   build (WREG airdate, thank-you wording). If it conflicts: run
+   `/usr/bin/python3 tools/release/build_release.py` (rebuilds from main, overwriting the conflicted
+   files), then `git add -A && git commit --no-edit` to conclude the merge.
 2. `/usr/bin/python3 tools/release/fetch_links.py` — Spotify track links (album embed page), Apple
    album + track links (iTunes lookup, **artist 1728554823 only** — 1434780958 is the Boston Anya
-   Gupta), the Not For You lyric video id (channel feed — the video must be PUBLIC), DEPLOY_DATE.
-   It lists anything still missing; get those from PKG.
+   Gupta), the Not For You lyric video id (channel feed, title must contain "Official Lyric Video",
+   never a #shorts post), DEPLOY_DATE. It lists anything still missing; get those from PKG — Apple's
+   lookup can lag the store by hours (Music app → Share → Copy Link).
 3. Open the HyperFollow page: it should now show listen buttons. If it doesn't, set `LISTEN_URL`
    to the Spotify album link in `links.json`.
-4. `/usr/bin/python3 tools/release/fill_links.py`, then `check_release.py --final`
-   (fails on any leftover token or any dead Spotify / Apple / DistroKid link).
-5. `/rsvp/`: "Becoming arrives September 18" → "Becoming is out now"; the pre-save button →
-   "Listen to Becoming" (the LISTEN_URL link). Keep the photo-takedown line.
+4. `/rsvp/` flip, BEFORE filling: "Becoming arrives September 18" → "Becoming is out now"; the
+   pre-save button → "Listen to Becoming" with `href="%%LISTEN_URL%%"`. Keep the photo-takedown line.
+5. `/usr/bin/python3 tools/release/fill_links.py`, then
+   `/usr/bin/python3 tools/release/check_release.py --final` — fails on any leftover token, any
+   pre-release wording (/rsvp/ included in final mode) or any dead Spotify / Apple / DistroKid link.
 6. Look at every changed page at desktop and 375 px (home, `/becoming/`, the four lyrics pages,
-   press kit). Show PKG. On his "publish": `git switch main && git merge --ff-only release-becoming
-   && git push`. Then verify live: every new page returns 200, the hero says "out now", no `%%`
-   anywhere, press-kit PDF opens.
-7. Copy the new `epk/Anya Gupta EPK.pdf` to Dropbox `Music/Anya/Biography/Anya Gupta EPK.pdf`
+   press kit, `/rsvp/`). Show PKG.
+7. COMMIT the filled version on the branch: `git add -A && git commit -m "Becoming — out now"`.
+8. On PKG's "publish" — gate, merge, gate, push (never `git switch -f` or `git stash` here: the
+   uncommitted state is the only filled copy):
+   ```
+   test -z "$(git status --porcelain)" && ! grep -rl '%%' --include='*.html' --include='*.xml' . | grep -v -E '^\./(tools|variants|artifact-preview)/'
+   git switch main && git merge --ff-only release-becoming
+   test -z "$(git status --porcelain)" && ! grep -rl '%%' --include='*.html' --include='*.xml' . | grep -v -E '^\./(tools|variants|artifact-preview)/'
+   git push origin main
+   ```
+   Then verify live: every new page returns 200, the hero says "out now", no `%%` in any served
+   page, the press-kit PDF opens.
+9. Copy the new `epk/Anya Gupta EPK.pdf` to Dropbox `Music/Anya/Biography/Anya Gupta EPK.pdf`
    (the third copy).
-8. Give PKG: the album listen link (for KOMI); the Search Console list (`/`, `/becoming/`,
+10. Give PKG: the album listen link (for KOMI); the Search Console list (`/`, `/becoming/`,
    `/songs/not-for-you/`, `/songs/let-you-be/`, `/songs/breakup-with-my-ego/`, `/songs/life-vest/`);
    the MusicBrainz entries — artist MBID 41ae3f66-2051-4641-b5d7-cbe0baafd27c, album *Becoming*,
    RG type Album, Digital Media, 7 tracks in canonical order, date 2026-09-18, [Worldwide],
