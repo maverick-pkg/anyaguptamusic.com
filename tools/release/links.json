@@ -1,0 +1,17 @@
+{
+  "_note": "Release-night links. null = not known yet. fetch_links.py fills what it can from public pages (Spotify embed, Apple lookup, YouTube feed); fill_links.py refuses to run while any token it needs is null.",
+  "LISTEN_URL": "https://distrokid.com/hyperfollow/anyagupta1/becoming",
+  "SPOTIFY_ALBUM": "https://open.spotify.com/album/1ldpXvka3fAaIqdnWEMnot",
+  "APPLE_ALBUM": null,
+  "SPOTIFY_TRACK_NOT_FOR_YOU": null,
+  "SPOTIFY_TRACK_LET_YOU_BE": null,
+  "SPOTIFY_TRACK_BREAKUP_WITH_MY_EGO": null,
+  "SPOTIFY_TRACK_LIFE_VEST": null,
+  "APPLE_TRACK_NOT_FOR_YOU": null,
+  "APPLE_TRACK_LET_YOU_BE": null,
+  "APPLE_TRACK_BREAKUP_WITH_MY_EGO": null,
+  "APPLE_TRACK_LIFE_VEST": null,
+  "NFY_VIDEO_ID": null,
+  "NFY_VIDEO_UPLOAD_DATE": null,
+  "DEPLOY_DATE": null
+}
