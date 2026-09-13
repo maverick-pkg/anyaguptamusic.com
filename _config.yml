@@ -1,0 +1,11 @@
+# GitHub Pages (Jekyll) build settings.
+# These files stay in the repo for the people working on the site, but are
+# not published on anyaguptamusic.com (neither as raw files nor as the .html
+# pages Jekyll renders from Markdown).
+exclude:
+  - CLAUDE.md
+  - README.md
+  - RELEASE-DAY.md
+  - tools
+  - variants
+  - artifact-preview
