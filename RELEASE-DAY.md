@@ -25,7 +25,7 @@ This file is Claude's runbook for the website.
   press kit + PDFs, `/presave/` and `/subscribed/`, "More lyrics" on the three live lyrics pages,
   sitemap; plus the four YouTube "OUT NOW" descriptions in `SEPT 18 SWAP/`.
 - Links that exist only after release are `%%TOKENS%%` — see `tools/release/links.json`.
-- `/rsvp/` (the thank-you page) is NOT in the build — flip it by hand (step 5).
+- `/rsvp/` (the thank-you page) is NOT in the build — flip it by hand (step 4).
 
 ## Thursday night — after PKG can play the album AND the four lyric videos are PUBLIC
 Order matters: the Not For You video must be public before step 2, and nothing is pushed until
@@ -52,11 +52,10 @@ the step-8 gates pass. The branch tip as built still holds every `%%TOKEN%%`.
 8. On PKG's "publish" — gate, merge, gate, push (never `git switch -f` or `git stash` here: the
    uncommitted state is the only filled copy):
    ```
-   test -z "$(git status --porcelain)" && ! grep -rl '%%' --include='*.html' --include='*.xml' . | grep -v -E '^\./(tools|variants|artifact-preview)/'
-   git switch main && git merge --ff-only release-becoming
-   test -z "$(git status --porcelain)" && ! grep -rl '%%' --include='*.html' --include='*.xml' . | grep -v -E '^\./(tools|variants|artifact-preview)/'
-   git push origin main
+   gate() { test -z "$(git status --porcelain)" && ! grep -rl '%%' --include='*.html' --include='*.xml' . | grep -v -E '^\./(tools|variants|artifact-preview)/'; }
+   gate && git switch main && git merge --ff-only release-becoming && gate && git push origin main
    ```
+   Run it as ONE command: a failed gate stops everything before the push.
    Then verify live: every new page returns 200, the hero says "out now", no `%%` in any served
    page, the press-kit PDF opens.
 9. Copy the new `epk/Anya Gupta EPK.pdf` to Dropbox `Music/Anya/Biography/Anya Gupta EPK.pdf`
