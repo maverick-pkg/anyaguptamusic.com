@@ -40,7 +40,10 @@ def spotify(links, found):
     alb = links["SPOTIFY_ALBUM"].rstrip("/").split("/")[-1].split("?")[0]
     x = get(f"https://open.spotify.com/embed/album/{alb}")
     m = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', x, re.S)
-    ent = json.loads(m.group(1))["props"]["pageProps"]["state"]["data"]["entity"] if m else {}
+    try:  # before release the embed page is Spotify's own 404 page (no "state")
+        ent = json.loads(m.group(1))["props"]["pageProps"]["state"]["data"]["entity"]
+    except (AttributeError, KeyError, TypeError, ValueError):
+        ent = {}
     tracks = ent.get("trackList") or []
     if not tracks:
         print("  Spotify: album not live yet (embed page has no tracks)")
@@ -77,7 +80,8 @@ def apple(found):
 def youtube(found):
     x = get(f"https://www.youtube.com/feeds/videos.xml?channel_id={YT_CHANNEL}")
     for vid, title, pub in re.findall(r"<yt:videoId>([^<]+)</yt:videoId>.*?<title>([^<]+)</title>.*?<published>([^<]+)</published>", x, re.S):
-        if "not for you" in key(title) and "lyric" in key(title):
+        t = key(title)  # the real lyric video only — never a campaign Short
+        if "not for you" in t and "official lyric video" in t and "#shorts" not in t:
             found["NFY_VIDEO_ID"] = vid
             found["NFY_VIDEO_UPLOAD_DATE"] = pub[:10]
             return

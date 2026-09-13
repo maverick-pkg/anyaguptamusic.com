@@ -81,7 +81,7 @@ for p, rel in pages():
     toks = sorted(set(re.findall(r"%%[A-Z_]+%%", s)))
     if toks:
         (fails if FINAL else notes).append(f"{rel}: tokens {toks}")
-    if rel not in ("privacy/index.html",) and not rel.startswith("rsvp/"):
+    if rel not in ("privacy/index.html",) and (FINAL or not rel.startswith("rsvp/")):  # /rsvp/ must be flipped before --final
         visible = re.sub(r"<script.*?</script>|<style.*?</style>|<!--.*?-->", "", s, flags=re.S)
         for pat in STALE:
             for m in re.finditer(pat, visible):
