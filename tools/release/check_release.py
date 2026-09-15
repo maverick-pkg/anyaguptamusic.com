@@ -7,12 +7,14 @@
 Checks: tag balance on every page; every JSON-LD block parses; the four new lyrics
 pages match tools/release/lyrics.json word for word (visible text AND schema text);
 writers lines match the confirmed roster; no pre-release wording left on public
-pages; every internal link and image points at a file that exists.
+pages; every internal link and image points at a file that exists; both press-kit
+PDFs are current (tools/print_epk_pdf.py --check).
 Run:  /usr/bin/python3 tools/release/check_release.py [--final]
 """
 import html
 import json
 import re
+import subprocess
 import sys
 import urllib.request
 from html.parser import HTMLParser
@@ -118,6 +120,13 @@ for slug, d in LYR.items():
         fails.append(f"songs/{slug}: schema lyrics differ from lyrics.json")
     if ld["name"] != d["title"]:
         fails.append(f"songs/{slug}: schema name {ld['name']!r} != {d['title']!r}")
+
+# press-kit PDFs: the build never prints them, and a merge keeps the branch's old copy
+r = subprocess.run([sys.executable, str(ROOT / "tools/print_epk_pdf.py"), "--check"],
+                   capture_output=True, text=True)
+if r.returncode:
+    fails.append("press-kit PDF stale — run /usr/bin/python3 tools/print_epk_pdf.py\n    "
+                 + (r.stdout + r.stderr).strip().replace("\n", "\n    "))
 
 if FINAL:
     ext = set()
