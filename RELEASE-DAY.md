@@ -22,8 +22,9 @@ This file is Claude's runbook for the website.
   re-run: 4 lyrics pages, `/becoming/` album page, homepage "out now" (hero, ticker, the focus-track
   panel becomes the album panel with the Not For You story, full linked tracklist, Not For You
   lyric video, About, countdown code removed, click events renamed `listen-*` / `spotify-album*`),
-  press kit + PDFs, `/presave/` and `/subscribed/`, "More lyrics" on the three live lyrics pages,
+  press kit, `/presave/` and `/subscribed/`, "More lyrics" on the three live lyrics pages,
   sitemap; plus the four YouTube "OUT NOW" descriptions in `SEPT 18 SWAP/`.
+- The build does NOT make the press-kit PDFs — `tools/print_epk_pdf.py` prints them (step 1).
 - Links that exist only after release are `%%TOKENS%%` — see `tools/release/links.json`.
 - `/rsvp/` (the thank-you page) is NOT in the build — flip it by hand (step 4).
 
@@ -34,6 +35,7 @@ the step-8 gates pass. The branch tip as built still holds every `%%TOKEN%%`.
    ```
    git switch release-becoming && git merge main --no-commit
    /usr/bin/python3 tools/release/build_release.py
+   /usr/bin/python3 tools/print_epk_pdf.py
    git add -A && git commit --no-edit
    ```
    Why always: the generated pages (`/becoming/` and the four new lyrics pages) copy the shared
@@ -42,6 +44,9 @@ the step-8 gates pass. The branch tip as built still holds every `%%TOKEN%%`.
    clean merge left 5 of 9 pages without them; the rebuild fixed all 9 and `check_release.py` passed.
    `--no-commit` makes a clean merge and a conflicted one finish the same way — the rebuild
    overwrites any conflicted file from main, and the commit concludes the merge.
+   Why the PDF line: the build never touches the press-kit PDFs, and a merge keeps the branch's
+   own old copy. Found 2026-09-14: the branch's Sep 13 PDFs still said #66 after main moved to
+   #58. `check_release.py` now fails on any press-kit PDF that doesn't match the page.
 2. `/usr/bin/python3 tools/release/fetch_links.py` — Spotify track links (album embed page), Apple
    album + track links (iTunes lookup, **artist 1728554823 only** — 1434780958 is the Boston Anya
    Gupta), the Not For You lyric video id (channel feed, title must contain "Official Lyric Video",
@@ -84,7 +89,8 @@ text) · Spotify Artist Pick → the album · Spotify for Artists bio: change ON
 - GoatCounter: `listen-*`, `spotify-album*`, `apple-*` and `spotify-<song>` events should appear;
   `presave-*` should stop.
 - **Sept 22 (her birthday):** "fifteen-year-old" → "sixteen-year-old" in `index.html` About and
-  `epk/index.html` (+ PDF ×3); Spotify for Artists bio `i'm 15` → `i'm 16` (only that); HyperFollow bio.
+  `epk/index.html`, then `/usr/bin/python3 tools/print_epk_pdf.py --dropbox` (all three PDFs);
+  Spotify for Artists bio `i'm 15` → `i'm 16` (only that); HyperFollow bio.
 - **WREG Live at 9:** when the airdate is known → Shows line + Event (`EventRescheduled`, new
   `startDate`, `previousStartDate` 2026-09-11T09:00:00-05:00). After it airs → replay embed and the
   WREG story link.
