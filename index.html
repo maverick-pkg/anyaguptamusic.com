@@ -319,26 +319,19 @@ nav ul{margin-left:auto}
   .nav-social svg{width:16px;height:16px}
   nav ul{order:3;flex-basis:100%;margin-left:0;justify-content:center}
 }
-
-/* signup prompt — delayed, dismissible, once per visitor (agency request 2026-09-14) */
-.sp{position:fixed;right:clamp(12px,2.5vw,28px);bottom:clamp(12px,2.5vw,28px);z-index:60;width:min(360px,calc(100vw - 24px));background:var(--paper);box-shadow:0 18px 44px rgba(33,29,32,.28);padding:1.35rem 1.35rem 1.05rem;border-top:4px solid var(--peach-deep);animation:sp-in .45s ease both}
-.sp[hidden]{display:none!important}
-@keyframes sp-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.sp-x{position:absolute;top:.3rem;right:.4rem;width:38px;height:38px;border:0;background:none;font-size:1.6rem;line-height:1;color:var(--ink-soft);cursor:pointer;border-radius:50%}
-.sp-x:hover,.sp-x:focus-visible{color:var(--ink);background:rgba(33,29,32,.07)}
-.sp-eyebrow{font-weight:700;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-soft)}
-.sp-title{font-family:var(--serif);font-style:italic;font-weight:900;font-size:1.55rem;line-height:1.1;margin:.2em 2rem .35em 0;color:var(--ink)}
-.sp-sub{font-size:.88rem;color:var(--ink-soft);margin-bottom:.85rem}
-.sp-form{display:flex;flex-wrap:wrap;gap:.55rem;position:relative}
-.sp-lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.sp-form input[type=email]{flex:1 1 150px;min-width:0;padding:.8em .95em;border:2px solid var(--ink);background:#fff;font-family:var(--sans);font-size:max(16px,.95rem)}
-.sp-btn{background:var(--ink);color:var(--paper);border-color:var(--ink);padding:.8em 1.3em}
-.sp-age{flex-basis:100%;display:flex;align-items:center;gap:.5em;font-size:.8rem;color:var(--ink-soft)}
-.sp-age input{flex:0 0 auto;width:1.1em;height:1.1em;accent-color:var(--ink)}
-.sp-fine{margin-top:.6rem;font-size:.72rem}
-.sp-fine a{color:var(--ink-soft)}
-@media(max-width:520px){.sp{left:10px;right:10px;width:auto;bottom:10px;padding:1rem 1rem .8rem}.sp-eyebrow,.sp-sub{display:none}.sp-title{font-size:1.3rem;margin-bottom:.55em}.sp-fine{margin-top:.4rem}}
-@media(prefers-reduced-motion:reduce){.sp{animation:none}}
+/* six header links incl. Sign Up: keep one row on phones from 360px and on 900–1023px screens */
+@media(max-width:520px){
+  nav .nav-in ul{gap:.35rem}
+  nav .nav-in ul a{letter-spacing:.05em;padding-left:.1em;padding-right:.1em}
+}
+@media(min-width:360px) and (max-width:520px){nav .nav-in ul{justify-content:space-between}}
+@media(min-width:900px) and (max-width:1023px){
+  nav .nav-in ul{gap:1rem}
+  nav .nav-in ul a{letter-spacing:.16em}
+}
+/* the taller phone/tablet header covered section headings after a header-link jump */
+@media(max-width:899px){section[id]{scroll-margin-top:32px}}
+@media(max-width:359px){section[id]{scroll-margin-top:96px}}
 
 footer{background:var(--ink);color:var(--paper);padding:2.4rem 0;text-align:center}
 footer .monogram{font-size:2rem;padding-right:0}
@@ -408,6 +401,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
       <li><a href="#shows">Shows</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="#signup">Sign Up</a></li>
     </ul>
     <div class="nav-social" aria-label="Anya Gupta on social and streaming">
       <a href="https://www.instagram.com/anyagupta.music" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.7-.3 1.8-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.7.3 1.8.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.7.3-1.8.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.7-.3-1.8-.3-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.1-2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg></a>
@@ -933,49 +927,10 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
     else if (/\.pdf(\?|$)/.test(h)) ev('presskit-pdf');
     else if (/\.zip(\?|$)/.test(h)) ev('press-zip');
     else if (h.indexOf('mailto:') === 0) ev('contact-email');
+    else if (a.closest('nav') && h.indexOf('#signup') > -1) ev('nav-signup');
   }, true);
   var f = document.querySelector('.signup form');
   if (f) f.addEventListener('submit', function(){ ev('newsletter-submit'); });
-})();
-</script>
-<aside class="sp" id="signup-prompt" role="dialog" aria-modal="false" aria-labelledby="sp-title" hidden>
-  <button class="sp-x" type="button" aria-label="Close">×</button>
-  <p class="sp-eyebrow">Anya Gupta</p>
-  <h2 id="sp-title" class="sp-title">Get the next song first</h2>
-  <p class="sp-sub">New music, show dates and first listens — a few emails a year.</p>
-  <form class="sp-form" action="https://anyaguptamusic.us7.list-manage.com/subscribe/post?u=f5eb1357a0b9ee6e32ff0b4e5&amp;id=8ca2a0c0d0&amp;f_id=00c3f5e3f0" method="post">
-    <label class="sp-lbl" for="sp-em">Email address</label>
-    <input id="sp-em" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
-    <button class="btn sp-btn" type="submit">Join</button>
-    <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_f5eb1357a0b9ee6e32ff0b4e5_8ca2a0c0d0" tabindex="-1" value=""></div>
-    <label class="sp-age"><input type="checkbox" required> I’m 13 or older</label>
-  </form>
-  <p class="sp-fine"><a href="/privacy/">Privacy policy</a></p>
-</aside>
-<script>
-// signup prompt: after 30s or half-way down, once per visitor, never for someone who has reached the signup section
-(function(){
-  var box = document.getElementById('signup-prompt'); if (!box) return;
-  var KEY = 'ag_signup_prompt';
-  function seen(){ try { return !!localStorage.getItem(KEY); } catch(e) { return false; } }
-  function mark(v){ try { localStorage.setItem(KEY, v); } catch(e) {} }
-  function ev(n){ if (window.goatcounter && goatcounter.count) goatcounter.count({path:n, event:true}); }
-  if (seen()) return;
-  var inline = document.getElementById('signup'), shown = false, sawInline = false, timer;
-  function check(){ if (!inline) return; var r = inline.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) sawInline = true; }
-  function stop(){ removeEventListener('scroll', onScroll); clearTimeout(timer); }
-  function show(){ check(); if (shown || sawInline || seen()) { if (sawInline) stop(); return; }
-    shown = true; stop(); box.hidden = false; ev('signup-prompt-shown'); }
-  function onScroll(){ check(); if (sawInline) { stop(); return; }
-    var h = document.documentElement; if ((h.scrollTop + innerHeight) / h.scrollHeight > 0.5) show(); }
-  function dismiss(){ box.hidden = true; mark('dismissed'); ev('signup-prompt-dismiss'); }
-  timer = setTimeout(show, 30000);
-  addEventListener('scroll', onScroll, {passive:true});
-  box.querySelector('.sp-x').addEventListener('click', dismiss);
-  addEventListener('keydown', function(e){ if (e.key === 'Escape' && !box.hidden) dismiss(); });
-  box.querySelector('.sp-form').addEventListener('submit', function(){ mark('joined'); ev('signup-prompt-submit'); });
-  var f = document.querySelector('.signup form');
-  if (f) f.addEventListener('submit', function(){ mark('joined'); });
 })();
 </script>
 </body>
