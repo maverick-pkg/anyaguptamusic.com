@@ -8,10 +8,10 @@ The press-kit PDF lives in THREE places, and all three must match the page:
 
   /usr/bin/python3 tools/print_epk_pdf.py [--dropbox]   print, check, then copy
   /usr/bin/python3 tools/print_epk_pdf.py --check       check only; exit 1 if the two repo
-      copies differ or any line of the page's text is missing from the PDF (a stale PDF)
+      copies differ or the PDF's text is not exactly the page's text (a stale PDF)
 
 Nothing is copied unless the new PDF is one US-letter page, uses only the site's web
-fonts, and carries every line of the page's text. Needs Google Chrome and poppler.
+fonts, and its text is exactly the page's. Needs Google Chrome and poppler.
 Headless Chrome sometimes writes the PDF and then never exits on this page, so the
 script waits for a complete file and then stops that one process.
 """
@@ -68,9 +68,13 @@ def problems(pdf):
     out += [f"font {f} missing" for f in FONTS if not any(n.startswith(f) for n in names)]
     text = squash(subprocess.run([tool("pdftotext"), "-raw", str(pdf), "-"], capture_output=True,
                                  text=True, check=True).stdout)
-    gone = [l for l in page_lines() if squash(l) not in text]
+    lines = page_lines()
+    gone = [l for l in lines if squash(l) not in text]
     if gone:
         out.append(f"page text missing from the PDF: {gone[:4]}")
+    want = sum(len(squash(l)) for l in lines)
+    if len(text) != want:  # catches text removed from the page but still in the PDF
+        out.append(f"PDF text is {len(text)} characters, the page's is {want}")
     return out
 
 
@@ -115,6 +119,8 @@ def main():
         print("\n".join("✗ " + b for b in bad) if bad else "✓ press-kit PDFs match the page")
         sys.exit(1 if bad else 0)
 
+    if "%%" in PAGE.read_text(encoding="utf-8"):
+        raise SystemExit("✗ epk/index.html still has %%TOKEN%% links — the PDF would carry them; fill first")
     new = Path(tempfile.mkdtemp(prefix="epk-new-")) / "Anya Gupta EPK.pdf"
     print_pdf(new)
     bad = problems(new)
