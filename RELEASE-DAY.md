@@ -30,10 +30,18 @@ This file is Claude's runbook for the website.
 ## Thursday night — after PKG can play the album AND the four lyric videos are PUBLIC
 Order matters: the Not For You video must be public before step 2, and nothing is pushed until
 the step-8 gates pass. The branch tip as built still holds every `%%TOKEN%%`.
-1. `git switch release-becoming && git merge main` — brings in anything changed on main since the
-   build (WREG airdate, thank-you wording). If it conflicts: run
-   `/usr/bin/python3 tools/release/build_release.py` (rebuilds from main, overwriting the conflicted
-   files), then `git add -A && git commit --no-edit` to conclude the merge.
+1. Merge main in AND ALWAYS REBUILD — even when the merge is clean:
+   ```
+   git switch release-becoming && git merge main --no-commit
+   /usr/bin/python3 tools/release/build_release.py
+   git add -A && git commit --no-edit
+   ```
+   Why always: the generated pages (`/becoming/` and the four new lyrics pages) copy the shared
+   header, footer and styles from main AT BUILD TIME, so a clean merge alone leaves them with
+   whatever existed on 09-13. Found 2026-09-14: after the header social icons landed on main, a
+   clean merge left 5 of 9 pages without them; the rebuild fixed all 9 and `check_release.py` passed.
+   `--no-commit` makes a clean merge and a conflicted one finish the same way — the rebuild
+   overwrites any conflicted file from main, and the commit concludes the merge.
 2. `/usr/bin/python3 tools/release/fetch_links.py` — Spotify track links (album embed page), Apple
    album + track links (iTunes lookup, **artist 1728554823 only** — 1434780958 is the Boston Anya
    Gupta), the Not For You lyric video id (channel feed, title must contain "Official Lyric Video",
