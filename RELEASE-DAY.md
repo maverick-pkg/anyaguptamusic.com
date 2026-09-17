@@ -91,9 +91,10 @@ text) · Spotify Artist Pick → the album · Spotify for Artists bio: change ON
 - **Sept 22 (her birthday):** "fifteen-year-old" → "sixteen-year-old" in `index.html` About and
   `epk/index.html`, then `/usr/bin/python3 tools/print_epk_pdf.py --dropbox` (all three PDFs);
   Spotify for Artists bio `i'm 15` → `i'm 16` (only that); HyperFollow bio.
-- **WREG Live at 9:** when the airdate is known → Shows line + Event (`EventRescheduled`, new
-  `startDate`, `previousStartDate` 2026-09-11T09:00:00-05:00). After it airs → replay embed and the
-  WREG story link.
+- **WREG Live at 9:** ✅ aired Wed Sep 16 (PKG). DONE 09-16 on main: Shows line "Aired Sep 16" with
+  links to both WREG segments (`/on-air/live-at-9/anya-gupta-performs/`, `/on-air/live-at-9/anya-gupta/`),
+  Event → `EventRescheduled` (startDate 2026-09-16, previousStartDate 2026-09-11). STILL OPEN: a video
+  card for the performance (needs WREG's embed code, or their OK to use the file) and a press-kit line.
 
 ## Writers roster (confirmed 2026-09-07 — names only, never percentages)
 
