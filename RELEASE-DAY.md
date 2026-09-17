@@ -36,8 +36,13 @@ the step-8 gates pass. The branch tip as built still holds every `%%TOKEN%%`.
    git switch release-becoming && git merge main --no-commit
    /usr/bin/python3 tools/release/build_release.py
    /usr/bin/python3 tools/print_epk_pdf.py
-   git add -A && git commit --no-edit
+   ! git grep -n -E '^(<<<<<<<|>>>>>>>)( |$)' && git add -A && git commit --no-edit
    ```
+   EXPECTED since 2026-09-16: the merge prints `Automatic merge failed` for `index.html` (the branch's
+   release edits to the click-count script sit next to lines main added). That is normal — the rebuild
+   rewrites index.html from main (tested 09-16: 0 conflict markers, check_release passed). The
+   `git grep` guard stops the commit if a conflicted file is one the build does NOT rewrite (e.g. this
+   runbook): fix that file by hand, taking main's side, then re-run the last line.
    Why always: the generated pages (`/becoming/` and the four new lyrics pages) copy the shared
    header, footer and styles from main AT BUILD TIME, so a clean merge alone leaves them with
    whatever existed on 09-13. Found 2026-09-14: after the header social icons landed on main, a
