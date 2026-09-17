@@ -215,6 +215,9 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
 }
 .videos .vid:nth-child(odd):last-child{grid-column:1/-1;max-width:min(600px,100%);width:100%;margin:0 auto}
 .vid .soon{position:absolute;top:12px;right:12px;background:var(--neon);color:var(--ink);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.4em .8em}
+/* WREG cards: real frames from the show, brighter than the placeholder photos, with a shade under the label */
+a.vid.tv img{opacity:.95;filter:none}
+a.vid.tv::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(33,29,32,.78),rgba(33,29,32,0) 45%);pointer-events:none}
 
 /* shows */
 .shows-band{
@@ -605,14 +608,14 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
         <span class="soon">Visuals · Sep 18</span>
         <span class="label">Not For You — focus track</span>
       </a>
-      <a class="vid rv" href="https://wreg.com/video/anya-gupta-performs/12174397" target="_blank" rel="noopener" data-embed="https://redir1.wreg.com/nxs-video/vid-anvato-12174397/embed/?autoplay=1&amp;injected_via=embed&amp;post_id=3142294&amp;aspect_ratio=landscape" data-title="Anya Gupta performs on Live at 9 — WREG News Channel 3" aria-label="Play Anya’s live performance on WREG News Channel 3’s Live at 9">
-        <img loading="lazy" decoding="async" src="assets/photos/gallery-05.jpg" alt="">
+      <a class="vid rv tv" href="https://wreg.com/video/anya-gupta-performs/12174397" target="_blank" rel="noopener" data-embed="https://redir1.wreg.com/nxs-video/vid-anvato-12174397/embed/?autoplay=1&amp;injected_via=embed&amp;post_id=3142294&amp;aspect_ratio=landscape" data-title="Anya Gupta performs on Live at 9 — WREG News Channel 3" aria-label="Play Anya’s live performance on WREG News Channel 3’s Live at 9">
+        <img loading="lazy" decoding="async" src="assets/photos/wreg-performance.jpg" alt="">
         <div class="play" aria-hidden="true"><div class="ring">▶</div></div>
         <span class="soon">WREG · Channel 3</span>
         <span class="label">Live at 9 · performance</span>
       </a>
-      <a class="vid rv" href="https://wreg.com/video/anya-gupta/12174380" target="_blank" rel="noopener" data-embed="https://redir1.wreg.com/nxs-video/vid-anvato-12174380/embed/?autoplay=1&amp;injected_via=embed&amp;post_id=3142272&amp;aspect_ratio=landscape" data-title="Anya Gupta on Live at 9 — the interview — WREG News Channel 3" aria-label="Play Anya’s interview on WREG News Channel 3’s Live at 9">
-        <img loading="lazy" decoding="async" src="assets/photos/gallery-02.jpg" alt="">
+      <a class="vid rv tv" href="https://wreg.com/video/anya-gupta/12174380" target="_blank" rel="noopener" data-embed="https://redir1.wreg.com/nxs-video/vid-anvato-12174380/embed/?autoplay=1&amp;injected_via=embed&amp;post_id=3142272&amp;aspect_ratio=landscape" data-title="Anya Gupta on Live at 9 — the interview — WREG News Channel 3" aria-label="Play Anya’s interview on WREG News Channel 3’s Live at 9">
+        <img loading="lazy" decoding="async" src="assets/photos/wreg-interview.jpg" alt="">
         <div class="play" aria-hidden="true"><div class="ring">▶</div></div>
         <span class="soon">WREG · Channel 3</span>
         <span class="label">Live at 9 · interview</span>
