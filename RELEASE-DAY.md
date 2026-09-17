@@ -38,9 +38,10 @@ the step-8 gates pass. The branch tip as built still holds every `%%TOKEN%%`.
    /usr/bin/python3 tools/print_epk_pdf.py
    ! git grep -n -E '^(<<<<<<<|>>>>>>>)( |$)' && git add -A && git commit --no-edit
    ```
-   EXPECTED since 2026-09-16: the merge prints `Automatic merge failed` for `index.html` (the branch's
-   release edits to the click-count script sit next to lines main added). That is normal — the rebuild
-   rewrites index.html from main (tested 09-16: 0 conflict markers, check_release passed). The
+   EXPECTED since 2026-09-16: the merge prints `Automatic merge failed` for `index.html`,
+   `epk/index.html` and the two press-kit PDFs (the branch's release edits sit next to lines main
+   added). That is normal — the build rewrites both pages from main and the PDF line reprints both PDFs
+   (tested 09-16 night: 0 conflict markers, PDF one page and nothing clipped, check_release passed). The
    `git grep` guard stops the commit if a conflicted file is one the build does NOT rewrite (e.g. this
    runbook): fix that file by hand, taking main's side, then re-run the last line.
    Why always: the generated pages (`/becoming/` and the four new lyrics pages) copy the shared
