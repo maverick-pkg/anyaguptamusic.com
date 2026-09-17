@@ -605,6 +605,18 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
         <span class="soon">Visuals · Sep 18</span>
         <span class="label">Not For You — focus track</span>
       </a>
+      <a class="vid rv" href="https://wreg.com/video/anya-gupta-performs/12174397" target="_blank" rel="noopener" data-embed="https://redir1.wreg.com/nxs-video/vid-anvato-12174397/embed/?autoplay=1&amp;injected_via=embed&amp;post_id=3142294&amp;aspect_ratio=landscape" data-title="Anya Gupta performs on Live at 9 — WREG News Channel 3" aria-label="Play Anya’s live performance on WREG News Channel 3’s Live at 9">
+        <img loading="lazy" decoding="async" src="assets/photos/gallery-05.jpg" alt="">
+        <div class="play" aria-hidden="true"><div class="ring">▶</div></div>
+        <span class="soon">WREG · Channel 3</span>
+        <span class="label">Live at 9 · performance</span>
+      </a>
+      <a class="vid rv" href="https://wreg.com/video/anya-gupta/12174380" target="_blank" rel="noopener" data-embed="https://redir1.wreg.com/nxs-video/vid-anvato-12174380/embed/?autoplay=1&amp;injected_via=embed&amp;post_id=3142272&amp;aspect_ratio=landscape" data-title="Anya Gupta on Live at 9 — the interview — WREG News Channel 3" aria-label="Play Anya’s interview on WREG News Channel 3’s Live at 9">
+        <img loading="lazy" decoding="async" src="assets/photos/gallery-02.jpg" alt="">
+        <div class="play" aria-hidden="true"><div class="ring">▶</div></div>
+        <span class="soon">WREG · Channel 3</span>
+        <span class="label">Live at 9 · interview</span>
+      </a>
       <div class="vid rv">
         <iframe src="https://www.youtube-nocookie.com/embed/DrNS5ucEggg" title="Anya Gupta — Awaken the Lights (Official Lyric Video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>
       </div>
@@ -615,7 +627,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
         <iframe src="https://www.youtube-nocookie.com/embed/yw7ignYu2Pk" title="Anya Gupta — In the Studio (Behind the Scenes)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>
       </div>
     </div>
-    <p class="rv" style="margin-top:1.2rem;max-width:56ch">Official lyric videos for all three singles are here, along with a look inside the studio — the “Not For You” visuals premiere alongside the album. <a href="https://www.youtube.com/@theanyagupta" target="_blank" rel="noopener"><b>Subscribe on YouTube</b></a> to catch them the moment they drop.</p>
+    <p class="rv" style="margin-top:1.2rem;max-width:56ch">Official lyric videos for all three singles are here, along with a look inside the studio — the “Not For You” visuals premiere alongside the album. <a href="https://www.youtube.com/@theanyagupta" target="_blank" rel="noopener"><b>Subscribe on YouTube</b></a> to catch them the moment they drop. Plus Anya’s live performance and interview from WREG News Channel 3’s <i>Live at 9</i>.</p>
   </div>
 </section>
 
@@ -949,10 +961,27 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
     else if (/\.zip(\?|$)/.test(h)) ev('press-zip');
     else if (h.indexOf('mailto:') === 0) ev('contact-email');
     else if (a.closest('nav') && h.indexOf('#signup') > -1) ev('nav-signup');
-    else if (h.indexOf('wreg.com') > -1) ev(h.indexOf('performs') > -1 ? 'wreg-performance' : 'wreg-interview');
+    else if (h.indexOf('wreg.com') > -1) ev((a.closest('.vid') ? 'wreg-video-' : 'wreg-') + (h.indexOf('performs') > -1 ? 'performance' : 'interview'));
   }, true);
   var f = document.querySelector('.signup form');
   if (f) f.addEventListener('submit', function(){ ev('newsletter-submit'); });
+})();
+</script>
+<script>
+// WREG videos: their player carries ads and tracking, so it loads only when someone presses play
+(function(){
+  document.querySelectorAll('a.vid[data-embed]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      var box = document.createElement('div'); box.className = a.className;
+      var f = document.createElement('iframe');
+      f.src = a.getAttribute('data-embed'); f.title = a.getAttribute('data-title');
+      f.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture'; f.setAttribute('allowfullscreen', '');
+      f.style.cssText = 'width:100%;height:100%;border:0;display:block';
+      box.appendChild(f); a.replaceWith(box);
+    });
+  });
 })();
 </script>
 </body>
