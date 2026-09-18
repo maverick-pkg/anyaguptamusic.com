@@ -168,6 +168,7 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
 
 /* music */
 .singles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.1rem,3vw,2.2rem)}
+.singles .single:nth-child(4){grid-column:2}
 .single{background:var(--paper);padding:12px 12px 16px;box-shadow:var(--shadow);text-decoration:none;transition:transform .18s ease}
 .single:hover{transform:translateY(-6px) rotate(-.5deg)}
 .single img{aspect-ratio:1;object-fit:cover}
@@ -405,6 +406,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
   .hero-grid,.about-grid,.contact-wrap{grid-template-columns:1fr}
   .hero-photo{max-width:420px;margin:0 auto}
   .singles{grid-template-columns:1fr 1fr}
+.singles .single:nth-child(4){grid-column:auto}
   .videos{grid-template-columns:1fr}
   .gal{grid-template-columns:1fr 1fr}
   .gal .polaroid:nth-child(16){grid-column:1/-1;max-width:75%;margin:0 auto}
@@ -594,6 +596,17 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
           <a href="https://open.spotify.com/track/3ANAnxmGIm5xHgSZPYryNi" target="_blank" rel="noopener">Spotify</a>
           <a href="https://music.apple.com/us/album/awaken-the-lights-single/1760631599" target="_blank" rel="noopener">Apple Music</a>
           <a class="lyrics-link" href="songs/awaken-the-lights/" target="_blank" rel="noopener">Lyrics</a>
+        </div>
+      </div>
+      <div class="single tape rv"><a class="single-main" href="https://open.spotify.com/track/5TobQr1b3QqhPLRpFPMh06" target="_blank" rel="noopener">
+        <img loading="lazy" decoding="async" src="assets/photos/nfy-focus-1587.jpg" alt="Not For You — Anya Gupta in a red striped tee and white headphones, lowering her sunglasses, leaning on a shopping cart">
+        <div class="t">Not For You</div>
+        <div class="y">Focus track · 2026</div>
+        </a>
+        <div class="card-links">
+          <a href="https://open.spotify.com/track/5TobQr1b3QqhPLRpFPMh06" target="_blank" rel="noopener">Spotify</a>
+          <a href="https://music.apple.com/us/album/not-for-you/6802154894?i=6802154898" target="_blank" rel="noopener">Apple Music</a>
+          <a class="lyrics-link" href="songs/not-for-you/" target="_blank" rel="noopener">Lyrics</a>
         </div>
       </div>
     </div>
