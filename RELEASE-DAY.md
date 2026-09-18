@@ -36,8 +36,14 @@ the step-8 gates pass. The branch tip as built still holds every `%%TOKEN%%`.
    git switch release-becoming && git merge main --no-commit
    /usr/bin/python3 tools/release/build_release.py
    /usr/bin/python3 tools/print_epk_pdf.py
-   git add -A && git commit --no-edit
+   ! git grep -n -E '^(<<<<<<<|>>>>>>>)( |$)' && git add -A && git commit --no-edit
    ```
+   EXPECTED since 2026-09-16: the merge prints `Automatic merge failed` for `index.html`,
+   `epk/index.html` and the two press-kit PDFs (the branch's release edits sit next to lines main
+   added). That is normal — the build rewrites both pages from main and the PDF line reprints both PDFs
+   (tested 09-16 night: 0 conflict markers, PDF one page and nothing clipped, check_release passed). The
+   `git grep` guard stops the commit if a conflicted file is one the build does NOT rewrite (e.g. this
+   runbook): fix that file by hand, taking main's side, then re-run the last line.
    Why always: the generated pages (`/becoming/` and the four new lyrics pages) copy the shared
    header, footer and styles from main AT BUILD TIME, so a clean merge alone leaves them with
    whatever existed on 09-13. Found 2026-09-14: after the header social icons landed on main, a
@@ -91,9 +97,10 @@ text) · Spotify Artist Pick → the album · Spotify for Artists bio: change ON
 - **Sept 22 (her birthday):** "fifteen-year-old" → "sixteen-year-old" in `index.html` About and
   `epk/index.html`, then `/usr/bin/python3 tools/print_epk_pdf.py --dropbox` (all three PDFs);
   Spotify for Artists bio `i'm 15` → `i'm 16` (only that); HyperFollow bio.
-- **WREG Live at 9:** when the airdate is known → Shows line + Event (`EventRescheduled`, new
-  `startDate`, `previousStartDate` 2026-09-11T09:00:00-05:00). After it airs → replay embed and the
-  WREG story link.
+- **WREG Live at 9:** ✅ aired Wed Sep 16 (PKG). DONE 09-16 on main: Shows line "Aired Sep 16" with
+  links to both WREG segments (`/on-air/live-at-9/anya-gupta-performs/`, `/on-air/live-at-9/anya-gupta/`),
+  Event → `EventRescheduled` (startDate 2026-09-16, previousStartDate 2026-09-11). STILL OPEN: a video
+  card for the performance (needs WREG's embed code, or their OK to use the file) and a press-kit line.
 
 ## Writers roster (confirmed 2026-09-07 — names only, never percentages)
 

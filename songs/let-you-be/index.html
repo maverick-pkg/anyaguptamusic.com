@@ -96,6 +96,16 @@ nav ul{margin-left:auto}
   .nav-social svg{width:16px;height:16px}
   nav ul{order:3;flex-basis:100%;margin-left:0;justify-content:center}
 }
+/* contest banner on top of the header (Tunespeak sweepstakes, ends Dec 15 2026): it scrolls away, the header stays pinned */
+nav:has(.promo){top:-36px}
+.promo{display:flex;align-items:center;justify-content:center;gap:.5em;height:36px;padding:0 clamp(12px,4vw,44px);background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.03em;white-space:nowrap;overflow:hidden}
+.promo-star{color:var(--gold)}
+.promo-go{color:var(--peach);border-bottom:2px solid var(--peach-deep);margin-left:.3em}
+.promo:hover .promo-go,.promo:focus-visible .promo-go{color:var(--paper)}
+.promo:focus-visible{outline:3px solid var(--peach);outline-offset:-3px}
+.promo-fine{font-weight:500;font-size:.72rem;color:rgba(250,246,238,.72);margin-left:.6em}
+@media(max-width:899px){.promo-fine{display:none}}
+@media(max-width:359px){.promo{font-size:.72rem;gap:.35em}}
 
 .polaroid.portrait img{aspect-ratio:2/3;object-position:50% 20%}
 .tl{list-style:none;margin:1.4rem 0 0}
@@ -113,6 +123,15 @@ nav ul{margin-left:auto}
 </head>
 <body>
 <nav aria-label="Main">
+  <a class="promo" href="https://tnspk.co/6xo2kq" target="_blank" rel="noopener"><span class="promo-star" aria-hidden="true">✦</span> <span>Win a $400 Alo Gift Card</span> <span class="promo-go">Enter now<span aria-hidden="true"> →</span></span> <span class="promo-fine">No purchase necessary · US &amp; Canada · Ends Dec 15</span></a>
+  <script>
+  // contest banner (Tunespeak sweepstakes): removed once the contest ends, Dec 15 2026 9:00 AM CST; clicks count in GoatCounter
+  (function(){
+    var b = document.currentScript.previousElementSibling;
+    if (Date.now() >= Date.UTC(2026, 11, 15, 15)) { b.remove(); return; }
+    b.addEventListener('click', function(){ if (window.goatcounter && goatcounter.count) goatcounter.count({path: 'contest-tunespeak', event: true}); });
+  })();
+  </script>
   <div class="nav-in">
     <a class="wordmark" href="/">Anya Gupta</a>
     <ul class="nav-links">

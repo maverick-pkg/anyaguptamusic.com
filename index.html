@@ -215,6 +215,9 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
 }
 .videos .vid:nth-child(odd):last-child{grid-column:1/-1;max-width:min(600px,100%);width:100%;margin:0 auto}
 .vid .soon{position:absolute;top:12px;right:12px;background:var(--neon);color:var(--ink);font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.4em .8em}
+/* WREG cards: real frames from the show, brighter than the placeholder photos, with a shade under the label */
+a.vid.tv img{opacity:.95;filter:none}
+a.vid.tv::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(33,29,32,.78),rgba(33,29,32,0) 45%);pointer-events:none}
 
 /* shows */
 .shows-band{
@@ -236,6 +239,8 @@ section{padding:clamp(3rem,7vw,5.5rem) 0;position:relative}
   box-shadow:var(--shadow);
 }
 .shows-empty p{margin-bottom:1rem}
+.shows-empty p a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--peach-deep)}
+.shows-empty p a:hover{color:#b85a28}
 
 /* about */
 .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.8rem,5vw,3.6rem);align-items:center}
@@ -332,6 +337,16 @@ nav ul{margin-left:auto}
 /* the taller phone/tablet header covered section headings after a header-link jump */
 @media(max-width:899px){section[id]{scroll-margin-top:32px}}
 @media(max-width:359px){section[id]{scroll-margin-top:96px}}
+/* contest banner on top of the header (Tunespeak sweepstakes, ends Dec 15 2026): it scrolls away, the header stays pinned */
+nav:has(.promo){top:-36px}
+.promo{display:flex;align-items:center;justify-content:center;gap:.5em;height:36px;padding:0 clamp(12px,4vw,44px);background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.03em;white-space:nowrap;overflow:hidden}
+.promo-star{color:var(--gold)}
+.promo-go{color:var(--peach);border-bottom:2px solid var(--peach-deep);margin-left:.3em}
+.promo:hover .promo-go,.promo:focus-visible .promo-go{color:var(--paper)}
+.promo:focus-visible{outline:3px solid var(--peach);outline-offset:-3px}
+.promo-fine{font-weight:500;font-size:.72rem;color:rgba(250,246,238,.72);margin-left:.6em}
+@media(max-width:899px){.promo-fine{display:none}}
+@media(max-width:359px){.promo{font-size:.72rem;gap:.35em}}
 
 footer{background:var(--ink);color:var(--paper);padding:2.4rem 0;text-align:center}
 footer .monogram{font-size:2rem;padding-right:0}
@@ -390,12 +405,21 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
 .hero-sub + .cta-row { margin-top:1.4rem }
 @media(max-width:640px){ .fm-copy .cta-row { justify-content:center } }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org","@graph": [{"@type": "MusicGroup","@id": "https://anyaguptamusic.com/#artist","name": "Anya Gupta","url": "https://anyaguptamusic.com/","email": "email@anyaguptamusic.com","genre": "Pop","foundingLocation": {"@type": "Place","name": "Memphis, Tennessee"},"image": "https://anyaguptamusic.com/assets/photos/about.jpg","description": "Anya Gupta is a singer-songwriter from Memphis, Tennessee whose music celebrates self-love, individuality, and the light we all carry within us.","sameAs": ["https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF","https://music.apple.com/us/artist/anya-gupta/1728554823","https://www.instagram.com/anyagupta.music","https://www.tiktok.com/@anyagupta.music","https://www.youtube.com/@theanyagupta","https://www.facebook.com/61556419742590"]},{"@type": "MusicAlbum","name": "Becoming","url": "https://anyaguptamusic.com/becoming/","sameAs": ["%%SPOTIFY_ALBUM%%","%%APPLE_ALBUM%%"],"byArtist": {"@id": "https://anyaguptamusic.com/#artist"},"datePublished": "2026-09-18","numTracks": 7,"image": "https://anyaguptamusic.com/assets/covers/becoming.jpg","track": {"@type": "ItemList","numberOfItems": 7,"itemListElement": [{"@type": "ListItem","position": 1,"item": {"@type": "MusicRecording","name": "You’re Original","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/youre-original/"}},{"@type": "ListItem","position": 2,"item": {"@type": "MusicRecording","name": "Not For You","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/not-for-you/","sameAs": ["%%SPOTIFY_TRACK_NOT_FOR_YOU%%","%%APPLE_TRACK_NOT_FOR_YOU%%"]}},{"@type": "ListItem","position": 3,"item": {"@type": "MusicRecording","name": "Tat Twam Asi","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"datePublished": "2025-06-03","url": "https://anyaguptamusic.com/songs/tat-twam-asi/"}},{"@type": "ListItem","position": 4,"item": {"@type": "MusicRecording","name": "Let You Be","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/let-you-be/","sameAs": ["%%SPOTIFY_TRACK_LET_YOU_BE%%","%%APPLE_TRACK_LET_YOU_BE%%"]}},{"@type": "ListItem","position": 5,"item": {"@type": "MusicRecording","name": "Breakup with My Ego","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/breakup-with-my-ego/","sameAs": ["%%SPOTIFY_TRACK_BREAKUP_WITH_MY_EGO%%","%%APPLE_TRACK_BREAKUP_WITH_MY_EGO%%"]}},{"@type": "ListItem","position": 6,"item": {"@type": "MusicRecording","name": "Awaken the Lights","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/awaken-the-lights/"}},{"@type": "ListItem","position": 7,"item": {"@type": "MusicRecording","name": "Life Vest","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/life-vest/","sameAs": ["%%SPOTIFY_TRACK_LIFE_VEST%%","%%APPLE_TRACK_LIFE_VEST%%"]}}]}},{"@type": "MusicRecording","name": "You're Original","byArtist": {"@id": "https://anyaguptamusic.com/#artist"},"datePublished": "2024-02-13","image": "https://anyaguptamusic.com/assets/covers/youre-original.jpg"},{"@type": "MusicRecording","name": "Tat Twam Asi","byArtist": {"@id": "https://anyaguptamusic.com/#artist"},"datePublished": "2025-06-03","image": "https://anyaguptamusic.com/assets/covers/tat-twam-asi.jpg"},{"@type": "MusicRecording","name": "Awaken the Lights","byArtist": {"@id": "https://anyaguptamusic.com/#artist"},"datePublished": "2024-08-12","image": "https://anyaguptamusic.com/assets/covers/awaken-the-lights.jpg"},{"@type": "Event","name": "Anya Gupta on Live at 9 (WREG News Channel 3)","startDate": "2026-09-11T09:00:00-05:00","endDate": "2026-09-11T10:00:00-05:00","eventStatus": "https://schema.org/EventPostponed","eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode","description": "Interview and live performance on WREG News Channel 3's Live at 9, Memphis.","performer": {"@id": "https://anyaguptamusic.com/#artist"},"location": {"@type": "VirtualLocation","url": "https://www.liveat9.tv"},"organizer": {"@type": "Organization","name": "Live at 9 — WREG News Channel 3","url": "https://www.liveat9.tv"}},{"@type": "VideoObject","name": "Anya Gupta — In the Studio (Behind the Scenes)","description": "Behind the scenes at the studio, making Becoming — Anya Gupta's debut album, released September 18, 2026.","uploadDate": "2026-09-06","duration": "PT34S","thumbnailUrl": "https://i.ytimg.com/vi/yw7ignYu2Pk/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/yw7ignYu2Pk","contentUrl": "https://www.youtube.com/watch?v=yw7ignYu2Pk","publisher": {"@id": "https://anyaguptamusic.com/#artist"}},{"@type": "VideoObject","name": "Anya Gupta — You're Original (Official Lyric Video)","description": "Official lyric video for “You're Original” by Anya Gupta, the radio single from her debut album Becoming.","uploadDate": "2026-08-06","duration": "PT4M14S","thumbnailUrl": "https://i.ytimg.com/vi/xvIIH1ff-mw/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/xvIIH1ff-mw","contentUrl": "https://www.youtube.com/watch?v=xvIIH1ff-mw","publisher": {"@id": "https://anyaguptamusic.com/#artist"}},{"@type": "VideoObject","name": "Anya Gupta — Awaken the Lights (Official Lyric Video)","description": "Official lyric video for “Awaken the Lights” by Anya Gupta, from her debut album Becoming.","uploadDate": "2026-09-07","duration": "PT4M7S","thumbnailUrl": "https://i.ytimg.com/vi/DrNS5ucEggg/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/DrNS5ucEggg","contentUrl": "https://www.youtube.com/watch?v=DrNS5ucEggg","publisher": {"@id": "https://anyaguptamusic.com/#artist"}},{"@type": "VideoObject","name": "Anya Gupta — Tat Twam Asi (Official Lyric Video)","description": "Official lyric video for “Tat Twam Asi” by Anya Gupta, from her debut album Becoming.","uploadDate": "2026-09-07","duration": "PT4M42S","thumbnailUrl": "https://i.ytimg.com/vi/NErPDNt2prw/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/NErPDNt2prw","contentUrl": "https://www.youtube.com/watch?v=NErPDNt2prw","publisher": {"@id": "https://anyaguptamusic.com/#artist"}},{"@type": "VideoObject","name": "Anya Gupta — Not For You (Official Lyric Video)","description": "The official lyric video for “Not For You,” the focus track from Becoming, Anya Gupta's debut album.","uploadDate": "%%NFY_VIDEO_UPLOAD_DATE%%","duration": "PT3M16S","thumbnailUrl": "https://i.ytimg.com/vi/%%NFY_VIDEO_ID%%/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/%%NFY_VIDEO_ID%%","contentUrl": "https://www.youtube.com/watch?v=%%NFY_VIDEO_ID%%","publisher": {"@id": "https://anyaguptamusic.com/#artist"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org","@graph": [{"@type": "MusicGroup","@id": "https://anyaguptamusic.com/#artist","name": "Anya Gupta","url": "https://anyaguptamusic.com/","email": "email@anyaguptamusic.com","genre": "Pop","foundingLocation": {"@type": "Place","name": "Memphis, Tennessee"},"image": "https://anyaguptamusic.com/assets/photos/about.jpg","description": "Anya Gupta is a singer-songwriter from Memphis, Tennessee whose music celebrates self-love, individuality, and the light we all carry within us.","sameAs": ["https://open.spotify.com/artist/2rj066DkHKsOBWJDbC8OrF","https://music.apple.com/us/artist/anya-gupta/1728554823","https://www.instagram.com/anyagupta.music","https://www.tiktok.com/@anyagupta.music","https://www.youtube.com/@theanyagupta","https://www.facebook.com/61556419742590"]},{"@type": "MusicAlbum","name": "Becoming","url": "https://anyaguptamusic.com/becoming/","sameAs": ["%%SPOTIFY_ALBUM%%","%%APPLE_ALBUM%%"],"byArtist": {"@id": "https://anyaguptamusic.com/#artist"},"datePublished": "2026-09-18","numTracks": 7,"image": "https://anyaguptamusic.com/assets/covers/becoming.jpg","track": {"@type": "ItemList","numberOfItems": 7,"itemListElement": [{"@type": "ListItem","position": 1,"item": {"@type": "MusicRecording","name": "You’re Original","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/youre-original/"}},{"@type": "ListItem","position": 2,"item": {"@type": "MusicRecording","name": "Not For You","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/not-for-you/","sameAs": ["%%SPOTIFY_TRACK_NOT_FOR_YOU%%","%%APPLE_TRACK_NOT_FOR_YOU%%"]}},{"@type": "ListItem","position": 3,"item": {"@type": "MusicRecording","name": "Tat Twam Asi","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"datePublished": "2025-06-03","url": "https://anyaguptamusic.com/songs/tat-twam-asi/"}},{"@type": "ListItem","position": 4,"item": {"@type": "MusicRecording","name": "Let You Be","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/let-you-be/","sameAs": ["%%SPOTIFY_TRACK_LET_YOU_BE%%","%%APPLE_TRACK_LET_YOU_BE%%"]}},{"@type": "ListItem","position": 5,"item": {"@type": "MusicRecording","name": "Breakup with My Ego","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/breakup-with-my-ego/","sameAs": ["%%SPOTIFY_TRACK_BREAKUP_WITH_MY_EGO%%","%%APPLE_TRACK_BREAKUP_WITH_MY_EGO%%"]}},{"@type": "ListItem","position": 6,"item": {"@type": "MusicRecording","name": "Awaken the Lights","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/awaken-the-lights/"}},{"@type": "ListItem","position": 7,"item": {"@type": "MusicRecording","name": "Life Vest","byArtist": {"@type": "MusicGroup","name": "Anya Gupta"},"url": "https://anyaguptamusic.com/songs/life-vest/","sameAs": ["%%SPOTIFY_TRACK_LIFE_VEST%%","%%APPLE_TRACK_LIFE_VEST%%"]}}]}},{"@type": "MusicRecording","name": "You're Original","byArtist": {"@id": "https://anyaguptamusic.com/#artist"},"datePublished": "2024-02-13","image": "https://anyaguptamusic.com/assets/covers/youre-original.jpg"},{"@type": "MusicRecording","name": "Tat Twam Asi","byArtist": {"@id": "https://anyaguptamusic.com/#artist"},"datePublished": "2025-06-03","image": "https://anyaguptamusic.com/assets/covers/tat-twam-asi.jpg"},{"@type": "MusicRecording","name": "Awaken the Lights","byArtist": {"@id": "https://anyaguptamusic.com/#artist"},"datePublished": "2024-08-12","image": "https://anyaguptamusic.com/assets/covers/awaken-the-lights.jpg"},{"@type": "Event","name": "Anya Gupta on Live at 9 (WREG News Channel 3)","startDate": "2026-09-16T09:00:00-05:00","endDate": "2026-09-16T10:00:00-05:00","eventStatus": "https://schema.org/EventRescheduled","previousStartDate": "2026-09-11T09:00:00-05:00","eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode","description": "Interview and live performance on WREG News Channel 3's Live at 9, Memphis.","performer": {"@id": "https://anyaguptamusic.com/#artist"},"location": {"@type": "VirtualLocation","url": "https://www.liveat9.tv"},"organizer": {"@type": "Organization","name": "Live at 9 — WREG News Channel 3","url": "https://www.liveat9.tv"}},{"@type": "VideoObject","name": "Anya Gupta — In the Studio (Behind the Scenes)","description": "Behind the scenes at the studio, making Becoming — Anya Gupta's debut album, released September 18, 2026.","uploadDate": "2026-09-06","duration": "PT34S","thumbnailUrl": "https://i.ytimg.com/vi/yw7ignYu2Pk/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/yw7ignYu2Pk","contentUrl": "https://www.youtube.com/watch?v=yw7ignYu2Pk","publisher": {"@id": "https://anyaguptamusic.com/#artist"}},{"@type": "VideoObject","name": "Anya Gupta — You're Original (Official Lyric Video)","description": "Official lyric video for “You're Original” by Anya Gupta, the radio single from her debut album Becoming.","uploadDate": "2026-08-06","duration": "PT4M14S","thumbnailUrl": "https://i.ytimg.com/vi/xvIIH1ff-mw/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/xvIIH1ff-mw","contentUrl": "https://www.youtube.com/watch?v=xvIIH1ff-mw","publisher": {"@id": "https://anyaguptamusic.com/#artist"}},{"@type": "VideoObject","name": "Anya Gupta — Awaken the Lights (Official Lyric Video)","description": "Official lyric video for “Awaken the Lights” by Anya Gupta, from her debut album Becoming.","uploadDate": "2026-09-07","duration": "PT4M7S","thumbnailUrl": "https://i.ytimg.com/vi/DrNS5ucEggg/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/DrNS5ucEggg","contentUrl": "https://www.youtube.com/watch?v=DrNS5ucEggg","publisher": {"@id": "https://anyaguptamusic.com/#artist"}},{"@type": "VideoObject","name": "Anya Gupta — Tat Twam Asi (Official Lyric Video)","description": "Official lyric video for “Tat Twam Asi” by Anya Gupta, from her debut album Becoming.","uploadDate": "2026-09-07","duration": "PT4M42S","thumbnailUrl": "https://i.ytimg.com/vi/NErPDNt2prw/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/NErPDNt2prw","contentUrl": "https://www.youtube.com/watch?v=NErPDNt2prw","publisher": {"@id": "https://anyaguptamusic.com/#artist"}},{"@type": "VideoObject","name": "Anya Gupta — Not For You (Official Lyric Video)","description": "The official lyric video for “Not For You,” the focus track from Becoming, Anya Gupta's debut album.","uploadDate": "%%NFY_VIDEO_UPLOAD_DATE%%","duration": "PT3M16S","thumbnailUrl": "https://i.ytimg.com/vi/%%NFY_VIDEO_ID%%/maxresdefault.jpg","embedUrl": "https://www.youtube-nocookie.com/embed/%%NFY_VIDEO_ID%%","contentUrl": "https://www.youtube.com/watch?v=%%NFY_VIDEO_ID%%","publisher": {"@id": "https://anyaguptamusic.com/#artist"}}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <nav aria-label="Main">
+  <a class="promo" href="https://tnspk.co/6xo2kq" target="_blank" rel="noopener"><span class="promo-star" aria-hidden="true">✦</span> <span>Win a $400 Alo Gift Card</span> <span class="promo-go">Enter now<span aria-hidden="true"> →</span></span> <span class="promo-fine">No purchase necessary · US &amp; Canada · Ends Dec 15</span></a>
+  <script>
+  // contest banner (Tunespeak sweepstakes): removed once the contest ends, Dec 15 2026 9:00 AM CST; clicks count in GoatCounter
+  (function(){
+    var b = document.currentScript.previousElementSibling;
+    if (Date.now() >= Date.UTC(2026, 11, 15, 15)) { b.remove(); return; }
+    b.addEventListener('click', function(){ if (window.goatcounter && goatcounter.count) goatcounter.count({path: 'contest-tunespeak', event: true}); });
+  })();
+  </script>
   <div class="nav-in">
     <a class="monogram" href="#top" aria-label="Anya Gupta home">Anya Gupta</a>
     <ul>
@@ -585,6 +609,18 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
       <div class="vid rv">
         <iframe src="https://www.youtube-nocookie.com/embed/%%NFY_VIDEO_ID%%" title="Anya Gupta — Not For You (Official Lyric Video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>
       </div>
+      <a class="vid rv tv" href="https://wreg.com/video/anya-gupta-performs/12174397" target="_blank" rel="noopener" data-embed="https://redir1.wreg.com/nxs-video/vid-anvato-12174397/embed/?autoplay=1&amp;injected_via=embed&amp;post_id=3142294&amp;aspect_ratio=landscape" data-title="Anya Gupta performs on Live at 9 — WREG News Channel 3" aria-label="Play Anya’s live performance on WREG News Channel 3’s Live at 9">
+        <img loading="lazy" decoding="async" src="assets/photos/wreg-performance.jpg" alt="">
+        <div class="play" aria-hidden="true"><div class="ring">▶</div></div>
+        <span class="soon">WREG · Channel 3</span>
+        <span class="label">Live at 9 · performance</span>
+      </a>
+      <a class="vid rv tv" href="https://wreg.com/video/anya-gupta/12174380" target="_blank" rel="noopener" data-embed="https://redir1.wreg.com/nxs-video/vid-anvato-12174380/embed/?autoplay=1&amp;injected_via=embed&amp;post_id=3142272&amp;aspect_ratio=landscape" data-title="Anya Gupta on Live at 9 — the interview — WREG News Channel 3" aria-label="Play Anya’s interview on WREG News Channel 3’s Live at 9">
+        <img loading="lazy" decoding="async" src="assets/photos/wreg-interview.jpg" alt="">
+        <div class="play" aria-hidden="true"><div class="ring">▶</div></div>
+        <span class="soon">WREG · Channel 3</span>
+        <span class="label">Live at 9 · interview</span>
+      </a>
       <div class="vid rv">
         <iframe src="https://www.youtube-nocookie.com/embed/DrNS5ucEggg" title="Anya Gupta — Awaken the Lights (Official Lyric Video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>
       </div>
@@ -595,7 +631,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
         <iframe src="https://www.youtube-nocookie.com/embed/yw7ignYu2Pk" title="Anya Gupta — In the Studio (Behind the Scenes)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>
       </div>
     </div>
-    <p class="rv" style="margin-top:1.2rem;max-width:56ch">Official lyric videos for “Not For You” and all three singles are here, along with a look inside the studio. Every song on <i>Becoming</i> has a lyric video on YouTube — <a href="https://www.youtube.com/@theanyagupta" target="_blank" rel="noopener"><b>subscribe</b></a> for what’s next.</p>
+    <p class="rv" style="margin-top:1.2rem;max-width:56ch">Official lyric videos for “Not For You” and all three singles are here, along with a look inside the studio. Every song on <i>Becoming</i> has a lyric video on YouTube — <a href="https://www.youtube.com/@theanyagupta" target="_blank" rel="noopener"><b>subscribe</b></a> for what’s next. Plus Anya’s live performance and interview from WREG News Channel 3’s <i>Live at 9</i>.</p>
   </div>
 </section>
 
@@ -607,7 +643,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
     </div>
     <img class="shows-photo" loading="lazy" decoding="async" src="assets/photos/shows-band.jpg" alt="Anya with her guitar, standing in a pool">
     <div class="shows-empty rv">
-      <p><b>Airing soon · Live at 9 · WREG News Channel 3, Memphis</b><br>Interview and live performance · we’ll post the airdate here</p>
+      <p><b>Aired Sep 16 · Live at 9 · WREG News Channel 3, Memphis</b><br>Interview and live performance · watch <a href="https://wreg.com/on-air/live-at-9/anya-gupta-performs/" target="_blank" rel="noopener">the performance</a> and <a href="https://wreg.com/on-air/live-at-9/anya-gupta/" target="_blank" rel="noopener">the interview</a></p>
       <p>Show dates for the Becoming era are announced here first. Join the mailing list and you’ll hear about them before anyone else.</p>
       <a class="btn btn-solid" href="#signup">Get first access</a>
     </div>
@@ -908,9 +944,27 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
     else if (/\.zip(\?|$)/.test(h)) ev('press-zip');
     else if (h.indexOf('mailto:') === 0) ev('contact-email');
     else if (a.closest('nav') && h.indexOf('#signup') > -1) ev('nav-signup');
+    else if (h.indexOf('wreg.com') > -1) ev((a.closest('.vid') ? 'wreg-video-' : 'wreg-') + (h.indexOf('performs') > -1 ? 'performance' : 'interview'));
   }, true);
   var f = document.querySelector('.signup form');
   if (f) f.addEventListener('submit', function(){ ev('newsletter-submit'); });
+})();
+</script>
+<script>
+// WREG videos: their player carries ads and tracking, so it loads only when someone presses play
+(function(){
+  document.querySelectorAll('a.vid[data-embed]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      var box = document.createElement('div'); box.className = a.className;
+      var f = document.createElement('iframe');
+      f.src = a.getAttribute('data-embed'); f.title = a.getAttribute('data-title');
+      f.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture'; f.setAttribute('allowfullscreen', '');
+      f.style.cssText = 'width:100%;height:100%;border:0;display:block';
+      box.appendChild(f); a.replaceWith(box);
+    });
+  });
 })();
 </script>
 </body>
