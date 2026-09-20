@@ -110,6 +110,7 @@ nav ul a:focus-visible{border-bottom-color:var(--peach-deep)}
 .signup :focus-visible{outline-color:#2f1608}
 .signup .age-ok{flex-basis:100%;display:flex;align-items:center;gap:.55em;font-size:.85rem;color:#4a2a16;font-weight:500}
 .signup .age-ok input{flex:0 0 auto;width:1.15em;height:1.15em;padding:0;border:0;accent-color:#2f1608}
+.signup .ads-ok{font-size:.8rem;opacity:.85;margin-top:-.35rem}
 .signup .note a{color:inherit}
 
 /* ── hero ─────────────────────────── */
@@ -809,6 +810,7 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
       <input id="em" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
       <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_f5eb1357a0b9ee6e32ff0b4e5_8ca2a0c0d0" tabindex="-1" value=""></div>
       <label class="age-ok"><input type="checkbox" required> I confirm I’m 13 or older</label>
+      <label class="age-ok ads-ok"><input type="checkbox" name="ADSOK" value="Yes"> Optional: use my email to show me Anya’s ads</label>
       <button class="btn" type="submit">Join</button>
       
     </form>
@@ -994,7 +996,10 @@ footer p{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#b
     else if (h.indexOf('wreg.com') > -1) ev((a.closest('.vid') ? 'wreg-video-' : 'wreg-') + (h.indexOf('performs') > -1 ? 'performance' : 'interview'));
   }, true);
   var f = document.querySelector('.signup form');
-  if (f) f.addEventListener('submit', function(){ ev('newsletter-submit'); });
+  if (f) f.addEventListener('submit', function(){
+    var ads = f.querySelector('input[name="ADSOK"]');
+    ev(ads && ads.checked ? 'newsletter-submit-ads-ok' : 'newsletter-submit');
+  });
 })();
 </script>
 <script>
