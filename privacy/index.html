@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy — Anya Gupta</title>
-<meta name="description" content="How anyaguptamusic.com handles your information: Mailchimp for the mailing list, cookieless GoatCounter analytics, and no ads or tracking.">
+<meta name="description" content="How anyaguptamusic.com handles your information: Mailchimp for the mailing list, cookieless GoatCounter analytics, Google's advertising tag for Anya's ads, and how to turn ad measurement off.">
 <link rel="canonical" href="https://anyaguptamusic.com/privacy/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +27,9 @@ h2{font-family:var(--sans);font-weight:700;font-size:.85rem;letter-spacing:.24em
 p{margin-bottom:.9rem;color:var(--ink)}
 a.u{border-bottom:2px solid var(--peach-deep);text-decoration:none}
 footer{text-align:center;padding:1.4rem 0 2.2rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.optout{font-family:var(--sans);font-size:.85rem;font-weight:700;color:var(--paper);background:var(--ink);border:2px solid var(--ink);padding:.6em 1.1em;cursor:pointer}
+.optout:hover{background:transparent;color:var(--ink)}
+.optout-state{display:inline-block;margin-left:.6em;font-size:.85rem;color:var(--ink-soft)}
 </style>
 </head>
 <body>
@@ -34,7 +37,7 @@ footer{text-align:center;padding:1.4rem 0 2.2rem;font-size:.72rem;letter-spacing
   <div class="card">
     <a class="wordmark" href="/">Anya Gupta</a>
     <h1>Privacy</h1>
-    <p class="date">Effective August 19, 2026 · updated September 16, 2026</p>
+    <p class="date">Effective August 19, 2026 · updated September 20, 2026</p>
 
     <h2>What this site collects</h2>
     <p>If you join the mailing list, we collect the email address you submit. It is stored and processed by Mailchimp (Intuit Inc.), our email provider, and used only to send you news about Anya's music — releases, shows, and first listens. We never sell or share the list.</p>
@@ -42,8 +45,14 @@ footer{text-align:center;padding:1.4rem 0 2.2rem;font-size:.72rem;letter-spacing
     <p>If you email us, we receive whatever you choose to send. We use it only to reply.</p>
     <p>Pre-saving the album happens on DistroKid’s HyperFollow page, which DistroKid runs under its own privacy policy. If you leave its “share email address with artist” option checked, DistroKid may pass your email address to us. We use it only to tell you the album is out; we never add it to the mailing list without your separate opt-in, and we delete it on request.</p>
 
-    <h2>What this site does not do</h2>
-    <p>To understand which pages and links are useful, this site uses GoatCounter, a privacy-focused analytics tool. It sets no cookies and stores no personal information: to tell repeat visits apart it briefly processes your IP address and browser details, then discards them, and we see only anonymous, aggregate counts — no names, emails, or advertising identifiers. Beyond that, the site sets no cookies of its own and runs no advertising or tracking scripts. The embedded YouTube videos use YouTube's privacy-enhanced mode, which does not set tracking cookies unless you play a video. The WREG News Channel 3 videos load WREG's own player only after you press play; that player can show ads and is covered by WREG's privacy policy. Links to Spotify, Apple Music, YouTube, Instagram, TikTok, Facebook, DistroKid, Tunespeak, and WREG lead to services with their own privacy policies.</p>
+    <h2>Cookies, analytics and ads</h2>
+    <p>To understand which pages and links are useful, this site uses GoatCounter, a privacy-focused analytics tool. It sets no cookies and stores no personal information: to tell repeat visits apart it briefly processes your IP address and browser details, then discards them, and we see only anonymous, aggregate counts — no names, emails, or advertising identifiers. The site sets no cookies of its own. The embedded YouTube videos use YouTube's privacy-enhanced mode, which does not set tracking cookies unless you play a video. The WREG News Channel 3 videos load WREG's own player only after you press play; that player can show ads and is covered by WREG's privacy policy. Links to Spotify, Apple Music, YouTube, Instagram, TikTok, Facebook, DistroKid, Tunespeak, and WREG lead to services with their own privacy policies.</p>
+
+    <h2>Ads</h2>
+    <p>Anya advertises her music on Google. So that we can tell whether those ads work, most pages of this site load Google's advertising tag (Google Ads account AW-18460647258). It sets a cookie in your browser and tells Google which pages you opened here, so we can count how many visits came from an ad and Google can show her ads again to people who have already visited. It is not given your name or e-mail address, and we do not use it on this privacy page or on the private RSVP page. Google does not show personalised ads to anyone under 18.</p>
+    <p>You can switch it off for this browser, and your choice is remembered here:</p>
+    <p><button class="optout" type="button" id="ads-optout">Turn off ad measurement</button> <span class="optout-state" id="ads-optout-state"></span></p>
+    <p>If your browser sends a Global Privacy Control signal, the tag never loads and you do not need to do anything. You can also manage what Google shows you at <a class="u" href="https://myadcenter.google.com" target="_blank" rel="noopener">myadcenter.google.com</a>, and turn off ad cookies generally in your browser settings.</p>
 
     <h2>Age</h2>
     <p>The mailing list is for people 13 and older. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has joined the list, email us and we will remove the address promptly.</p>
@@ -57,5 +66,25 @@ footer{text-align:center;padding:1.4rem 0 2.2rem;font-size:.72rem;letter-spacing
   <footer>© 2026 Anya Gupta</footer>
 </div>
 <script data-goatcounter="https://anyaguptamusic.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+// the ad-measurement switch: one flag in this browser, read by the Google tag on every other page
+(function(){
+  var btn = document.getElementById('ads-optout'), state = document.getElementById('ads-optout-state'), KEY = 'ag_ads_optout';
+  function off(){ try { return !!localStorage.getItem(KEY); } catch(e) { return false; } }
+  function paint(){
+    var gpc = false; try { gpc = !!navigator.globalPrivacyControl; } catch(e) {}
+    if (gpc) { btn.hidden = true; state.textContent = 'Your browser already asks sites not to share your data, so the ad tag never loads here.'; return; }
+    btn.textContent = off() ? 'Turn ad measurement back on' : 'Turn off ad measurement';
+    state.textContent = off() ? 'Ad measurement is off in this browser.' : '';
+  }
+  btn.addEventListener('click', function(){
+    try { off() ? localStorage.removeItem(KEY) : localStorage.setItem(KEY, '1'); }
+    catch(e) { state.textContent = 'This browser is blocking storage, so we cannot remember the choice here.'; return; }
+    paint();
+    if (window.goatcounter && goatcounter.count) goatcounter.count({path: off() ? 'ads-optout' : 'ads-optin', event: true});
+  });
+  paint();
+})();
+</script>
 </body>
 </html>
