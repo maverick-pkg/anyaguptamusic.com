@@ -15,6 +15,20 @@
   var s = document.createElement('script'); s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18460647258';
   document.head.appendChild(s);
+  // conversions (labels from the agency, 09-21). Every click counts once: as the ALBUM (the Becoming album on
+  // Spotify or Apple Music, or the all-platforms page), or else as its platform. Sign-up = the /subscribed/ page.
+  var C = { signup: 'AW-18460647258/M3naCL6nioAdENq-3OJE', album: 'AW-18460647258/8WyACMenioAdENq-3OJE',
+            spotify: 'AW-18460647258/TiKTCMGnioAdENq-3OJE', apple: 'AW-18460647258/bYRzCMSnioAdENq-3OJE' };
+  function conv(k){ gtag('event', 'conversion', { send_to: C[k], transport_type: 'beacon' }); }
+  if (/^\/subscribed(\/|\/index\.html)?$/.test(location.pathname)) conv('signup');
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null; if (!a) return;
+    var h = a.href;
+    if (/open\.spotify\.com\/album\/1IdpXvka3fAaIqdnWEMnot|distrokid\.com\/hyperfollow\//.test(h) ||
+        (/music\.apple\.com\/[^?#]*\/album\/[^?#]*\/6802154894/.test(h) && !/[?&]i=/.test(h))) conv('album');
+    else if (/open\.spotify\.com\//.test(h)) conv('spotify');
+    else if (/music\.apple\.com\//.test(h)) conv('apple');
+  }, true);
 })();
 </script>
 <meta charset="utf-8">
