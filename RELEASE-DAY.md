@@ -94,7 +94,7 @@ text) · Spotify Artist Pick → the album · Spotify for Artists bio: change ON
 ## After release
 - GoatCounter: `listen-*`, `spotify-album*`, `apple-*` and `spotify-<song>` events should appear;
   `presave-*` should stop.
-- **Sept 22 (her birthday):** "fifteen-year-old" → "sixteen-year-old" in `index.html` About and
+- **Sept 22 (her birthday):** ✅ site About + press kit (page + 3 PDFs) done 09-21 night.  "fifteen-year-old" → "sixteen-year-old" in `index.html` About and
   `epk/index.html`, then `/usr/bin/python3 tools/print_epk_pdf.py --dropbox` (all three PDFs);
   Spotify for Artists bio `i'm 15` → `i'm 16` (only that); HyperFollow bio.
 - **WREG Live at 9:** ✅ aired Wed Sep 16 (PKG). DONE 09-16 on main: Shows line "Aired Sep 16" with
