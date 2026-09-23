@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) — Google Ads AW-18460647258 (agency, Sept 2026). Wrapped, not pasted raw, so it
-     never loads for a visitor who turned ad measurement off on /privacy/ or whose browser sends Global
-     Privacy Control. Enhanced conversions are off: the tag must never pick up an e-mail from our form. -->
+<!-- Ad tags — Google Ads AW-18460647258 and Meta pixel 945912568588894 (agency, Sept 2026). Wrapped, not
+     pasted raw, so neither one loads for a visitor who turned ad measurement off on /privacy/ or whose
+     browser sends Global Privacy Control. Neither may take an e-mail address out of our sign-up form:
+     enhanced conversions off on Google, automatic advanced matching off on Meta. Meta's <noscript> image
+     pixel is deliberately NOT here — it would fire before the switch above could ever stop it. -->
 <script>
 (function(){
   try { if (navigator.globalPrivacyControl) return; } catch(e){}
@@ -29,6 +31,20 @@
     else if (/open\.spotify\.com\//.test(h)) conv('spotify');
     else if (/music\.apple\.com\//.test(h)) conv('apple');
   }, true);
+  // Meta pixel. 'autoConfig' false BEFORE init is what turns automatic advanced matching off in the page:
+  // left on, it reads the address typed into the mailing-list form and sends it to Meta, which our privacy
+  // page promises happens only when the visitor ticks the box. Page views only — no events asked for yet.
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('set', 'autoConfig', false, '945912568588894');
+  fbq('init', '945912568588894');
+  fbq('track', 'PageView');
 })();
 </script>
 <meta charset="utf-8">
