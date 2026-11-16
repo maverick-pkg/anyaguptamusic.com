@@ -80,12 +80,12 @@ def apple(found):
 def youtube(found):
     x = get(f"https://www.youtube.com/feeds/videos.xml?channel_id={YT_CHANNEL}")
     for vid, title, pub in re.findall(r"<yt:videoId>([^<]+)</yt:videoId>.*?<title>([^<]+)</title>.*?<published>([^<]+)</published>", x, re.S):
-        t = key(title)  # the real lyric video only — never a campaign Short
-        if "not for you" in t and "official lyric video" in t and "#shorts" not in t:
+        t = key(title)  # the real music video only — never a campaign Short
+        if "not for you" in t and "official music video" in t and "#shorts" not in t:
             found["NFY_VIDEO_ID"] = vid
             found["NFY_VIDEO_UPLOAD_DATE"] = pub[:10]
             return
-    print("  YouTube: Not For You lyric video not public yet")
+    print("  YouTube: Not For You music video not public yet")
 
 
 def main():

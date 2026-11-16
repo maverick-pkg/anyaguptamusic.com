@@ -336,9 +336,9 @@ def homepage():
     if not any(n.get("@type") == "VideoObject" and "Not For You" in n.get("name", "") for n in graph):
         pos = max(i for i, n in enumerate(graph) if n.get("@type") == "VideoObject") + 1
         graph.insert(pos, {
-            "@type": "VideoObject", "name": "Anya Gupta — Not For You (Official Lyric Video)",
-            "description": "The official lyric video for “Not For You,” the focus track from Becoming, Anya Gupta's debut album.",
-            "uploadDate": "%%NFY_VIDEO_UPLOAD_DATE%%", "duration": "PT3M16S",
+            "@type": "VideoObject", "name": "Anya Gupta — Not For You (Official Music Video)",
+            "description": "The official music video for “Not For You,” the focus track from Becoming, Anya Gupta's debut album.",
+            "uploadDate": "%%NFY_VIDEO_UPLOAD_DATE%%", "duration": "PT3M1S",
             "thumbnailUrl": "https://i.ytimg.com/vi/%%NFY_VIDEO_ID%%/maxresdefault.jpg",
             "embedUrl": "https://www.youtube-nocookie.com/embed/%%NFY_VIDEO_ID%%",
             "contentUrl": "https://www.youtube.com/watch?v=%%NFY_VIDEO_ID%%",
@@ -404,7 +404,7 @@ def homepage():
         <span class="label">Not For You — focus track</span>
       </a>"""
     new_vid = """      <div class="vid rv">
-        <iframe src="https://www.youtube-nocookie.com/embed/%%NFY_VIDEO_ID%%" title="Anya Gupta — Not For You (Official Lyric Video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>
+        <iframe src="https://www.youtube-nocookie.com/embed/%%NFY_VIDEO_ID%%" title="Anya Gupta — Not For You (Official Music Video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;height:100%;border:0;display:block"></iframe>
       </div>"""
     s = edit(s, old_vid, new_vid, where=w)
     s = edit(s, "Official lyric videos for all three singles are here, along with a look inside the studio — the “Not For You” visuals premiere alongside the album. "
